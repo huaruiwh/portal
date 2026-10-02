@@ -1,0 +1,2508 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V20" />
+  <DocumentInfo>
+    <Created>2026-10-02T07:56:13.8654036Z</Created>
+    <ExportSetting>None</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V20</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V20</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V20</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>SINAMICS Startdrive Advanced</DisplayName>
+        <DisplayVersion>V20</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G130, G150, S120, S150, SINAMICS MV, G220, S200, S210</DisplayName>
+        <DisplayVersion>V20</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G110M, G120, G120C, G120D, G120P, G115D</DisplayName>
+        <DisplayVersion>V20</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V20</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V20</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Basic/Comfort/Advanced</DisplayName>
+        <DisplayVersion>V20</DisplayVersion>
+      </Product>
+      <Product>
+        <DisplayName>WinCC Unified</DisplayName>
+        <DisplayVersion>V20</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.FB ID="0">
+    <AttributeList>
+      <AutoNumber>false</AutoNumber>
+      <ExtensionBlockName />
+      <GraphVersion>6.0</GraphVersion>
+      <InitialValuesAcquisition>false</InitialValuesAcquisition>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Base">
+    <Sections Datatype="GRAPH_BASE" Version="1.0">
+      <Section Name="Input" />
+      <Section Name="Output" />
+      <Section Name="InOut" />
+      <Section Name="Static" />
+    </Sections>
+  </Section>
+  <Section Name="Input">
+    <Member Name="OFF_SQ" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">关闭顺控器</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">false</StartValue>
+    </Member>
+    <Member Name="INIT_SQ" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">将顺序设置为初始状态</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">false</StartValue>
+    </Member>
+    <Member Name="ACK_EF" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">确认所有的错误和故障</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">false</StartValue>
+    </Member>
+    <Member Name="S_PREV" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">在S_NO输出参数中显示前导步</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">false</StartValue>
+    </Member>
+    <Member Name="S_NEXT" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">在S_NO输出参数中显示后续步。</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">false</StartValue>
+    </Member>
+    <Member Name="SW_AUTO" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">自动模式</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">false</StartValue>
+    </Member>
+    <Member Name="SW_TAP" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">半自动/转换条件切换</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">false</StartValue>
+    </Member>
+    <Member Name="SW_TOP" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">半自动/忽略转换条件</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">false</StartValue>
+    </Member>
+    <Member Name="SW_MAN" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">手动模式</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">false</StartValue>
+    </Member>
+    <Member Name="S_SEL" Datatype="Int">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">选择要在 S_NO中输出的步。</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">0</StartValue>
+    </Member>
+    <Member Name="S_ON" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">激活S_NO 中显示的步。</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">false</StartValue>
+    </Member>
+    <Member Name="S_OFF" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">禁用 S_NO 中标识的步</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">false</StartValue>
+    </Member>
+    <Member Name="T_PUSH" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">允许在半自动模式下跳过转换条件。</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">false</StartValue>
+    </Member>
+  </Section>
+  <Section Name="Output">
+    <Member Name="S_NO" Datatype="Int">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">步编号</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">0</StartValue>
+    </Member>
+    <Member Name="S_MORE" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">更多步可用，并可在S_NO中显示。</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">false</StartValue>
+    </Member>
+    <Member Name="S_ACTIVE" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">在S_NO 中显示的步是激活的。</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">false</StartValue>
+    </Member>
+    <Member Name="ERR_FLT" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">互锁条件或监控条件组出错</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">false</StartValue>
+    </Member>
+    <Member Name="AUTO_ON" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">当前为自动模式</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">false</StartValue>
+    </Member>
+    <Member Name="TAP_ON" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">已启用SW_TAP模式。</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">false</StartValue>
+    </Member>
+    <Member Name="TOP_ON" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">启用半自动模式/忽略转换条件。</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">false</StartValue>
+    </Member>
+    <Member Name="MAN_ON" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">已启用手动模式。</MultiLanguageText>
+      </Comment>
+      <StartValue Informative="true">false</StartValue>
+    </Member>
+  </Section>
+  <Section Name="InOut" />
+  <Section Name="Static">
+    <Member Name="Trans43" Datatype="G7_TransitionPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+    </Member>
+    <Member Name="Trans48" Datatype="G7_TransitionPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+    </Member>
+    <Member Name="Trans49" Datatype="G7_TransitionPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+    </Member>
+    <Member Name="Trans50" Datatype="G7_TransitionPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+    </Member>
+    <Member Name="Trans51" Datatype="G7_TransitionPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+    </Member>
+    <Member Name="Trans52" Datatype="G7_TransitionPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+    </Member>
+    <Member Name="Trans55" Datatype="G7_TransitionPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+    </Member>
+    <Member Name="Step30" Datatype="G7_StepPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+    </Member>
+    <Member Name="Step31" Datatype="G7_StepPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+    </Member>
+    <Member Name="Step32" Datatype="G7_StepPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+    </Member>
+    <Member Name="Step33" Datatype="G7_StepPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+    </Member>
+    <Member Name="Step34" Datatype="G7_StepPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+    </Member>
+    <Member Name="Step36" Datatype="G7_StepPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+    </Member>
+    <Member Name="RT_DATA" Datatype="G7_RTDataPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">内部数据区</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="VERSION" Datatype="String[10]">
+            <StartValue Informative="true">'V6.0'</StartValue>
+          </Member>
+          <Member Name="S_DISPIDX" Datatype="USInt">
+            <StartValue Informative="true">255</StartValue>
+          </Member>
+          <Member Name="T_DISPIDX" Datatype="USInt">
+            <StartValue Informative="true">255</StartValue>
+          </Member>
+          <Member Name="MOP" Datatype="G7_MOPPlus_V6" Version="1.0">
+            <Sections>
+              <Section Name="None">
+                <Member Name="AUTO" Datatype="Bool">
+                  <StartValue Informative="true">true</StartValue>
+                </Member>
+                <Member Name="LOCK" Datatype="Bool">
+                  <StartValue Informative="true">true</StartValue>
+                </Member>
+                <Member Name="SUP" Datatype="Bool">
+                  <StartValue Informative="true">true</StartValue>
+                </Member>
+                <Member Name="ACKREQ" Datatype="Bool">
+                  <StartValue Informative="true">true</StartValue>
+                </Member>
+                <Member Name="INIT" Datatype="Bool">
+                  <StartValue Informative="true">true</StartValue>
+                </Member>
+                <Member Name="SACT_DISP" Datatype="Bool">
+                  <StartValue Informative="true">true</StartValue>
+                </Member>
+              </Section>
+            </Sections>
+          </Member>
+          <Member Name="SQ_FLAGS" Datatype="G7_SQFlagsPlus_V6" Version="1.0">
+            <Sections>
+              <Section Name="None">
+                <Member Name="AS_MSG" Datatype="Bool">
+                  <StartValue Informative="true">true</StartValue>
+                </Member>
+              </Section>
+            </Sections>
+          </Member>
+          <Member Name="SQ_CNT" Datatype="USInt">
+            <StartValue Informative="true">1</StartValue>
+          </Member>
+          <Member Name="S_CNT" Datatype="USInt">
+            <StartValue Informative="true">10</StartValue>
+          </Member>
+          <Member Name="LOCK_CNT" Datatype="USInt">
+            <StartValue Informative="true">10</StartValue>
+          </Member>
+          <Member Name="SUP_CNT" Datatype="USInt">
+            <StartValue Informative="true">10</StartValue>
+          </Member>
+          <Member Name="T_CNT" Datatype="USInt">
+            <StartValue Informative="true">10</StartValue>
+          </Member>
+          <Member Name="SQ_PART_CNT" Datatype="USInt">
+            <StartValue Informative="true">7</StartValue>
+          </Member>
+          <Member Name="MAX_TVAL" Datatype="USInt">
+            <StartValue Informative="true">5</StartValue>
+          </Member>
+          <Member Name="MAX_SACT" Datatype="USInt">
+            <StartValue Informative="true">3</StartValue>
+          </Member>
+          <Member Name="AS_MSG" Datatype="Byte">
+            <StartValue Informative="true">16#65</StartValue>
+          </Member>
+          <Member Name="OFFSETS" Datatype="G7_OffsetsPlus_V6" Version="1.0">
+            <Sections>
+              <Section Name="None">
+                <Member Name="LSTT_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">4</StartValue>
+                </Member>
+                <Member Name="ATAJ_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">14</StartValue>
+                </Member>
+                <Member Name="ATAB_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">24</StartValue>
+                </Member>
+                <Member Name="PSTT_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">34</StartValue>
+                </Member>
+                <Member Name="NSTT_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">44</StartValue>
+                </Member>
+                <Member Name="ASSJ_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">54</StartValue>
+                </Member>
+                <Member Name="ASSB_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">64</StartValue>
+                </Member>
+                <Member Name="PTTS_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">74</StartValue>
+                </Member>
+                <Member Name="NTTS_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">84</StartValue>
+                </Member>
+                <Member Name="SW_SQTS_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">94</StartValue>
+                </Member>
+                <Member Name="SWITCH_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">104</StartValue>
+                </Member>
+                <Member Name="TVX_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">111</StartValue>
+                </Member>
+                <Member Name="TTX_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">117</StartValue>
+                </Member>
+                <Member Name="TSX_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">123</StartValue>
+                </Member>
+                <Member Name="S00X_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">127</StartValue>
+                </Member>
+                <Member Name="SOFFX_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">131</StartValue>
+                </Member>
+                <Member Name="SONX_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">135</StartValue>
+                </Member>
+                <Member Name="SAX_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">139</StartValue>
+                </Member>
+                <Member Name="SERRX_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">143</StartValue>
+                </Member>
+                <Member Name="SMX_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">154</StartValue>
+                </Member>
+                <Member Name="S0X_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">165</StartValue>
+                </Member>
+                <Member Name="S1X_OFFSET" Datatype="UInt">
+                  <StartValue Informative="true">176</StartValue>
+                </Member>
+              </Section>
+            </Sections>
+          </Member>
+          <Member Name="GC_FLAGS" Datatype="G7_GCFlagsPlus_V6" Version="1.0">
+            <Sections>
+              <Section Name="None">
+                <Member Name="COND_ED" Datatype="USInt">
+                  <StartValue Informative="true">16#E3</StartValue>
+                </Member>
+                <Member Name="ACK_REQ" Datatype="Bool">
+                  <StartValue Informative="true">true</StartValue>
+                </Member>
+                <Member Name="IL_CAT" Datatype="USInt">
+                  <StartValue Informative="true">1</StartValue>
+                </Member>
+                <Member Name="REACT_CAT" Datatype="USInt">
+                  <StartValue Informative="true">1</StartValue>
+                </Member>
+                <Member Name="WARN_CAT" Datatype="USInt">
+                  <StartValue Informative="true">2</StartValue>
+                </Member>
+              </Section>
+            </Sections>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Trans1" Datatype="G7_TransitionPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">转换结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="TNO" Datatype="Int">
+            <StartValue Informative="true">1</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Trans2" Datatype="G7_TransitionPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">转换结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="TNO" Datatype="Int">
+            <StartValue Informative="true">2</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Trans3" Datatype="G7_TransitionPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">转换结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="TNO" Datatype="Int">
+            <StartValue Informative="true">3</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Trans4" Datatype="G7_TransitionPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">转换结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="TNO" Datatype="Int">
+            <StartValue Informative="true">4</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Trans5" Datatype="G7_TransitionPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">转换结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="TNO" Datatype="Int">
+            <StartValue Informative="true">5</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Trans6" Datatype="G7_TransitionPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">转换结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="TNO" Datatype="Int">
+            <StartValue Informative="true">6</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Trans7" Datatype="G7_TransitionPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">转换结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="TNO" Datatype="Int">
+            <StartValue Informative="true">7</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Trans8" Datatype="G7_TransitionPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">转换结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="TNO" Datatype="Int">
+            <StartValue Informative="true">8</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Trans9" Datatype="G7_TransitionPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">转换结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="TNO" Datatype="Int">
+            <StartValue Informative="true">9</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Trans10" Datatype="G7_TransitionPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">转换结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="TNO" Datatype="Int">
+            <StartValue Informative="true">10</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Step1" Datatype="G7_StepPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">步结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="SNO" Datatype="Int">
+            <StartValue Informative="true">1</StartValue>
+          </Member>
+          <Member Name="T_MAX" Datatype="Time">
+            <StartValue Informative="true">T#10S</StartValue>
+          </Member>
+          <Member Name="T_WARN" Datatype="Time">
+            <StartValue Informative="true">T#7S</StartValue>
+          </Member>
+          <Member Name="H_SV_FLT" Datatype="Byte">
+            <StartValue Informative="true">16#04</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Step2" Datatype="G7_StepPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">步结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="SNO" Datatype="Int">
+            <StartValue Informative="true">2</StartValue>
+          </Member>
+          <Member Name="T_MAX" Datatype="Time">
+            <StartValue Informative="true">T#10S</StartValue>
+          </Member>
+          <Member Name="T_WARN" Datatype="Time">
+            <StartValue Informative="true">T#7S</StartValue>
+          </Member>
+          <Member Name="H_SV_FLT" Datatype="Byte">
+            <StartValue Informative="true">16#04</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Step3" Datatype="G7_StepPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">步结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="SNO" Datatype="Int">
+            <StartValue Informative="true">3</StartValue>
+          </Member>
+          <Member Name="T_MAX" Datatype="Time">
+            <StartValue Informative="true">T#10S</StartValue>
+          </Member>
+          <Member Name="T_WARN" Datatype="Time">
+            <StartValue Informative="true">T#7S</StartValue>
+          </Member>
+          <Member Name="H_SV_FLT" Datatype="Byte">
+            <StartValue Informative="true">16#04</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Step4" Datatype="G7_StepPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">步结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="SNO" Datatype="Int">
+            <StartValue Informative="true">4</StartValue>
+          </Member>
+          <Member Name="T_MAX" Datatype="Time">
+            <StartValue Informative="true">T#10S</StartValue>
+          </Member>
+          <Member Name="T_WARN" Datatype="Time">
+            <StartValue Informative="true">T#7S</StartValue>
+          </Member>
+          <Member Name="H_SV_FLT" Datatype="Byte">
+            <StartValue Informative="true">16#04</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Step5" Datatype="G7_StepPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">步结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="SNO" Datatype="Int">
+            <StartValue Informative="true">5</StartValue>
+          </Member>
+          <Member Name="T_MAX" Datatype="Time">
+            <StartValue Informative="true">T#10S</StartValue>
+          </Member>
+          <Member Name="T_WARN" Datatype="Time">
+            <StartValue Informative="true">T#7S</StartValue>
+          </Member>
+          <Member Name="H_SV_FLT" Datatype="Byte">
+            <StartValue Informative="true">16#04</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Step6" Datatype="G7_StepPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">步结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="SNO" Datatype="Int">
+            <StartValue Informative="true">6</StartValue>
+          </Member>
+          <Member Name="T_MAX" Datatype="Time">
+            <StartValue Informative="true">T#10S</StartValue>
+          </Member>
+          <Member Name="T_WARN" Datatype="Time">
+            <StartValue Informative="true">T#7S</StartValue>
+          </Member>
+          <Member Name="H_SV_FLT" Datatype="Byte">
+            <StartValue Informative="true">16#04</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Step7" Datatype="G7_StepPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">步结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="SNO" Datatype="Int">
+            <StartValue Informative="true">7</StartValue>
+          </Member>
+          <Member Name="T_MAX" Datatype="Time">
+            <StartValue Informative="true">T#10S</StartValue>
+          </Member>
+          <Member Name="T_WARN" Datatype="Time">
+            <StartValue Informative="true">T#7S</StartValue>
+          </Member>
+          <Member Name="H_SV_FLT" Datatype="Byte">
+            <StartValue Informative="true">16#04</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Step8" Datatype="G7_StepPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">步结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="SNO" Datatype="Int">
+            <StartValue Informative="true">8</StartValue>
+          </Member>
+          <Member Name="T_MAX" Datatype="Time">
+            <StartValue Informative="true">T#10S</StartValue>
+          </Member>
+          <Member Name="T_WARN" Datatype="Time">
+            <StartValue Informative="true">T#7S</StartValue>
+          </Member>
+          <Member Name="H_SV_FLT" Datatype="Byte">
+            <StartValue Informative="true">16#04</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Step9" Datatype="G7_StepPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">步结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="SNO" Datatype="Int">
+            <StartValue Informative="true">9</StartValue>
+          </Member>
+          <Member Name="T_MAX" Datatype="Time">
+            <StartValue Informative="true">T#10S</StartValue>
+          </Member>
+          <Member Name="T_WARN" Datatype="Time">
+            <StartValue Informative="true">T#7S</StartValue>
+          </Member>
+          <Member Name="H_SV_FLT" Datatype="Byte">
+            <StartValue Informative="true">16#04</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Step10" Datatype="G7_StepPlus_V6" Version="1.0">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" Informative="true" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment Informative="true">
+        <MultiLanguageText Lang="zh-CN">步结构</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="SNO" Datatype="Int">
+            <StartValue Informative="true">10</StartValue>
+          </Member>
+          <Member Name="T_MAX" Datatype="Time">
+            <StartValue Informative="true">T#10S</StartValue>
+          </Member>
+          <Member Name="T_WARN" Datatype="Time">
+            <StartValue Informative="true">T#7S</StartValue>
+          </Member>
+          <Member Name="H_SV_FLT" Datatype="Byte">
+            <StartValue Informative="true">16#04</StartValue>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+  </Section>
+  <Section Name="Temp" />
+  <Section Name="Constant" />
+</Sections></Interface>
+      <Name>Graph_Sequencer</Name>
+      <Namespace />
+      <Number>1</Number>
+      <ProgrammingLanguage>GRAPH</ProgrammingLanguage>
+      <SetENOAutomatically>false</SetENOAutomatically>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>zh-CN</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="3" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><Graph xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/Graph/v5">
+  <PreOperations />
+  <Sequence>
+    <Title>
+      <MultiLanguageText Lang="zh-CN">顺序控制示例：启动 → 送料 → 选择分支（正常/快速加工）→ 气缸 → 并行分支（冷却+润滑）→ 收尾 → 复位回初始步</MultiLanguageText>
+    </Title>
+    <Comment>
+      <MultiLanguageText Lang="zh-CN">GRAPH 顺序功能图示例（CPU 1511-1 PN）：含 1 个选择分支（AltBegin/AltEnd，按 Mode_Fast 二选一）与 1 个并行分支（SimBegin/SimEnd，冷却风机与润滑泵同时运行）。每步互锁 Interlock_Trip 为 1 时禁止本步动作，监控 Supervision_Trip 为 1 时触发监控故障。</MultiLanguageText>
+    </Comment>
+    <Steps>
+      <Step Number="1" Init="true" Name="Step1" MaximumStepTime="T#10S" WarningTime="T#7S">
+        <Actions>
+          <Title>
+            <MultiLanguageText Lang="zh-CN">初始步：等待启动</MultiLanguageText>
+          </Title>
+          <Action Qualifier="R">
+            <Token Text="&quot;Run_Lamp&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action Qualifier="R">
+            <Token Text="&quot;Motor_1&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action Qualifier="R">
+            <Token Text="&quot;Motor_2&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action Qualifier="R">
+            <Token Text="&quot;Motor_3&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action Qualifier="R">
+            <Token Text="&quot;Valve_1&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action Qualifier="R">
+            <Token Text="&quot;Fan_1&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action Qualifier="R">
+            <Token Text="&quot;Pump_1&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action />
+        </Actions>
+        <Supervisions>
+          <Supervision ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Supervision_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22" />
+                <Part Name="SvCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Supervision>
+        </Supervisions>
+        <Interlocks>
+          <Interlock ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Interlock_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22">
+                  <Negated Name="operand" />
+                </Part>
+                <Part Name="IlCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Interlock>
+        </Interlocks>
+      </Step>
+      <Step Number="2" Init="false" Name="Step2" MaximumStepTime="T#10S" WarningTime="T#7S">
+        <Actions>
+          <Title>
+            <MultiLanguageText Lang="zh-CN">送料：电机 1 运行</MultiLanguageText>
+          </Title>
+          <Action Qualifier="N">
+            <Token Text="&quot;Motor_1&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action Qualifier="S">
+            <Token Text="&quot;Run_Lamp&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action />
+        </Actions>
+        <Supervisions>
+          <Supervision ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Supervision_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22" />
+                <Part Name="SvCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Supervision>
+        </Supervisions>
+        <Interlocks>
+          <Interlock ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Interlock_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22">
+                  <Negated Name="operand" />
+                </Part>
+                <Part Name="IlCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Interlock>
+        </Interlocks>
+      </Step>
+      <Step Number="3" Init="false" Name="Step3" MaximumStepTime="T#10S" WarningTime="T#7S">
+        <Actions>
+          <Title>
+            <MultiLanguageText Lang="zh-CN">选择分支 A：正常加工（电机 2 运行）</MultiLanguageText>
+          </Title>
+          <Action Qualifier="N">
+            <Token Text="&quot;Motor_2&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action />
+        </Actions>
+        <Supervisions>
+          <Supervision ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Supervision_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22" />
+                <Part Name="SvCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Supervision>
+        </Supervisions>
+        <Interlocks>
+          <Interlock ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Interlock_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22">
+                  <Negated Name="operand" />
+                </Part>
+                <Part Name="IlCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Interlock>
+        </Interlocks>
+      </Step>
+      <Step Number="4" Init="false" Name="Step4" MaximumStepTime="T#10S" WarningTime="T#7S">
+        <Actions>
+          <Title>
+            <MultiLanguageText Lang="zh-CN">气缸推出</MultiLanguageText>
+          </Title>
+          <Action Qualifier="N">
+            <Token Text="&quot;Valve_1&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action />
+        </Actions>
+        <Supervisions>
+          <Supervision ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Supervision_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22" />
+                <Part Name="SvCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Supervision>
+        </Supervisions>
+        <Interlocks>
+          <Interlock ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Interlock_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22">
+                  <Negated Name="operand" />
+                </Part>
+                <Part Name="IlCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Interlock>
+        </Interlocks>
+      </Step>
+      <Step Number="5" Init="false" Name="Step5" MaximumStepTime="T#10S" WarningTime="T#7S">
+        <Actions>
+          <Title>
+            <MultiLanguageText Lang="zh-CN">选择分支 B：快速加工（电机 3 运行）</MultiLanguageText>
+          </Title>
+          <Action Qualifier="N">
+            <Token Text="&quot;Motor_3&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action />
+        </Actions>
+        <Supervisions>
+          <Supervision ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Supervision_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22" />
+                <Part Name="SvCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Supervision>
+        </Supervisions>
+        <Interlocks>
+          <Interlock ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Interlock_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22">
+                  <Negated Name="operand" />
+                </Part>
+                <Part Name="IlCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Interlock>
+        </Interlocks>
+      </Step>
+      <Step Number="6" Init="false" Name="Step6" MaximumStepTime="T#10S" WarningTime="T#7S">
+        <Actions>
+          <Title>
+            <MultiLanguageText Lang="zh-CN">并行分支 A：冷却风机运行</MultiLanguageText>
+          </Title>
+          <Action Qualifier="N">
+            <Token Text="&quot;Fan_1&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action />
+        </Actions>
+        <Supervisions>
+          <Supervision ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Supervision_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22" />
+                <Part Name="SvCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Supervision>
+        </Supervisions>
+        <Interlocks>
+          <Interlock ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Interlock_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22">
+                  <Negated Name="operand" />
+                </Part>
+                <Part Name="IlCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Interlock>
+        </Interlocks>
+      </Step>
+      <Step Number="7" Init="false" Name="Step7" MaximumStepTime="T#10S" WarningTime="T#7S">
+        <Actions>
+          <Title>
+            <MultiLanguageText Lang="zh-CN">并行分支 B：润滑泵运行</MultiLanguageText>
+          </Title>
+          <Action Qualifier="N">
+            <Token Text="&quot;Pump_1&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action />
+        </Actions>
+        <Supervisions>
+          <Supervision ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Supervision_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22" />
+                <Part Name="SvCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Supervision>
+        </Supervisions>
+        <Interlocks>
+          <Interlock ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Interlock_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22">
+                  <Negated Name="operand" />
+                </Part>
+                <Part Name="IlCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Interlock>
+        </Interlocks>
+      </Step>
+      <Step Number="8" Init="false" Name="Step8" MaximumStepTime="T#10S" WarningTime="T#7S">
+        <Actions>
+          <Title>
+            <MultiLanguageText Lang="zh-CN">并行分支 A 结束步：保持冷却，等待汇合</MultiLanguageText>
+          </Title>
+          <Action Qualifier="N">
+            <Token Text="&quot;Fan_1&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action />
+        </Actions>
+        <Supervisions>
+          <Supervision ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Supervision_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22" />
+                <Part Name="SvCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Supervision>
+        </Supervisions>
+        <Interlocks>
+          <Interlock ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Interlock_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22">
+                  <Negated Name="operand" />
+                </Part>
+                <Part Name="IlCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Interlock>
+        </Interlocks>
+      </Step>
+      <Step Number="9" Init="false" Name="Step9" MaximumStepTime="T#10S" WarningTime="T#7S">
+        <Actions>
+          <Title>
+            <MultiLanguageText Lang="zh-CN">并行分支 B 结束步：保持润滑，等待汇合</MultiLanguageText>
+          </Title>
+          <Action Qualifier="N">
+            <Token Text="&quot;Pump_1&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action />
+        </Actions>
+        <Supervisions>
+          <Supervision ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Supervision_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22" />
+                <Part Name="SvCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Supervision>
+        </Supervisions>
+        <Interlocks>
+          <Interlock ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Interlock_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22">
+                  <Negated Name="operand" />
+                </Part>
+                <Part Name="IlCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Interlock>
+        </Interlocks>
+      </Step>
+      <Step Number="10" Init="false" Name="Step10" MaximumStepTime="T#10S" WarningTime="T#7S">
+        <Actions>
+          <Title>
+            <MultiLanguageText Lang="zh-CN">收尾：复位全部输出</MultiLanguageText>
+          </Title>
+          <Action Qualifier="R">
+            <Token Text="&quot;Motor_1&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action Qualifier="R">
+            <Token Text="&quot;Motor_2&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action Qualifier="R">
+            <Token Text="&quot;Motor_3&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action Qualifier="R">
+            <Token Text="&quot;Valve_1&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action Qualifier="R">
+            <Token Text="&quot;Fan_1&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action Qualifier="R">
+            <Token Text="&quot;Pump_1&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action Qualifier="R">
+            <Token Text="&quot;Run_Lamp&quot;" />
+            <Token Text="&#xA;" />
+          </Action>
+          <Action />
+        </Actions>
+        <Supervisions>
+          <Supervision ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Supervision_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22" />
+                <Part Name="SvCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Supervision>
+        </Supervisions>
+        <Interlocks>
+          <Interlock ProgrammingLanguage="LAD">
+            <FlgNet>
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="Interlock_Trip" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="22">
+                  <Negated Name="operand" />
+                </Part>
+                <Part Name="IlCoil" UId="23" />
+              </Parts>
+              <Wires>
+                <Wire UId="24">
+                  <Powerrail />
+                  <NameCon UId="22" Name="in" />
+                </Wire>
+                <Wire UId="25">
+                  <IdentCon UId="21" />
+                  <NameCon UId="22" Name="operand" />
+                </Wire>
+                <Wire UId="26">
+                  <NameCon UId="22" Name="out" />
+                  <NameCon UId="23" Name="in" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </Interlock>
+        </Interlocks>
+      </Step>
+    </Steps>
+    <Transitions>
+      <Transition IsMissing="false" Name="Trans1" Number="1" ProgrammingLanguage="LAD">
+        <Comment>
+          <MultiLanguageText Lang="zh-CN">启动按钮 Start_Button</MultiLanguageText>
+        </Comment>
+        <FlgNet>
+          <Parts>
+            <Access Scope="GlobalVariable" UId="21">
+              <Symbol>
+                <Component Name="Start_Button" />
+              </Symbol>
+            </Access>
+            <Part Name="Contact" UId="22" />
+            <Part Name="TrCoil" UId="23" />
+          </Parts>
+          <Wires>
+            <Wire UId="24">
+              <Powerrail />
+              <NameCon UId="22" Name="in" />
+            </Wire>
+            <Wire UId="25">
+              <IdentCon UId="21" />
+              <NameCon UId="22" Name="operand" />
+            </Wire>
+            <Wire UId="26">
+              <NameCon UId="22" Name="out" />
+              <NameCon UId="23" Name="in" />
+            </Wire>
+          </Wires>
+        </FlgNet>
+      </Transition>
+      <Transition IsMissing="false" Name="Trans2" Number="2" ProgrammingLanguage="LAD">
+        <Comment>
+          <MultiLanguageText Lang="zh-CN">选择分支 A（正常模式）：送料到位 Sensor_1 且 非 Mode_Fast 且 未按停止</MultiLanguageText>
+        </Comment>
+        <FlgNet>
+          <Parts>
+            <Access Scope="GlobalVariable" UId="21">
+              <Symbol>
+                <Component Name="Sensor_1" />
+              </Symbol>
+            </Access>
+            <Access Scope="GlobalVariable" UId="22">
+              <Symbol>
+                <Component Name="Mode_Fast" />
+              </Symbol>
+            </Access>
+            <Access Scope="GlobalVariable" UId="23">
+              <Symbol>
+                <Component Name="Stop_Button" />
+              </Symbol>
+            </Access>
+            <Part Name="Contact" UId="24" />
+            <Part Name="Contact" UId="25">
+              <Negated Name="operand" />
+            </Part>
+            <Part Name="Contact" UId="26">
+              <Negated Name="operand" />
+            </Part>
+            <Part Name="TrCoil" UId="27" />
+          </Parts>
+          <Wires>
+            <Wire UId="28">
+              <Powerrail />
+              <NameCon UId="24" Name="in" />
+            </Wire>
+            <Wire UId="29">
+              <IdentCon UId="21" />
+              <NameCon UId="24" Name="operand" />
+            </Wire>
+            <Wire UId="30">
+              <NameCon UId="24" Name="out" />
+              <NameCon UId="25" Name="in" />
+            </Wire>
+            <Wire UId="31">
+              <IdentCon UId="22" />
+              <NameCon UId="25" Name="operand" />
+            </Wire>
+            <Wire UId="32">
+              <NameCon UId="25" Name="out" />
+              <NameCon UId="26" Name="in" />
+            </Wire>
+            <Wire UId="33">
+              <IdentCon UId="23" />
+              <NameCon UId="26" Name="operand" />
+            </Wire>
+            <Wire UId="34">
+              <NameCon UId="26" Name="out" />
+              <NameCon UId="27" Name="in" />
+            </Wire>
+          </Wires>
+        </FlgNet>
+      </Transition>
+      <Transition IsMissing="false" Name="Trans3" Number="3" ProgrammingLanguage="LAD">
+        <Comment>
+          <MultiLanguageText Lang="zh-CN">选择分支 B（快速模式）：送料到位 Sensor_1 且 Mode_Fast 且 未按停止</MultiLanguageText>
+        </Comment>
+        <FlgNet>
+          <Parts>
+            <Access Scope="GlobalVariable" UId="21">
+              <Symbol>
+                <Component Name="Sensor_1" />
+              </Symbol>
+            </Access>
+            <Access Scope="GlobalVariable" UId="22">
+              <Symbol>
+                <Component Name="Mode_Fast" />
+              </Symbol>
+            </Access>
+            <Access Scope="GlobalVariable" UId="23">
+              <Symbol>
+                <Component Name="Stop_Button" />
+              </Symbol>
+            </Access>
+            <Part Name="Contact" UId="24" />
+            <Part Name="Contact" UId="25" />
+            <Part Name="Contact" UId="26">
+              <Negated Name="operand" />
+            </Part>
+            <Part Name="TrCoil" UId="27" />
+          </Parts>
+          <Wires>
+            <Wire UId="28">
+              <Powerrail />
+              <NameCon UId="24" Name="in" />
+            </Wire>
+            <Wire UId="29">
+              <IdentCon UId="21" />
+              <NameCon UId="24" Name="operand" />
+            </Wire>
+            <Wire UId="30">
+              <NameCon UId="24" Name="out" />
+              <NameCon UId="25" Name="in" />
+            </Wire>
+            <Wire UId="31">
+              <IdentCon UId="22" />
+              <NameCon UId="25" Name="operand" />
+            </Wire>
+            <Wire UId="32">
+              <NameCon UId="25" Name="out" />
+              <NameCon UId="26" Name="in" />
+            </Wire>
+            <Wire UId="33">
+              <IdentCon UId="23" />
+              <NameCon UId="26" Name="operand" />
+            </Wire>
+            <Wire UId="34">
+              <NameCon UId="26" Name="out" />
+              <NameCon UId="27" Name="in" />
+            </Wire>
+          </Wires>
+        </FlgNet>
+      </Transition>
+      <Transition IsMissing="false" Name="Trans4" Number="4" ProgrammingLanguage="LAD">
+        <Comment>
+          <MultiLanguageText Lang="zh-CN">选择分支 A 加工完成 Sensor_2：进入汇合</MultiLanguageText>
+        </Comment>
+        <FlgNet>
+          <Parts>
+            <Access Scope="GlobalVariable" UId="21">
+              <Symbol>
+                <Component Name="Sensor_2" />
+              </Symbol>
+            </Access>
+            <Part Name="Contact" UId="22" />
+            <Part Name="TrCoil" UId="23" />
+          </Parts>
+          <Wires>
+            <Wire UId="24">
+              <Powerrail />
+              <NameCon UId="22" Name="in" />
+            </Wire>
+            <Wire UId="25">
+              <IdentCon UId="21" />
+              <NameCon UId="22" Name="operand" />
+            </Wire>
+            <Wire UId="26">
+              <NameCon UId="22" Name="out" />
+              <NameCon UId="23" Name="in" />
+            </Wire>
+          </Wires>
+        </FlgNet>
+      </Transition>
+      <Transition IsMissing="false" Name="Trans5" Number="5" ProgrammingLanguage="LAD">
+        <Comment>
+          <MultiLanguageText Lang="zh-CN">选择分支 B 加工完成 Sensor_2：进入汇合</MultiLanguageText>
+        </Comment>
+        <FlgNet>
+          <Parts>
+            <Access Scope="GlobalVariable" UId="21">
+              <Symbol>
+                <Component Name="Sensor_2" />
+              </Symbol>
+            </Access>
+            <Part Name="Contact" UId="22" />
+            <Part Name="TrCoil" UId="23" />
+          </Parts>
+          <Wires>
+            <Wire UId="24">
+              <Powerrail />
+              <NameCon UId="22" Name="in" />
+            </Wire>
+            <Wire UId="25">
+              <IdentCon UId="21" />
+              <NameCon UId="22" Name="operand" />
+            </Wire>
+            <Wire UId="26">
+              <NameCon UId="22" Name="out" />
+              <NameCon UId="23" Name="in" />
+            </Wire>
+          </Wires>
+        </FlgNet>
+      </Transition>
+      <Transition IsMissing="false" Name="Trans6" Number="6" ProgrammingLanguage="LAD">
+        <Comment>
+          <MultiLanguageText Lang="zh-CN">气缸到位 Sensor_3：进入并行分支</MultiLanguageText>
+        </Comment>
+        <FlgNet>
+          <Parts>
+            <Access Scope="GlobalVariable" UId="21">
+              <Symbol>
+                <Component Name="Sensor_3" />
+              </Symbol>
+            </Access>
+            <Part Name="Contact" UId="22" />
+            <Part Name="TrCoil" UId="23" />
+          </Parts>
+          <Wires>
+            <Wire UId="24">
+              <Powerrail />
+              <NameCon UId="22" Name="in" />
+            </Wire>
+            <Wire UId="25">
+              <IdentCon UId="21" />
+              <NameCon UId="22" Name="operand" />
+            </Wire>
+            <Wire UId="26">
+              <NameCon UId="22" Name="out" />
+              <NameCon UId="23" Name="in" />
+            </Wire>
+          </Wires>
+        </FlgNet>
+      </Transition>
+      <Transition IsMissing="false" Name="Trans7" Number="7" ProgrammingLanguage="LAD">
+        <Comment>
+          <MultiLanguageText Lang="zh-CN">并行分支 A：冷却到位 Sensor_4</MultiLanguageText>
+        </Comment>
+        <FlgNet>
+          <Parts>
+            <Access Scope="GlobalVariable" UId="21">
+              <Symbol>
+                <Component Name="Sensor_4" />
+              </Symbol>
+            </Access>
+            <Part Name="Contact" UId="22" />
+            <Part Name="TrCoil" UId="23" />
+          </Parts>
+          <Wires>
+            <Wire UId="24">
+              <Powerrail />
+              <NameCon UId="22" Name="in" />
+            </Wire>
+            <Wire UId="25">
+              <IdentCon UId="21" />
+              <NameCon UId="22" Name="operand" />
+            </Wire>
+            <Wire UId="26">
+              <NameCon UId="22" Name="out" />
+              <NameCon UId="23" Name="in" />
+            </Wire>
+          </Wires>
+        </FlgNet>
+      </Transition>
+      <Transition IsMissing="false" Name="Trans8" Number="8" ProgrammingLanguage="LAD">
+        <Comment>
+          <MultiLanguageText Lang="zh-CN">并行分支 B：润滑到位 Sensor_5</MultiLanguageText>
+        </Comment>
+        <FlgNet>
+          <Parts>
+            <Access Scope="GlobalVariable" UId="21">
+              <Symbol>
+                <Component Name="Sensor_5" />
+              </Symbol>
+            </Access>
+            <Part Name="Contact" UId="22" />
+            <Part Name="TrCoil" UId="23" />
+          </Parts>
+          <Wires>
+            <Wire UId="24">
+              <Powerrail />
+              <NameCon UId="22" Name="in" />
+            </Wire>
+            <Wire UId="25">
+              <IdentCon UId="21" />
+              <NameCon UId="22" Name="operand" />
+            </Wire>
+            <Wire UId="26">
+              <NameCon UId="22" Name="out" />
+              <NameCon UId="23" Name="in" />
+            </Wire>
+          </Wires>
+        </FlgNet>
+      </Transition>
+      <Transition IsMissing="false" Name="Trans9" Number="9" ProgrammingLanguage="LAD">
+        <Comment>
+          <MultiLanguageText Lang="zh-CN">两路并行全部完成 且 未按停止：进入收尾步</MultiLanguageText>
+        </Comment>
+        <FlgNet>
+          <Parts>
+            <Access Scope="GlobalVariable" UId="21">
+              <Symbol>
+                <Component Name="Stop_Button" />
+              </Symbol>
+            </Access>
+            <Part Name="Contact" UId="22">
+              <Negated Name="operand" />
+            </Part>
+            <Part Name="TrCoil" UId="23" />
+          </Parts>
+          <Wires>
+            <Wire UId="24">
+              <Powerrail />
+              <NameCon UId="22" Name="in" />
+            </Wire>
+            <Wire UId="25">
+              <IdentCon UId="21" />
+              <NameCon UId="22" Name="operand" />
+            </Wire>
+            <Wire UId="26">
+              <NameCon UId="22" Name="out" />
+              <NameCon UId="23" Name="in" />
+            </Wire>
+          </Wires>
+        </FlgNet>
+      </Transition>
+      <Transition IsMissing="false" Name="Trans10" Number="10" ProgrammingLanguage="LAD">
+        <Comment>
+          <MultiLanguageText Lang="zh-CN">复位按钮回到初始步</MultiLanguageText>
+        </Comment>
+        <FlgNet>
+          <Parts>
+            <Access Scope="GlobalVariable" UId="21">
+              <Symbol>
+                <Component Name="Reset_Button" />
+              </Symbol>
+            </Access>
+            <Part Name="Contact" UId="22" />
+            <Part Name="TrCoil" UId="23" />
+          </Parts>
+          <Wires>
+            <Wire UId="24">
+              <Powerrail />
+              <NameCon UId="22" Name="in" />
+            </Wire>
+            <Wire UId="25">
+              <IdentCon UId="21" />
+              <NameCon UId="22" Name="operand" />
+            </Wire>
+            <Wire UId="26">
+              <NameCon UId="22" Name="out" />
+              <NameCon UId="23" Name="in" />
+            </Wire>
+          </Wires>
+        </FlgNet>
+      </Transition>
+    </Transitions>
+    <Branches>
+      <Branch Number="1" Type="AltBegin" Cardinality="2" />
+      <Branch Number="2" Type="AltEnd" Cardinality="2" />
+      <Branch Number="3" Type="SimBegin" Cardinality="2" />
+      <Branch Number="4" Type="SimEnd" Cardinality="2" />
+    </Branches>
+    <Connections>
+      <Connection>
+        <NodeFrom>
+          <StepRef Number="1" />
+        </NodeFrom>
+        <NodeTo>
+          <TransitionRef Number="1" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <TransitionRef Number="1" />
+        </NodeFrom>
+        <NodeTo>
+          <StepRef Number="2" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <StepRef Number="2" />
+        </NodeFrom>
+        <NodeTo>
+          <BranchRef Number="1" In="0" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <BranchRef Number="1" Out="0" />
+        </NodeFrom>
+        <NodeTo>
+          <TransitionRef Number="2" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <TransitionRef Number="2" />
+        </NodeFrom>
+        <NodeTo>
+          <StepRef Number="3" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <BranchRef Number="1" Out="1" />
+        </NodeFrom>
+        <NodeTo>
+          <TransitionRef Number="3" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <TransitionRef Number="3" />
+        </NodeFrom>
+        <NodeTo>
+          <StepRef Number="5" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <StepRef Number="3" />
+        </NodeFrom>
+        <NodeTo>
+          <TransitionRef Number="4" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <TransitionRef Number="4" />
+        </NodeFrom>
+        <NodeTo>
+          <BranchRef Number="2" In="0" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <StepRef Number="5" />
+        </NodeFrom>
+        <NodeTo>
+          <TransitionRef Number="5" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <TransitionRef Number="5" />
+        </NodeFrom>
+        <NodeTo>
+          <BranchRef Number="2" In="1" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <BranchRef Number="2" Out="0" />
+        </NodeFrom>
+        <NodeTo>
+          <StepRef Number="4" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <StepRef Number="4" />
+        </NodeFrom>
+        <NodeTo>
+          <TransitionRef Number="6" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <TransitionRef Number="6" />
+        </NodeFrom>
+        <NodeTo>
+          <BranchRef Number="3" In="0" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <BranchRef Number="3" Out="0" />
+        </NodeFrom>
+        <NodeTo>
+          <StepRef Number="6" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <BranchRef Number="3" Out="1" />
+        </NodeFrom>
+        <NodeTo>
+          <StepRef Number="7" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <StepRef Number="6" />
+        </NodeFrom>
+        <NodeTo>
+          <TransitionRef Number="7" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <TransitionRef Number="7" />
+        </NodeFrom>
+        <NodeTo>
+          <StepRef Number="8" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <StepRef Number="7" />
+        </NodeFrom>
+        <NodeTo>
+          <TransitionRef Number="8" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <TransitionRef Number="8" />
+        </NodeFrom>
+        <NodeTo>
+          <StepRef Number="9" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <StepRef Number="8" />
+        </NodeFrom>
+        <NodeTo>
+          <BranchRef Number="4" In="0" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <StepRef Number="9" />
+        </NodeFrom>
+        <NodeTo>
+          <BranchRef Number="4" In="1" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <BranchRef Number="4" Out="0" />
+        </NodeFrom>
+        <NodeTo>
+          <TransitionRef Number="9" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <TransitionRef Number="9" />
+        </NodeFrom>
+        <NodeTo>
+          <StepRef Number="10" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <StepRef Number="10" />
+        </NodeFrom>
+        <NodeTo>
+          <TransitionRef Number="10" />
+        </NodeTo>
+        <LinkType>Direct</LinkType>
+      </Connection>
+      <Connection>
+        <NodeFrom>
+          <TransitionRef Number="10" />
+        </NodeFrom>
+        <NodeTo>
+          <StepRef Number="1" />
+        </NodeTo>
+        <LinkType>Jump</LinkType>
+      </Connection>
+    </Connections>
+  </Sequence>
+  <PostOperations />
+  <AlarmsSettings>
+    <AlarmSupervisionCategories>
+      <AlarmSupervisionCategory Id="1" DisplayClass="0" />
+      <AlarmSupervisionCategory Id="2" DisplayClass="0" />
+      <AlarmSupervisionCategory Id="3" DisplayClass="0" />
+      <AlarmSupervisionCategory Id="4" DisplayClass="0" />
+      <AlarmSupervisionCategory Id="5" DisplayClass="0" />
+      <AlarmSupervisionCategory Id="6" DisplayClass="0" />
+      <AlarmSupervisionCategory Id="7" DisplayClass="0" />
+      <AlarmSupervisionCategory Id="8" DisplayClass="0" />
+    </AlarmSupervisionCategories>
+    <AlarmInterlockCategory Id="1" />
+    <AlarmSubcategory1Interlock Id="0" />
+    <AlarmSubcategory2Interlock Id="0" />
+    <AlarmCategorySupervision Id="1" />
+    <AlarmSubcategory1Supervision Id="0" />
+    <AlarmSubcategory2Supervision Id="0" />
+    <AlarmWarningCategory Id="2" />
+    <AlarmSubcategory1Warning Id="0" />
+    <AlarmSubcategory2Warning Id="0" />
+  </AlarmsSettings>
+</Graph></NetworkSource>
+          <ProgrammingLanguage>GRAPH</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>zh-CN</Culture>
+                  <Text>GRAPH 顺序控制示例</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="6" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>zh-CN</Culture>
+                  <Text>顺序控制示例</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="8" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="9" CompositionName="Items">
+            <AttributeList>
+              <Culture>zh-CN</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FB>
+</Document>

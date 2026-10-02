@@ -1,0 +1,14 @@
+FUNCTION_BLOCK "AiSelfHoldTest"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+VAR_INPUT
+    Start : Bool;
+    Stop : Bool;
+END_VAR
+VAR_OUTPUT
+    Coil : Bool;
+END_VAR
+BEGIN
+    #Coil := (#Start OR #Coil) AND NOT #Stop;
+END_FUNCTION_BLOCK
+

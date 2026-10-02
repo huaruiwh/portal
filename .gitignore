@@ -1,0 +1,29 @@
+# TIA Portal 工程产物（体积大、含二进制，不入库）
+*.ap20
+*.ap21
+*.zap20
+*.zap21
+
+# TIA 导出的中间产物
+*.s7dcl
+*.s7res
+
+# 备份
+_backup/
+*.backup-*
+
+# 日志
+*.log
+
+# 编辑器
+.vs/
+.vscode/
+.idea/
+
+# .NET
+bin/
+obj/
+*.user
+
+# Node
+node_modules/

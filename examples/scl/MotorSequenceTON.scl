@@ -1,0 +1,33 @@
+FUNCTION_BLOCK "MotorSequenceTON"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT
+      Start_Command : Bool;
+      Stop_Command : Bool;
+   END_VAR
+   VAR_OUTPUT
+      Motor_1 : Bool;
+      Motor_2 : Bool;
+      Motor_3 : Bool;
+   END_VAR
+   VAR
+      Run_Latch : Bool;
+      Start_2s : TON_TIME;
+      Start_4s : TON_TIME;
+      Stop_2s : TON_TIME;
+      Stop_4s : TON_TIME;
+   END_VAR
+BEGIN
+   IF Stop_Command THEN
+      Run_Latch := FALSE;
+   ELSIF Start_Command THEN
+      Run_Latch := TRUE;
+   END_IF;
+   #Start_2s(IN := #Run_Latch, PT := T#2s);
+   #Start_4s(IN := #Start_2s.Q, PT := T#2s);
+   #Stop_2s(IN := #Stop_Command, PT := T#2s);
+   #Stop_4s(IN := #Stop_2s.Q, PT := T#2s);
+   #Motor_1 := #Run_Latch AND NOT #Stop_4s.Q;
+   #Motor_2 := #Run_Latch AND #Start_2s.Q AND NOT #Stop_2s.Q;
+   #Motor_3 := #Run_Latch AND #Start_4s.Q AND NOT #Stop_Command;
+END_FUNCTION_BLOCK
