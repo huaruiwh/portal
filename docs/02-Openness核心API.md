@@ -1,4 +1,4 @@
-# 02 - Openness 核心 API 与连接模型
+﻿# 02 - Openness 核心 API 与连接模型
 
 > 本节的成员签名全部由**反射读取本机 V20 程序集**得到，不是从文档抄的。
 
@@ -134,11 +134,27 @@ $project = $tia.Projects.Create([System.IO.DirectoryInfo]::new('D:\Demos'), 'MyP
 # Projects.Open(FileInfo path)
 $project = $tia.Projects.Open([System.IO.FileInfo]::new('D:\Demos\MyProject\MyProject.ap20'))
 
+# ---- 打开旧版本工程（需要升级）----
+# Projects.Open 只能打开「当前版本的工程」或「已升级到当前版本的工程」。
+# 旧版本工程会抛异常，必须用 OpenWithUpgrade：
+#   V21 可以升级 .ap20 / .ap19，但打不开 .ap16
+$project = $tia.Projects.OpenWithUpgrade([System.IO.FileInfo]::new('D:\Old\Old.ap19'))
+
+# ---- 附加到已在运行的 TIA（含 GUI 实例）----
+$processes = [Siemens.Engineering.TiaPortal]::GetProcesses()
+if ($processes.Count -gt 0) { $tia = $processes[0].Attach() }
+
 # ---- 保存 / 关闭 / 释放 ----
 $project.Save()
 $project.Close()
 $tia.Dispose()
 ```
+
+### ⚠ 编译和导入/导出都要求设备**离线**
+
+`Compile()`、`Import()`、`Export()` 都需要**所有设备处于 Offline 状态**。
+在线状态下写设备属性是不被支持的（读属性可以）。
+自动化前先确认没有设备处于在线状态。
 
 **`Save()` 极其重要。** 新建工程后如果不 `Save()`，
 设备/变量表/程序块只存在内存中；进程一退出就全没了，
@@ -149,7 +165,43 @@ $tia.Dispose()
 
 ---
 
-## 5. 新建设备
+## 5. 独占访问与事务（`ExclusiveAccess` / `Transaction`）
+
+Siemens 官方**强烈建议**（"highly recommended even if it is not mandatory"）
+所有写操作都放进 `ExclusiveAccess` 里，防止和人工操作互相打架。
+
+```csharp
+using (ExclusiveAccess ea = tiaPortal.ExclusiveAccess("正在导入 SCL 并编译"))
+{
+    using (Transaction tx = ea.Transaction(project, "批量生成块"))
+    {
+        // … 在这里做所有修改 …
+        tx.CommitOnDispose();     // 提交
+        // 不调用 CommitOnDispose() 就等于回滚
+    }
+}
+project.Save();   // ⚠ Save() 不能在事务里面调用，要放在事务外面
+```
+
+要点：
+
+| 项 | 说明 |
+| --- | --- |
+| `ExclusiveAccess` | 取得期间**其他客户端无法修改**该工程 |
+| `ea.Text` | 会在 TIA 界面上显示的提示文字，可以中途更新 |
+| `ea.IsCancellationRequested` | 用户点了取消 → 应该尽快安全退出 |
+| 多个 `ExclusiveAccess` | **不能嵌套**：在已持有的作用域里再取一个会抛可恢复异常 |
+| `Transaction` | 事务；`CommitOnDispose()` 提交，否则等价于回滚 |
+| `Save()` | **必须放在事务之外** |
+| 无界面实例 | 官方文档说取 `ExclusiveAccess` 时会弹对话框；无界面下的行为未明确定义 |
+
+> 📌 本仓库的脚本采用更简单的策略：**整目录复制备份（`-Backup`）** + 阶段末 `Save()`。
+> 这样不依赖独占访问，也不会因为弹窗卡住无人值守流程。
+> 如果你在做商业工具或多客户端协作，应该改用 `ExclusiveAccess` + `Transaction`。
+
+---
+
+## 6. 新建设备
 
 设备用**硬件目录标识串**创建，形式是 `OrderNumber:<订货号>/<固件版本>`：
 
@@ -187,7 +239,7 @@ foreach ($no in $orderNumbers) {
 
 ---
 
-## 6. 变量表与变量
+## 7. 变量表与变量
 
 ```powershell
 # 取默认变量表（没有就建）
@@ -212,7 +264,7 @@ foreach ($tag in $table.Tags) {
 
 ---
 
-## 7. 程序块对象 `PlcBlock`
+## 8. 程序块对象 `PlcBlock`
 
 实测的公开成员：
 
@@ -259,7 +311,7 @@ Int32         IndexOf(PlcBlock item)
 
 ---
 
-## 8. 枚举速查（V20 实测值）
+## 9. 枚举速查（V20 实测值）
 
 ```csharp
 TiaPortalMode            = WithoutUserInterface, WithUserInterface
@@ -275,7 +327,7 @@ ProgrammingLanguage      = Undef, STL, LAD, FBD, SCL, DB, GRAPH, CPU_DB, CFC, SF
 
 ---
 
-## 9. 三种"造块"方式的取舍
+## 10. 三种"造块"方式的取舍
 
 | 方式 | 适用语言 | API | 评价 |
 | --- | --- | --- | --- |
@@ -285,7 +337,7 @@ ProgrammingLanguage      = Undef, STL, LAD, FBD, SCL, DB, GRAPH, CPU_DB, CFC, SF
 
 ---
 
-## 10. 下一步
+## 11. 下一步
 
 - SCL 外部源细节：→ [03 - SCL 自动化](03-SCL操作指南.md)
 - GRAPH XML 细节：→ [04 - GRAPH 自动化](04-GRAPH操作指南.md)

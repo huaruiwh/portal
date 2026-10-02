@@ -116,10 +116,13 @@ $S    = '.\examples\scripts'
    `CreateFromFile()` + `GenerateBlocksFromSource()` 让 TIA 自己的编译器解析 SCL，
    语法、注释、中文、UDT 全部原样支持，几乎没有 schema 校验问题。
 
-2. **GRAPH 只能靠导入 XML，而且开源社区没有现成方案。**
+2. **GRAPH 只能靠导入 XML，而公开方案都绑死在旧版本上。**
    `CreateFB(..., ProgrammingLanguage::GRAPH)` 会直接报错
    *"The action \"Create block\" only supports the programming language 'ProDiag'"*。
-   可行路线只有一条：**先从真实 GRAPH 工程导出一份 XML 当模板，再参数化生成**。
+   社区确实存在 GRAPH 生成器（如 `mking2203/CodeGeneratorOpenness`，
+   但基于 TIA V14 SP1–V16），**没有一个能直接用于 V20/V21** ——
+   因为 `G7_*` 系统类型、`GraphVersion`、`xmlns`、静态成员命名都随版本变化。
+   可行路线是：**从目标版本导出一份真实 GRAPH 块当模板，再参数化生成**。
    → 详见 [docs/04-GRAPH操作指南.md](docs/04-GRAPH操作指南.md)
 
 3. **"先读 XSD，再导出真样本，最后照着样本生成"是通用方法论。**

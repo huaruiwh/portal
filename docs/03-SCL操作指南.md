@@ -85,8 +85,16 @@ PlcExternalSource:
 GenerateBlockOption = None, KeepOnError
 ```
 
-- `None`：默认。源里有语法错误时，出错块不生成。
-- `KeepOnError`：出错也保留已生成的块，便于回编辑器里看。
+| 值 | 行为 |
+| --- | --- |
+| `None` | 一旦生成出错就**抛 `RecoverableException`**，并**删除**已生成的块/UDT |
+| `KeepOnError` | **不抛异常**，出错也保留已生成的块，便于回编辑器里检查 |
+
+> 📌 因为 `GenerateBlocksFromSource()` 返回的是 `IList<IEngineeringObject>`，
+> 里面**混杂着 `PlcBlock` 和 `PlcType`**（取决于源文件内容）。
+> 而且实测在 PowerShell 里这个返回值常常枚举不出内容
+> （见 [09 文档](09-本机实测记录.md)），
+> **可靠做法是回读 `BlockGroup.Blocks` 与导入前的快照做 diff。**
 
 ### 删除已有外部源
 
@@ -219,17 +227,37 @@ BEGIN
 END_ORGANIZATION_BLOCK
 ```
 
-### 3.5 文件编码
+### 3.5 文件编码 ⚠ 这是最容易踩的坑
 
-本机验证过的 `.scl` 样本都是 **无 BOM 的 UTF-8**，
-行尾 **CRLF 和 LF 都能被接受**（两种都实测导入成功）。
+**Siemens 官方对"从源文件生成块"的要求是：**
+- 源文件**只支持 ASCII**
+- 如果源码里含有特殊字符（中文注释、变音符号等），**必须存成 UTF-8 with BOM**
 
-建议：
+本机实测补充：
 
-- 文件里含中文注释时，用 **UTF-8 with BOM** 更保险（避免被当成 ANSI 读成乱码）。
-- 行尾统一成 CRLF 或 LF 都可以，但**不要混用**。
-- 不要在文件里写 `//` 之外的行内注释以外的奇怪字符（全角空格、零宽字符）——
-  SCL 编译器会报难以定位的语法错误。
+- 仓库里两个**纯 ASCII 的 SCL 样本**存成**无 BOM 的 UTF-8**，
+  导入生成块 + 编译**全部通过**；CRLF 和 LF 两种行尾都被接受。
+- 另有一个**带中文注释**的复杂样本，生成块成功但**编译报 7 个错误**，
+  且 Openness 不返回错误文本。
+  **很可能就是非 ASCII 字符处理不当导致的**（但它同时还引入了别的问题，
+  没有单独定位，所以该样本未收录 —— 见 [09 文档](09-本机实测记录.md#5-scl-外部源)）。
+
+**结论与建议**：
+
+| 情况 | 做法 |
+| --- | --- |
+| 源码是纯 ASCII | 无 BOM UTF-8 即可（实测通过） |
+| 源码含**中文注释**等非 ASCII 字符 | **一律存成 UTF-8 with BOM** |
+| 只想最稳 | 干脆**不要**在 SCL 里写中文注释，把说明放到块注释或用英文 |
+
+```powershell
+# 确保 .scl 带 BOM
+$p = '.\examples\scl\MyBlock.scl'
+[IO.File]::WriteAllText($p, [IO.File]::ReadAllText($p), [Text.UTF8Encoding]::new($true))
+```
+
+> 变量名和块名**只用 ASCII 字母、数字、下划线**，不要用中文或保留字，
+> 否则会撞上"非法字符"或"标识符与保留字冲突"两类难以定位的报错。
 
 ---
 

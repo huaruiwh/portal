@@ -179,13 +179,93 @@ Copy-Item 'D:\资料\...\GRAPH课程9 GRAPH编写交通灯程序1_V20' -Destinat
 
 GRAPH FB 的 `<Interface>` 必须包含：
 
-1. `<Section Name="Base"><Sections Datatype="GRAPH_BASE" Version="1.0">…` —— GRAPH 基础段
+1. `<Section Name="Base"><Sections Datatype="GRAPH_BASE" Version="1.0">…` —— GRAPH 基础段。
+   它是个**空标记**（不含成员），真正的成员在同级的普通段里。
 2. TIA 为 GRAPH 自动生成的**系统参数**：
-   `OFF_SQ`、`INIT_SQ`、`ACK_EF`、`SW_AUTO`、`S_SEL` … 以及步结构静态成员
+
+| 段 | 成员 | 含义 |
+| --- | --- | --- |
+| `Input` | `OFF_SQ` | 关闭顺序控制 |
+| | `INIT_SQ` | 复位到初始状态 |
+| | `ACK_EF` | 确认所有错误/故障 |
+| | `S_PREV` / `S_NEXT` | 在 `S_NO` 上显示上一步 / 下一步 |
+| | `SW_AUTO` | 自动模式 |
+| | `SW_TAP` / `SW_TOP` | 半自动（带转换 / 忽略转换） |
+| | `SW_MAN` | 手动模式 |
+| | `S_SEL`（**Int**） | 选择要输出到 `S_NO` 的步号 |
+| | `S_ON` / `S_OFF` | 激活 / 取消激活 `S_NO` 上的步 |
+| | `T_PUSH` | 半自动下的转换使能 |
+| `Output` | `S_NO`（**Int**） | 当前步号 |
+| | `S_MORE` | 还有后续步可显示 |
+| | `S_ACTIVE` | `S_NO` 显示的步处于激活态 |
+| | `ERR_FLT` | 互锁或监控的汇总故障 |
+| | `AUTO_ON` / `TAP_ON` / `TOP_ON` / `MAN_ON` | 各模式已接通 |
+| `Static` | `RT_DATA` | **内部运行时数据区**（见下） |
+| | 每步一个 `G7_StepPlus_Vn` | 步结构：`SNO`(Int)、`T_MAX`(Time)、`T_WARN`(Time)、`H_SV_FLT`(Byte) |
+| | 每转换一个 `G7_TransitionPlus_Vn` | 转换结构：`TNO`(Int) |
+
+`RT_DATA` 本身是个嵌套结构，内部含
+`VERSION`、`S_CNT`/`T_CNT`/`SUP_CNT` 等计数、
+`MOP`（`G7_MOPPlus_Vn`：AUTO/LOCK/SUP/ACKREQ/INIT…）、
+`SQ_FLAGS`（`G7_SQFlagsPlus_Vn`）、
+`OFFSETS`（`G7_OffsetsPlus_Vn`，一张几十项的 `UInt` 偏移表）
+—— 合计几百字节，**全是未公开的系统类型**。
+
+> `G7_*` 的版本号跟着 GRAPH 版本走：
+> `GraphVersion 4.0` 用 `_V4`，`GraphVersion 6.0` 用 `_V6`。
 
 **实践建议：直接把参考块导出的 `<Interface>…</Interface>` 整段原样复用。**
 手工拼这段极易出错，而且不同 CPU/版本还会有差异。
 `build-graph-xml.mjs` 就是这么做的——它从参考 XML 里正则抠出 `<Interface>` 段整体嵌入。
+
+#### ⭐ 实测：TIA 会**自动补全**缺失的步/转换静态成员（但有副作用）
+
+GRAPH FB 的 `Static` 段里，TIA 会为**每一个步**生成一个 `G7_StepPlus_Vn` 成员、
+为**每一个转换**生成一个 `G7_TransitionPlus_Vn` 成员，
+外加一个 `G7_RTDataPlus_Vn` 运行时映像（内部还有 `G7_MOPPlus_Vn`、
+`G7_SQFlagsPlus_Vn`、`G7_OffsetsPlus_Vn` 等，几百字节的偏移表）。
+
+这些都是**未公开的系统数据类型**，手工拼不现实。
+
+**本机实测**：我们的示例生成器把参考块的 `<Interface>` 原样复用，
+于是源 XML 里带的是**参考工程留下的**成员：
+
+| | `G7_StepPlus` 成员 | `G7_TransitionPlus` 成员 |
+| --- | --- | --- |
+| **源 XML（复用参考接口）** | 7 个：`Step1, Step30…Step34, Step36` | 7 个：`Trans43, Trans48…Trans52, Trans55` |
+| **TIA 反导出后** | **16 个** | **17 个** |
+
+也就是说，TIA 在导入时**自动补出了**我们真正需要的
+`Step2…Step10`（9 个）和 `Trans1…Trans10`（10 个），
+并且**保留了参考工程里那 14 个用不到的陈旧成员**。
+最终 34 个 Static 成员 = 1 个 `RT_DATA` + 16 + 17。
+
+**结论（重要）**：
+
+1. ✅ **"接口整段复用"这条路线是可行的** —— TIA 会自动补全缺失的步/转换成员，
+   不需要你自己造 `G7_*`。
+2. ⚠️ **但它会把参考块的陈旧成员一起带进你的块**。
+   上面例子里就多出 `Step30…Step36`、`Trans43…Trans55` 共 14 个垃圾成员，
+   会出现在块的接口里。
+3. 👉 **生产环境建议**：生成时把 `<Interface>` 里
+   `Datatype` 以 `G7_StepPlus` / `G7_TransitionPlus` 开头的 `<Member>` 全部过滤掉，
+   只保留 `G7_RTDataPlus_Vn` 及其内容、`GRAPH_BASE` 段和系统参数，
+   让 TIA 自己按 `<Sequence>` 补齐。
+   （本仓库示例为保持与实测产物一致，没有做这个清理——**这属于已知的待改进点**。）
+
+#### `GraphVersion` 与命名空间版本**不是同一个数列**
+
+| 实测样本 | `<GraphVersion>` | `<Graph xmlns=…>` |
+| --- | --- | --- |
+| TIA V14 SP1 导出 | `4.0` | `…/NetworkSource/Graph/v1` |
+| **本仓库示例（导入 V20 成功）** | **`6.0`** | **`…/NetworkSource/Graph/v5`** |
+| TIA V21 导出 | `6.0` | `…/NetworkSource/Graph/v6` |
+
+可见 `GraphVersion` 的数字和 `xmlns` 里的 `/vN` **没有固定的线性对应关系**。
+
+> ⚠ **写 XML 时不要靠推算**：直接从**目标 TIA 版本**导出一份真实 GRAPH 块，
+> 照抄它的 `GraphVersion` 和 `xmlns`。
+> 本仓库示例用的是 `GraphVersion 6.0` + `Graph/v5`，在 V20 上导入/编译/反导出全部通过。
 
 ### 4.3 步（Step）
 
