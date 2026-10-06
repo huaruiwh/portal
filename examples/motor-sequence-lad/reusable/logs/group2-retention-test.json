@@ -1,0 +1,11 @@
+{
+    "Passed":  true,
+    "Group2AfterPowerCycleMilliseconds":  [
+                                              1700,
+                                              700
+                                          ],
+    "RestoredMilliseconds":  [
+                                 2000,
+                                 2000
+                             ]
+}

@@ -1,0 +1,125 @@
+{
+    "Date":  "2026-10-06T22:32:26.6720567+08:00",
+    "Instance":  "MotorSeqMulti_20261006",
+    "State":  "Run",
+    "Passed":  true,
+    "Configurations":  2,
+    "DefaultsMilliseconds":  [
+                                 2000,
+                                 2000
+                             ],
+    "Results":  [
+                    {
+                        "StartIntervalMilliseconds":  800,
+                        "StopIntervalMilliseconds":  1400,
+                        "Readback":  [
+                                         800,
+                                         1400
+                                     ],
+                        "Start":  {
+                                      "ExpectedMilliseconds":  800,
+                                      "ActualIntervals":  [
+                                                              821,
+                                                              796
+                                                          ],
+                                      "Trace":  [
+                                                    {
+                                                        "Milliseconds":  3,
+                                                        "Outputs":  "100"
+                                                    },
+                                                    {
+                                                        "Milliseconds":  824,
+                                                        "Outputs":  "110"
+                                                    },
+                                                    {
+                                                        "Milliseconds":  1620,
+                                                        "Outputs":  "111"
+                                                    }
+                                                ],
+                                      "Passed":  true
+                                  },
+                        "Stop":  {
+                                     "ExpectedMilliseconds":  1400,
+                                     "ActualIntervals":  [
+                                                             1397,
+                                                             1412
+                                                         ],
+                                     "Trace":  [
+                                                   {
+                                                       "Milliseconds":  33,
+                                                       "Outputs":  "110"
+                                                   },
+                                                   {
+                                                       "Milliseconds":  1430,
+                                                       "Outputs":  "100"
+                                                   },
+                                                   {
+                                                       "Milliseconds":  2842,
+                                                       "Outputs":  "000"
+                                                   }
+                                               ],
+                                     "Passed":  true
+                                 },
+                        "Passed":  true
+                    },
+                    {
+                        "StartIntervalMilliseconds":  1500,
+                        "StopIntervalMilliseconds":  500,
+                        "Readback":  [
+                                         1500,
+                                         500
+                                     ],
+                        "Start":  {
+                                      "ExpectedMilliseconds":  1500,
+                                      "ActualIntervals":  [
+                                                              1524,
+                                                              1495
+                                                          ],
+                                      "Trace":  [
+                                                    {
+                                                        "Milliseconds":  25,
+                                                        "Outputs":  "100"
+                                                    },
+                                                    {
+                                                        "Milliseconds":  1549,
+                                                        "Outputs":  "110"
+                                                    },
+                                                    {
+                                                        "Milliseconds":  3044,
+                                                        "Outputs":  "111"
+                                                    }
+                                                ],
+                                      "Passed":  true
+                                  },
+                        "Stop":  {
+                                     "ExpectedMilliseconds":  500,
+                                     "ActualIntervals":  [
+                                                             499,
+                                                             503
+                                                         ],
+                                     "Trace":  [
+                                                   {
+                                                       "Milliseconds":  28,
+                                                       "Outputs":  "110"
+                                                   },
+                                                   {
+                                                       "Milliseconds":  527,
+                                                       "Outputs":  "100"
+                                                   },
+                                                   {
+                                                       "Milliseconds":  1030,
+                                                       "Outputs":  "000"
+                                                   }
+                                               ],
+                                     "Passed":  true
+                                 },
+                        "Passed":  true
+                    }
+                ],
+    "RestoredMilliseconds":  [
+                                 2000,
+                                 2000
+                             ],
+    "FinalOutputs":  "000",
+    "Error":  null
+}

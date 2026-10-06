@@ -4,6 +4,8 @@ VERSION : 1.0
 VAR
     StartInterval : Time := T#2s;
     StopInterval : Time := T#2s;
+    Group2StartInterval : Time := T#2s;
+    Group2StopInterval : Time := T#2s;
 END_VAR
 BEGIN
 END_DATA_BLOCK

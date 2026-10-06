@@ -1,7 +1,7 @@
-﻿param([switch]$Graph)
+﻿param([switch]$Graph,[switch]$Reusable)
 $ErrorActionPreference='Stop'
 $root=Split-Path $PSScriptRoot -Parent
-$logRoot=if($Graph){"$root\graph\logs"}else{"$root\logs"}
+$logRoot=if($Reusable){"$root\reusable\logs"}elseif($Graph){"$root\graph\logs"}else{"$root\logs"}
 $report=Get-Content "$logRoot\runtime-test.json" -Raw | ConvertFrom-Json
 if(-not $report.Passed -or $report.ScenarioCount -ne 9){throw 'The complete runtime scenario test did not pass.'}
 $checks=@()

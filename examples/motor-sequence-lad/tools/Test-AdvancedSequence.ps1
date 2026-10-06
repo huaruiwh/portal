@@ -1,9 +1,9 @@
-﻿param([string]$InstanceName='MotorSeqApi_20261006',[switch]$Graph)
+﻿param([string]$InstanceName='MotorSeqApi_20261006',[switch]$Graph,[switch]$Reusable)
 $ErrorActionPreference='Stop'
 $root=Split-Path $PSScriptRoot -Parent
 if($Graph -and -not $PSBoundParameters.ContainsKey('InstanceName')){$InstanceName='MotorSeqGraph_20261006'}
-$logRoot=if($Graph){"$root\graph\logs"}else{"$root\logs"}
-$verifyRoot=if($Graph){"$root\graph\verify"}else{"$root\verify"}
+$logRoot=if($Reusable){"$root\reusable\logs"}elseif($Graph){"$root\graph\logs"}else{"$root\logs"}
+$verifyRoot=if($Reusable){"$root\reusable\verify"}elseif($Graph){"$root\graph\verify"}else{"$root\verify"}
 [Reflection.Assembly]::LoadFrom('D:\Program Files\Siemens\Automation\PLCSIM_V20\resources\bin\wwwroot\assets\lib\runtime\Siemens.Simatic.Simulation.Runtime.Api.x64.dll') | Out-Null
 $existing=[Siemens.Simatic.Simulation.Runtime.SimulationRuntimeManager]::RegisteredInstanceInfo | Where-Object {$_.Name -eq $InstanceName}
 if($existing){$instance=[Siemens.Simatic.Simulation.Runtime.SimulationRuntimeManager]::CreateInterface($InstanceName)}

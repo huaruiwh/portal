@@ -1,5 +1,30 @@
 # TIA Portal V20 三电机顺序启停（LAD / GRAPH）
 
+## 当前版本：LAD 多重背景（2026-10-06）
+
+当前 OB1 → MotorGroups（FB3）→ Group1/Group2（同一个 MotorSequenceLAD FB1）。FB3 Static 中两份实例的状态和共 8 个 TON_TIME 全部嵌入唯一背景 MotorGroups_DB（DB4）。原单组背景 DB1 已删除。当前 LAD 使用 2 个 DB：背景 DB4 + 参数 DB2。GRAPH DB3 保留供切换，当前不调用。两组四个保持型 TIME 参数集中在 DB2：StartInterval、StopInterval、Group2StartInterval、Group2StopInterval，默认均 2000 ms。
+
+FB1 输入 Start/Stop（Bool）、StartInterval/StopInterval（Time）；输出 Motor1/2/3、Stopping（Bool）。22 个 LAD 网络内部全部采用局部变量，无全局 M/Q 或参数 DB 引用。组1按钮 M0.0/M0.1、输出 Q0.0～Q0.2；组2按钮 M8.0/M8.1、停机 M8.2、输出 Q1.0～Q1.2。FB1、总控 FB3、OB1 均为 LAD，SCL 只建立接口和多重背景声明。
+
+验证：编译 0 错误/1 个既有 I/O 警告，下载 0 错误/0 警告，原启停 9/9、多组独立运行 12/12、默认时间 4/4、两组不同参数配置均通过。组1 1200/900 ms、组2 1700/700 ms 模拟断电保持通过。结束四个参数恢复 2000 ms、两组输出 000。最新 XML/反导出/日志在 reusable/xml、reusable/verify、reusable/logs；下方旧阶段内容保留为历史。
+
+增加组数：在 FB3 Static 声明 Group3 : MotorSequenceLAD，增加 LocalVariable 多重背景调用、独立按钮/输出及 DB2 时间参数，编译下载。无需增加背景 DB；每组必须用不同 Static 实例名。
+
+已有本示例工程时，先退出展示终端（quit）。在 Siemens 目录依次执行，各测试完成后才运行下一项：
+
+```powershell
+& 'D:\Program Files\Siemens\Automation\UserManagement\web\node.exe' .\examples\motor-sequence-lad\tools\prepare-reusable.mjs
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\examples\motor-sequence-lad\tools\Apply-ReusableLad.ps1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\examples\motor-sequence-lad\tools\Stop-AdvancedDemo.ps1 -InstanceName MotorSeqMulti_20261006
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\examples\motor-sequence-lad\tools\Export-SimulationCard.ps1 -Reusable -InstanceName MotorSeqMulti_20261006
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\examples\motor-sequence-lad\tools\Test-AdvancedSequence.ps1 -Reusable -InstanceName MotorSeqMulti_20261006
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\examples\motor-sequence-lad\tools\Verify-SavedTiming.ps1 -Reusable
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\examples\motor-sequence-lad\tools\Test-MultiInstance.ps1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\examples\motor-sequence-lad\tools\Test-ConfigurableIntervals.ps1 -Reusable -InstanceName MotorSeqMulti_20261006
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\examples\motor-sequence-lad\tools\Test-SettingsRetention.ps1 -Reusable -InstanceName MotorSeqMulti_20261006
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\examples\motor-sequence-lad\tools\Open-FixedDemo.ps1 -Reusable -InstanceName MotorSeqMulti_20261006
+```
+
 日期：2026-10-06。使用独立工程 `project/MotorSequence_Fixed/MotorSequence_Fixed.ap20`，旧工程未覆盖。
 
 启动 `M0.0` 上升沿；停止 `M0.1`。输出电机1/2/3 为 `Q0.0/Q0.1/Q0.2`。完整启动顺序为 1→2→3，每级 2 秒；停止立即断开当前最后启动的一台，再每级 2 秒逆序停止剩余电机。停止请求锁存，松开按钮不取消停机；停止优先，停机期间拒绝启动，启动长按不会在停机后自动重启，需释放并重新按下。

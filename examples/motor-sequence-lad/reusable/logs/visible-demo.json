@@ -1,0 +1,16 @@
+{
+    "Date":  "2026-10-06T22:34:02.0673564+08:00",
+    "Project":  "C:\\Users\\wei\u0027ke\\Documents\\Siemens\\TiaMotorSequence_Fixed_20261006\\project\\MotorSequence_Fixed\\MotorSequence_Fixed.ap20",
+    "Implementation":  "MotorSequenceLAD",
+    "Instance":  "MotorSeqMulti_20261006",
+    "State":  "Run",
+    "TIAProcessId":  13156,
+    "SettingsBlockNumber":  2,
+    "StartIntervalMilliseconds":  2000,
+    "StopIntervalMilliseconds":  2000,
+    "Outputs":  [
+                    false,
+                    false,
+                    false
+                ]
+}

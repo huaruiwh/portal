@@ -1,5 +1,9 @@
 # TIA Portal Openness 自动化操作手册
 
+### 最新：LAD 可复用 FB 与一个多重背景 DB（2026-10-06）
+
+FB1 不再使用全局状态；总控 FB3 的 Group1/Group2 两份静态多重背景共同存入 DB4，参数统一在保持型 DB2。当前 OB1 选择多组 LAD，旧单组背景 DB1 已删除。真实编译 0 错误/1 个既有 I/O 警告，下载 0 错误/0 警告；原 9 项启停、两组互不干扰的 12 项检查、参数变化与两组断电保持全部通过。[复现说明](examples/motor-sequence-lad/README.md) · [新源、反导出与日志](examples/motor-sequence-lad/reusable/) · [实现记录](examples/motor-sequence-lad/docs/三电机修正-实现记录.md)。下方 GRAPH 等章节是前阶段记录。
+
 ## 历史成果恢复（2026-10-06）
 
 已从本机找回聊天“用博图 Openness 生成梯形图示例”及相关工程、脚本、日志和反导出 XML。恢复范围与证据见 [历史恢复实现记录](docs/历史对话恢复-实现记录.md)。历史恢复阶段只核对文件和日志；后续三电机修正已重新执行真实 TIA 编译、下载和 PLCSIM Advanced 仿真，结果如下。

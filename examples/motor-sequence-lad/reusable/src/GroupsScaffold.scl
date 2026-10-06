@@ -1,0 +1,9 @@
+FUNCTION_BLOCK "MotorGroups"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.0
+VAR
+ Group1 : "MotorSequenceLAD";
+ Group2 : "MotorSequenceLAD";
+END_VAR
+BEGIN
+END_FUNCTION_BLOCK

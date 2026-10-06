@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?><Document><Engineering version="V20"/><SW.Blocks.FB ID="0"><AttributeList><AutoNumber>false</AutoNumber><MemoryLayout>Optimized</MemoryLayout><Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Input" />
+  <Section Name="Output" />
+  <Section Name="InOut" />
+  <Section Name="Static">
+    <Member Name="Group1" Datatype="&quot;MotorSequenceLAD&quot;" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Sections>
+        <Section Name="Input">
+          <Member Name="Start" Datatype="Bool" />
+          <Member Name="Stop" Datatype="Bool" />
+          <Member Name="StartInterval" Datatype="Time" />
+          <Member Name="StopInterval" Datatype="Time" />
+        </Section>
+        <Section Name="Output">
+          <Member Name="Motor1" Datatype="Bool" />
+          <Member Name="Motor2" Datatype="Bool" />
+          <Member Name="Motor3" Datatype="Bool" />
+          <Member Name="Stopping" Datatype="Bool" />
+        </Section>
+        <Section Name="InOut" />
+        <Section Name="Static">
+          <Member Name="Active1" Datatype="Bool" />
+          <Member Name="Active2" Datatype="Bool" />
+          <Member Name="Active3" Datatype="Bool" />
+          <Member Name="PreviousStart" Datatype="Bool" />
+          <Member Name="StartPulse" Datatype="Bool" />
+          <Member Name="StopEvent" Datatype="Bool" />
+          <Member Name="Had3" Datatype="Bool" />
+          <Member Name="Had2" Datatype="Bool" />
+          <Member Name="Start2Done" Datatype="Bool" />
+          <Member Name="Start3Done" Datatype="Bool" />
+          <Member Name="Stop2Done" Datatype="Bool" />
+          <Member Name="Stop1Done" Datatype="Bool" />
+          <Member Name="Start2" Datatype="TON_TIME" Version="1.0">
+            <Sections>
+              <Section Name="None">
+                <Member Name="PT" Datatype="Time" />
+                <Member Name="ET" Datatype="Time" />
+                <Member Name="IN" Datatype="Bool" />
+                <Member Name="Q" Datatype="Bool" />
+              </Section>
+            </Sections>
+          </Member>
+          <Member Name="Start3" Datatype="TON_TIME" Version="1.0">
+            <Sections>
+              <Section Name="None">
+                <Member Name="PT" Datatype="Time" />
+                <Member Name="ET" Datatype="Time" />
+                <Member Name="IN" Datatype="Bool" />
+                <Member Name="Q" Datatype="Bool" />
+              </Section>
+            </Sections>
+          </Member>
+          <Member Name="Stop2" Datatype="TON_TIME" Version="1.0">
+            <Sections>
+              <Section Name="None">
+                <Member Name="PT" Datatype="Time" />
+                <Member Name="ET" Datatype="Time" />
+                <Member Name="IN" Datatype="Bool" />
+                <Member Name="Q" Datatype="Bool" />
+              </Section>
+            </Sections>
+          </Member>
+          <Member Name="Stop1" Datatype="TON_TIME" Version="1.0">
+            <Sections>
+              <Section Name="None">
+                <Member Name="PT" Datatype="Time" />
+                <Member Name="ET" Datatype="Time" />
+                <Member Name="IN" Datatype="Bool" />
+                <Member Name="Q" Datatype="Bool" />
+              </Section>
+            </Sections>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Group2" Datatype="&quot;MotorSequenceLAD&quot;" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Sections>
+        <Section Name="Input">
+          <Member Name="Start" Datatype="Bool" />
+          <Member Name="Stop" Datatype="Bool" />
+          <Member Name="StartInterval" Datatype="Time" />
+          <Member Name="StopInterval" Datatype="Time" />
+        </Section>
+        <Section Name="Output">
+          <Member Name="Motor1" Datatype="Bool" />
+          <Member Name="Motor2" Datatype="Bool" />
+          <Member Name="Motor3" Datatype="Bool" />
+          <Member Name="Stopping" Datatype="Bool" />
+        </Section>
+        <Section Name="InOut" />
+        <Section Name="Static">
+          <Member Name="Active1" Datatype="Bool" />
+          <Member Name="Active2" Datatype="Bool" />
+          <Member Name="Active3" Datatype="Bool" />
+          <Member Name="PreviousStart" Datatype="Bool" />
+          <Member Name="StartPulse" Datatype="Bool" />
+          <Member Name="StopEvent" Datatype="Bool" />
+          <Member Name="Had3" Datatype="Bool" />
+          <Member Name="Had2" Datatype="Bool" />
+          <Member Name="Start2Done" Datatype="Bool" />
+          <Member Name="Start3Done" Datatype="Bool" />
+          <Member Name="Stop2Done" Datatype="Bool" />
+          <Member Name="Stop1Done" Datatype="Bool" />
+          <Member Name="Start2" Datatype="TON_TIME" Version="1.0">
+            <Sections>
+              <Section Name="None">
+                <Member Name="PT" Datatype="Time" />
+                <Member Name="ET" Datatype="Time" />
+                <Member Name="IN" Datatype="Bool" />
+                <Member Name="Q" Datatype="Bool" />
+              </Section>
+            </Sections>
+          </Member>
+          <Member Name="Start3" Datatype="TON_TIME" Version="1.0">
+            <Sections>
+              <Section Name="None">
+                <Member Name="PT" Datatype="Time" />
+                <Member Name="ET" Datatype="Time" />
+                <Member Name="IN" Datatype="Bool" />
+                <Member Name="Q" Datatype="Bool" />
+              </Section>
+            </Sections>
+          </Member>
+          <Member Name="Stop2" Datatype="TON_TIME" Version="1.0">
+            <Sections>
+              <Section Name="None">
+                <Member Name="PT" Datatype="Time" />
+                <Member Name="ET" Datatype="Time" />
+                <Member Name="IN" Datatype="Bool" />
+                <Member Name="Q" Datatype="Bool" />
+              </Section>
+            </Sections>
+          </Member>
+          <Member Name="Stop1" Datatype="TON_TIME" Version="1.0">
+            <Sections>
+              <Section Name="None">
+                <Member Name="PT" Datatype="Time" />
+                <Member Name="ET" Datatype="Time" />
+                <Member Name="IN" Datatype="Bool" />
+                <Member Name="Q" Datatype="Bool" />
+              </Section>
+            </Sections>
+          </Member>
+        </Section>
+      </Sections>
+    </Member>
+  </Section>
+  <Section Name="Temp" />
+  <Section Name="Constant" />
+</Sections></Interface><Name>MotorGroups</Name><Namespace/><Number>3</Number><ProgrammingLanguage>LAD</ProgrammingLanguage></AttributeList><ObjectList><SW.Blocks.CompileUnit ID="10" CompositionName="CompileUnits"><AttributeList><NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5"><Parts><Access Scope="GlobalVariable" UId="22"><Symbol><Component Name="Start_Command"/></Symbol></Access><Access Scope="GlobalVariable" UId="24"><Symbol><Component Name="Stop_Command"/></Symbol></Access><Access Scope="GlobalVariable" UId="26"><Symbol><Component Name="MotorSequence_Settings"/><Component Name="StartInterval"/></Symbol></Access><Access Scope="GlobalVariable" UId="28"><Symbol><Component Name="MotorSequence_Settings"/><Component Name="StopInterval"/></Symbol></Access><Access Scope="GlobalVariable" UId="30"><Symbol><Component Name="Motor_1"/></Symbol></Access><Access Scope="GlobalVariable" UId="32"><Symbol><Component Name="Motor_2"/></Symbol></Access><Access Scope="GlobalVariable" UId="34"><Symbol><Component Name="Motor_3"/></Symbol></Access><Access Scope="GlobalVariable" UId="36"><Symbol><Component Name="Stop_Latched"/></Symbol></Access><Call UId="20"><CallInfo Name="MotorSequenceLAD" BlockType="FB"><Instance Scope="LocalVariable" UId="21"><Component Name="Group1"/></Instance><Parameter Name="Start" Section="Input" Type="Bool"/><Parameter Name="Stop" Section="Input" Type="Bool"/><Parameter Name="StartInterval" Section="Input" Type="Time"/><Parameter Name="StopInterval" Section="Input" Type="Time"/><Parameter Name="Motor1" Section="Output" Type="Bool"/><Parameter Name="Motor2" Section="Output" Type="Bool"/><Parameter Name="Motor3" Section="Output" Type="Bool"/><Parameter Name="Stopping" Section="Output" Type="Bool"/></CallInfo></Call></Parts><Wires><Wire UId="23"><IdentCon UId="22"/><NameCon UId="20" Name="Start"/></Wire><Wire UId="25"><IdentCon UId="24"/><NameCon UId="20" Name="Stop"/></Wire><Wire UId="27"><IdentCon UId="26"/><NameCon UId="20" Name="StartInterval"/></Wire><Wire UId="29"><IdentCon UId="28"/><NameCon UId="20" Name="StopInterval"/></Wire><Wire UId="31"><IdentCon UId="30"/><NameCon UId="20" Name="Motor1"/></Wire><Wire UId="33"><IdentCon UId="32"/><NameCon UId="20" Name="Motor2"/></Wire><Wire UId="35"><IdentCon UId="34"/><NameCon UId="20" Name="Motor3"/></Wire><Wire UId="37"><IdentCon UId="36"/><NameCon UId="20" Name="Stopping"/></Wire><Wire UId="38"><Powerrail/><NameCon UId="20" Name="en"/></Wire><Wire UId="39"><NameCon UId="20" Name="eno"/><OpenCon UId="40"/></Wire></Wires></FlgNet></NetworkSource><ProgrammingLanguage>LAD</ProgrammingLanguage></AttributeList></SW.Blocks.CompileUnit><SW.Blocks.CompileUnit ID="11" CompositionName="CompileUnits"><AttributeList><NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5"><Parts><Access Scope="GlobalVariable" UId="43"><Symbol><Component Name="Group2_Start_Command"/></Symbol></Access><Access Scope="GlobalVariable" UId="45"><Symbol><Component Name="Group2_Stop_Command"/></Symbol></Access><Access Scope="GlobalVariable" UId="47"><Symbol><Component Name="MotorSequence_Settings"/><Component Name="Group2StartInterval"/></Symbol></Access><Access Scope="GlobalVariable" UId="49"><Symbol><Component Name="MotorSequence_Settings"/><Component Name="Group2StopInterval"/></Symbol></Access><Access Scope="GlobalVariable" UId="51"><Symbol><Component Name="Group2_Motor_1"/></Symbol></Access><Access Scope="GlobalVariable" UId="53"><Symbol><Component Name="Group2_Motor_2"/></Symbol></Access><Access Scope="GlobalVariable" UId="55"><Symbol><Component Name="Group2_Motor_3"/></Symbol></Access><Access Scope="GlobalVariable" UId="57"><Symbol><Component Name="Group2_Stopping"/></Symbol></Access><Call UId="41"><CallInfo Name="MotorSequenceLAD" BlockType="FB"><Instance Scope="LocalVariable" UId="42"><Component Name="Group2"/></Instance><Parameter Name="Start" Section="Input" Type="Bool"/><Parameter Name="Stop" Section="Input" Type="Bool"/><Parameter Name="StartInterval" Section="Input" Type="Time"/><Parameter Name="StopInterval" Section="Input" Type="Time"/><Parameter Name="Motor1" Section="Output" Type="Bool"/><Parameter Name="Motor2" Section="Output" Type="Bool"/><Parameter Name="Motor3" Section="Output" Type="Bool"/><Parameter Name="Stopping" Section="Output" Type="Bool"/></CallInfo></Call></Parts><Wires><Wire UId="44"><IdentCon UId="43"/><NameCon UId="41" Name="Start"/></Wire><Wire UId="46"><IdentCon UId="45"/><NameCon UId="41" Name="Stop"/></Wire><Wire UId="48"><IdentCon UId="47"/><NameCon UId="41" Name="StartInterval"/></Wire><Wire UId="50"><IdentCon UId="49"/><NameCon UId="41" Name="StopInterval"/></Wire><Wire UId="52"><IdentCon UId="51"/><NameCon UId="41" Name="Motor1"/></Wire><Wire UId="54"><IdentCon UId="53"/><NameCon UId="41" Name="Motor2"/></Wire><Wire UId="56"><IdentCon UId="55"/><NameCon UId="41" Name="Motor3"/></Wire><Wire UId="58"><IdentCon UId="57"/><NameCon UId="41" Name="Stopping"/></Wire><Wire UId="59"><Powerrail/><NameCon UId="41" Name="en"/></Wire><Wire UId="60"><NameCon UId="41" Name="eno"/><OpenCon UId="61"/></Wire></Wires></FlgNet></NetworkSource><ProgrammingLanguage>LAD</ProgrammingLanguage></AttributeList></SW.Blocks.CompileUnit></ObjectList></SW.Blocks.FB></Document>

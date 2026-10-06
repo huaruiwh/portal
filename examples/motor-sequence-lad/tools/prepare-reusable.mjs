@@ -1,0 +1,18 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const names={'M0.0':'Start','M0.1':'Stop','M2.0':'Active1','M2.1':'Active2','M2.2':'Active3','M3.0':'Stopping','M4.0':'PreviousStart','M4.1':'StartPulse','M4.2':'StopEvent','M4.3':'Had3','M4.4':'Had2','M5.0':'Start2Done','M5.1':'Start3Done','M5.2':'Stop2Done','M5.3':'Stop1Done','Q0.0':'Motor1','Q0.1':'Motor2','Q0.2':'Motor3'};
+let s=fs.readFileSync(path.join(root,'tools/build-fixed-lad.mjs'),'utf8');
+for(const [a,n] of Object.entries(names))s=s.replaceAll(`'${a}'`,`'${n}'`);
+s=s.replace(/function address\(addr\)\{.*?return n;\}/,`function address(addr){const n=next();parts.push(\`<Access Scope="LocalVariable" UId="\${n}"><Symbol><Component Name="\${addr}"/></Symbol></Access>\`);return n;}`);
+s=s.replace('Scope="GlobalVariable" UId="${pt}"','Scope="LocalVariable" UId="${pt}"').replace('<Component Name="MotorSequence_Settings"/>','');
+s=s.replace('verify/TimerScaffold_export.xml','reusable/verify/Scaffold_export.xml').replace("xml/MotorSequenceLAD.xml","reusable/xml/MotorSequenceLAD.xml").replace("xml/Main_OB1.xml","reusable/xml/Unused_Main.xml");
+s=s.replace(/fs.writeFileSync\(path.join\(root,'reusable\/xml\/Unused_Main.xml'\),main\);/, '');
+fs.writeFileSync(path.join(root,'tools/build-reusable-lad.mjs'),s);
+const inputs=' Start : Bool;\n Stop : Bool;\n StartInterval : Time;\n StopInterval : Time;';
+const outputs=' Motor1 : Bool;\n Motor2 : Bool;\n Motor3 : Bool;\n Stopping : Bool;';
+const stat=Object.values(names).filter(n=>!['Start','Stop','Motor1','Motor2','Motor3','Stopping'].includes(n));
+fs.writeFileSync(path.join(root,'reusable/src/Scaffold.scl'),`FUNCTION_BLOCK "MotorSequenceLAD"\n{ S7_Optimized_Access := 'TRUE' }\nVERSION : 2.0\nVAR_INPUT\n${inputs}\nEND_VAR\nVAR_OUTPUT\n${outputs}\nEND_VAR\nVAR\n${stat.map(n=>` ${n} : Bool;`).join('\n')}\n Start2 : TON_TIME;\n Start3 : TON_TIME;\n Stop2 : TON_TIME;\n Stop1 : TON_TIME;\nEND_VAR\nBEGIN\n #Start2(IN := FALSE, PT := #StartInterval);\n #Start3(IN := FALSE, PT := #StartInterval);\n #Stop2(IN := FALSE, PT := #StopInterval);\n #Stop1(IN := FALSE, PT := #StopInterval);\nEND_FUNCTION_BLOCK\n`);
+fs.writeFileSync(path.join(root,'reusable/src/GroupsScaffold.scl'),`FUNCTION_BLOCK "MotorGroups"\n{ S7_Optimized_Access := 'TRUE' }\nVERSION : 1.0\nVAR\n Group1 : "MotorSequenceLAD";\n Group2 : "MotorSequenceLAD";\nEND_VAR\nBEGIN\nEND_FUNCTION_BLOCK\n`);
+console.log('Reusable LAD generator and interface scaffolds prepared.');

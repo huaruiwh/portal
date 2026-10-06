@@ -10,7 +10,7 @@ try {
  $plc=Get-PlcSoftware -Project $project
  $blockName=if($Language -eq 'GRAPH'){'MotorSequenceGRAPH'}else{'MotorSequenceLAD'}
  if(-not $plc.BlockGroup.Blocks.Find($blockName)){throw "Missing implementation $blockName"}
- $source=if($Language -eq 'GRAPH'){"$root\graph\xml\Main_GRAPH.xml"}else{"$root\xml\Main_OB1.xml"}
+ $source=if($Language -eq 'GRAPH'){"$root\graph\xml\Main_GRAPH.xml"}elseif($plc.BlockGroup.Blocks.Find('MotorGroups')){"$root\reusable\xml\Main_OB1.xml"}else{"$root\xml\Main_OB1.xml"}
  $plc.BlockGroup.Blocks.Import([IO.FileInfo]::new($source),[Siemens.Engineering.ImportOptions]::Override) | Out-Null
  $report=Invoke-PlcCompile -PlcSoftware $plc
  $logRoot=if($Language -eq 'GRAPH'){"$root\graph\logs"}else{"$root\logs"}

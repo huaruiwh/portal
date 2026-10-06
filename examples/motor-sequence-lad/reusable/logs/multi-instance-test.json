@@ -1,0 +1,107 @@
+{
+    "FinalGroup2":  "000",
+    "Passed":  true,
+    "FinalGroup1":  "000",
+    "Instance":  "MotorSeqMulti_20261006",
+    "Error":  null,
+    "Date":  "2026-10-06T22:32:05.1544777+08:00",
+    "CheckCount":  12,
+    "Checks":  [
+                   {
+                       "Passed":  true,
+                       "Name":  "parallel first motors",
+                       "Group2":  "100",
+                       "Expected2":  "100",
+                       "Group1":  "100",
+                       "Expected1":  "100"
+                   },
+                   {
+                       "Passed":  true,
+                       "Name":  "independent start timers",
+                       "Group2":  "100",
+                       "Expected2":  "100",
+                       "Group1":  "110",
+                       "Expected1":  "110"
+                   },
+                   {
+                       "Passed":  true,
+                       "Name":  "both fully running",
+                       "Group2":  "111",
+                       "Expected2":  "111",
+                       "Group1":  "111",
+                       "Expected1":  "111"
+                   },
+                   {
+                       "Passed":  true,
+                       "Name":  "group1 stops third; group2 unchanged",
+                       "Group2":  "111",
+                       "Expected2":  "111",
+                       "Group1":  "110",
+                       "Expected1":  "110"
+                   },
+                   {
+                       "Passed":  true,
+                       "Name":  "group1 fully stopped; group2 unaffected",
+                       "Group2":  "111",
+                       "Expected2":  "111",
+                       "Group1":  "000",
+                       "Expected1":  "000"
+                   },
+                   {
+                       "Passed":  true,
+                       "Name":  "group2 starts stop sequence independently",
+                       "Group2":  "110",
+                       "Expected2":  "110",
+                       "Group1":  "000",
+                       "Expected1":  "000"
+                   },
+                   {
+                       "Passed":  true,
+                       "Name":  "group1 restarts during group2 stop",
+                       "Group2":  "110",
+                       "Expected2":  "110",
+                       "Group1":  "100",
+                       "Expected1":  "100"
+                   },
+                   {
+                       "Passed":  true,
+                       "Name":  "group1 starts second while group2 stops second",
+                       "Group2":  "100",
+                       "Expected2":  "100",
+                       "Group1":  "110",
+                       "Expected1":  "110"
+                   },
+                   {
+                       "Passed":  true,
+                       "Name":  "held group2 start does not restart",
+                       "Group2":  "000",
+                       "Expected2":  "000",
+                       "Group1":  "111",
+                       "Expected1":  "111"
+                   },
+                   {
+                       "Passed":  true,
+                       "Name":  "release permits independent restart",
+                       "Group2":  "100",
+                       "Expected2":  "100",
+                       "Group1":  "111",
+                       "Expected1":  "111"
+                   },
+                   {
+                       "Passed":  true,
+                       "Name":  "group2 partial startup stops immediately; group1 unchanged",
+                       "Group2":  "000",
+                       "Expected2":  "000",
+                       "Group1":  "111",
+                       "Expected1":  "111"
+                   },
+                   {
+                       "Passed":  true,
+                       "Name":  "both finish off",
+                       "Group2":  "000",
+                       "Expected2":  "000",
+                       "Group1":  "000",
+                       "Expected1":  "000"
+                   }
+               ]
+}

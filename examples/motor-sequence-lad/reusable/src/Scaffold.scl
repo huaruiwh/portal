@@ -1,0 +1,39 @@
+FUNCTION_BLOCK "MotorSequenceLAD"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 2.0
+VAR_INPUT
+ Start : Bool;
+ Stop : Bool;
+ StartInterval : Time;
+ StopInterval : Time;
+END_VAR
+VAR_OUTPUT
+ Motor1 : Bool;
+ Motor2 : Bool;
+ Motor3 : Bool;
+ Stopping : Bool;
+END_VAR
+VAR
+ Active1 : Bool;
+ Active2 : Bool;
+ Active3 : Bool;
+ PreviousStart : Bool;
+ StartPulse : Bool;
+ StopEvent : Bool;
+ Had3 : Bool;
+ Had2 : Bool;
+ Start2Done : Bool;
+ Start3Done : Bool;
+ Stop2Done : Bool;
+ Stop1Done : Bool;
+ Start2 : TON_TIME;
+ Start3 : TON_TIME;
+ Stop2 : TON_TIME;
+ Stop1 : TON_TIME;
+END_VAR
+BEGIN
+ #Start2(IN := FALSE, PT := #StartInterval);
+ #Start3(IN := FALSE, PT := #StartInterval);
+ #Stop2(IN := FALSE, PT := #StopInterval);
+ #Stop1(IN := FALSE, PT := #StopInterval);
+END_FUNCTION_BLOCK

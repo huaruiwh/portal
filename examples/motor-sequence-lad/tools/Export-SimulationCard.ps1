@@ -1,9 +1,9 @@
-﻿param([string]$InstanceName='MotorSeqApi_20261006',[switch]$InteractiveRetry,[switch]$Graph)
+﻿param([string]$InstanceName='MotorSeqApi_20261006',[switch]$InteractiveRetry,[switch]$Graph,[switch]$Reusable)
 $ErrorActionPreference='Stop'
 $root=Split-Path $PSScriptRoot -Parent
 if($Graph -and -not $PSBoundParameters.ContainsKey('InstanceName')){$InstanceName='MotorSeqGraph_20261006'}
-$logRoot=if($Graph){"$root\graph\logs"}else{"$root\logs"}
-$verifyRoot=if($Graph){"$root\graph\verify"}else{"$root\verify"}
+$logRoot=if($Reusable){"$root\reusable\logs"}elseif($Graph){"$root\graph\logs"}else{"$root\logs"}
+$verifyRoot=if($Reusable){"$root\reusable\verify"}elseif($Graph){"$root\graph\verify"}else{"$root\verify"}
 . "$PSScriptRoot\Openness.Common.ps1"
 $api=Import-OpennessAssembly -PortalVersion '20.0'
 Add-Type -Path "$PSScriptRoot\DownloadCardHelper.cs" -ReferencedAssemblies $api.Path
@@ -37,7 +37,7 @@ try{
  if($compile.Errors -gt 0){throw 'Refusing to export uncompiled PLC.'}
  foreach($block in $plc.BlockGroup.Blocks){$exportPath="$verifyRoot\$($block.Name)_export.xml";if(Test-Path -LiteralPath $exportPath){Remove-Item -LiteralPath $exportPath -Force};$block.Export([System.IO.FileInfo]::new($exportPath),[Siemens.Engineering.ExportOptions]::WithDefaults)}
  [xml]$mainExport=Get-Content "$verifyRoot\Main_export.xml" -Raw
- $expectedCall=if($Graph){'MotorSequenceGRAPH'}else{'MotorSequenceLAD'}
+ $expectedCall=if($Reusable){'MotorGroups'}elseif($Graph){'MotorSequenceGRAPH'}else{'MotorSequenceLAD'}
  if(-not $mainExport.SelectSingleNode("//*[local-name()='CallInfo' and @Name='$expectedCall']")){throw "OB1 does not call $expectedCall; activate the requested implementation before downloading."}
  $provider=Find-Download $project.Devices[0].DeviceItems
  if(-not $provider){throw 'DownloadProvider unavailable'}

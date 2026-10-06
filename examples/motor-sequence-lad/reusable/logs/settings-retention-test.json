@@ -1,0 +1,18 @@
+{
+    "Date":  "2026-10-06T22:33:10.2924464+08:00",
+    "Passed":  true,
+    "Instance":  "MotorSeqMulti_20261006",
+    "BeforeMilliseconds":  [
+                               1200,
+                               900
+                           ],
+    "AfterPowerCycleMilliseconds":  [
+                                        1200,
+                                        900
+                                    ],
+    "RestoredMilliseconds":  [
+                                 2000,
+                                 2000
+                             ],
+    "Error":  null
+}
