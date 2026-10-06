@@ -1,0 +1,97 @@
+{
+    "Date":  "2026-10-06T22:14:16.5734563+08:00",
+    "Instance":  "MotorSeqGraph_20261006",
+    "Passed":  true,
+    "Checks":  [
+                   {
+                       "Phase":  "Graph_Idle",
+                       "Outputs":  "000",
+                       "ActiveFlags":  [
+                                           "Graph_Idle"
+                                       ],
+                       "Passed":  true
+                   },
+                   {
+                       "Phase":  "Graph_Start1",
+                       "Outputs":  "100",
+                       "ActiveFlags":  [
+                                           "Graph_Start1"
+                                       ],
+                       "Passed":  true
+                   },
+                   {
+                       "Phase":  "Graph_Start12",
+                       "Outputs":  "110",
+                       "ActiveFlags":  [
+                                           "Graph_Start12"
+                                       ],
+                       "Passed":  true
+                   },
+                   {
+                       "Phase":  "Graph_AllRunning",
+                       "Outputs":  "111",
+                       "ActiveFlags":  [
+                                           "Graph_AllRunning"
+                                       ],
+                       "Passed":  true
+                   },
+                   {
+                       "Phase":  "Graph_Stop12",
+                       "Outputs":  "110",
+                       "ActiveFlags":  [
+                                           "Graph_Stop12"
+                                       ],
+                       "Passed":  true
+                   },
+                   {
+                       "Phase":  "Graph_Stop1",
+                       "Outputs":  "100",
+                       "ActiveFlags":  [
+                                           "Graph_Stop1"
+                                       ],
+                       "Passed":  true
+                   },
+                   {
+                       "Phase":  "Graph_Idle",
+                       "Outputs":  "000",
+                       "ActiveFlags":  [
+                                           "Graph_Idle"
+                                       ],
+                       "Passed":  true
+                   },
+                   {
+                       "Phase":  "Graph_Start1",
+                       "Outputs":  "100",
+                       "ActiveFlags":  [
+                                           "Graph_Start1"
+                                       ],
+                       "Passed":  true
+                   },
+                   {
+                       "Phase":  "Graph_Start12",
+                       "Outputs":  "110",
+                       "ActiveFlags":  [
+                                           "Graph_Start12"
+                                       ],
+                       "Passed":  true
+                   },
+                   {
+                       "Phase":  "Graph_Stop1",
+                       "Outputs":  "100",
+                       "ActiveFlags":  [
+                                           "Graph_Stop1"
+                                       ],
+                       "Passed":  true
+                   },
+                   {
+                       "Phase":  "Graph_Idle",
+                       "Outputs":  "000",
+                       "ActiveFlags":  [
+                                           "Graph_Idle"
+                                       ],
+                       "Passed":  true
+                   }
+               ],
+    "FinalOutputs":  "000",
+    "Error":  null
+}

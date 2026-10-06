@@ -1,6 +1,9 @@
-﻿param([string]$InstanceName='MotorSeqApi_20261006')
+﻿param([string]$InstanceName='MotorSeqApi_20261006',[switch]$Graph)
 $ErrorActionPreference='Stop'
 $root=Split-Path $PSScriptRoot -Parent
+if($Graph -and -not $PSBoundParameters.ContainsKey('InstanceName')){$InstanceName='MotorSeqGraph_20261006'}
+$logRoot=if($Graph){"$root\graph\logs"}else{"$root\logs"}
+$verifyRoot=if($Graph){"$root\graph\verify"}else{"$root\verify"}
 [Reflection.Assembly]::LoadFrom('D:\Program Files\Siemens\Automation\PLCSIM_V20\resources\bin\wwwroot\assets\lib\runtime\Siemens.Simatic.Simulation.Runtime.Api.x64.dll') | Out-Null
 $existing=[Siemens.Simatic.Simulation.Runtime.SimulationRuntimeManager]::RegisteredInstanceInfo | Where-Object {$_.Name -eq $InstanceName}
 if($existing){$instance=[Siemens.Simatic.Simulation.Runtime.SimulationRuntimeManager]::CreateInterface($InstanceName)}
@@ -8,7 +11,7 @@ else {$instance=[Siemens.Simatic.Simulation.Runtime.SimulationRuntimeManager]::R
 if([string]$instance.OperatingState -eq 'Off'){$instance.PowerOn(30000) | Out-Null}
 $instance.Run(30000)
 $instance.UpdateTagList()
-$instance.TagInfos | Format-List * | Out-File "$root\logs\runtime-tags.txt"
+$instance.TagInfos | Format-List * | Out-File "$logRoot\runtime-tags.txt"
 $results=New-Object System.Collections.ArrayList
 function Read-Outputs {return ((@('Motor_1','Motor_2','Motor_3') | ForEach-Object {if($instance.ReadBool($_)){'1'}else{'0'}}) -join '')}
 function Set-Button($name,$value){$instance.WriteBool($name,[bool]$value)}
@@ -51,6 +54,6 @@ try {
 finally {
  Set-Button Start_Command $false;Set-Button Stop_Command $true;Wait-Output '000';Set-Button Stop_Command $false
  $report=[ordered]@{Date=(Get-Date -Format o);Instance=$InstanceName;OperatingState=[string]$instance.OperatingState;LicenseStatus=[string]$instance.LicenseStatus;Passed=(-not $failure);ScenarioCount=$results.Count;Results=@($results);Error=$failure;FinalOutputs=(Read-Outputs)}
- $report | ConvertTo-Json -Depth 12 | Tee-Object -FilePath "$root\logs\runtime-test.json"
+ $report | ConvertTo-Json -Depth 12 | Tee-Object -FilePath "$logRoot\runtime-test.json"
 }
 if($failure){exit 1}

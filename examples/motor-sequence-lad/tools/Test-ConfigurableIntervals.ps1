@@ -1,13 +1,16 @@
-﻿param([string]$InstanceName='MotorSeqApi_20261006')
+﻿param([string]$InstanceName='MotorSeqApi_20261006',[switch]$Graph)
 $ErrorActionPreference='Stop'
 $root=Split-Path $PSScriptRoot -Parent
+if($Graph -and -not $PSBoundParameters.ContainsKey('InstanceName')){$InstanceName='MotorSeqGraph_20261006'}
+$logRoot=if($Graph){"$root\graph\logs"}else{"$root\logs"}
+$verifyRoot=if($Graph){"$root\graph\verify"}else{"$root\verify"}
 [Reflection.Assembly]::LoadFrom('D:\Program Files\Siemens\Automation\PLCSIM_V20\resources\bin\wwwroot\assets\lib\runtime\Siemens.Simatic.Simulation.Runtime.Api.x64.dll') | Out-Null
 $registered=[Siemens.Simatic.Simulation.Runtime.SimulationRuntimeManager]::RegisteredInstanceInfo | Where-Object {$_.Name -eq $InstanceName}
 if($registered){$instance=[Siemens.Simatic.Simulation.Runtime.SimulationRuntimeManager]::CreateInterface($InstanceName)}
 else {$instance=[Siemens.Simatic.Simulation.Runtime.SimulationRuntimeManager]::RegisterInstance([Siemens.Simatic.Simulation.Runtime.ECPUType]::CPU1500_Unspecified,$InstanceName)}
 if([string]$instance.OperatingState -eq 'Off'){$instance.PowerOn(30000) | Out-Null}
 $instance.Run(30000);$instance.UpdateTagList()
-$instance.TagInfos | Format-List * | Out-File "$root\logs\parameter-runtime-tags.txt"
+$instance.TagInfos | Format-List * | Out-File "$logRoot\parameter-runtime-tags.txt"
 $startTag='MotorSequence_Settings.StartInterval';$stopTag='MotorSequence_Settings.StopInterval'
 $results=New-Object System.Collections.ArrayList
 function Outputs {return ((@('Motor_1','Motor_2','Motor_3') | ForEach-Object {if($instance.ReadBool($_)){'1'}else{'0'}}) -join '')}
@@ -47,6 +50,6 @@ finally {
  $instance.WriteBool('Stop_Command',$false)
  $instance.WriteInt32($startTag,2000);$instance.WriteInt32($stopTag,2000)
  $report=[ordered]@{Date=(Get-Date -Format o);Instance=$InstanceName;State=[string]$instance.OperatingState;Passed=(-not $failure);Configurations=$results.Count;DefaultsMilliseconds=$defaults;Results=@($results);RestoredMilliseconds=@($instance.ReadInt32($startTag),$instance.ReadInt32($stopTag));FinalOutputs=(Outputs);Error=$failure}
- $report | ConvertTo-Json -Depth 12 | Tee-Object -FilePath "$root\logs\parameter-runtime-test.json"
+ $report | ConvertTo-Json -Depth 12 | Tee-Object -FilePath "$logRoot\parameter-runtime-test.json"
 }
 if($failure){exit 1}

@@ -1,0 +1,67 @@
+{
+    "State":  "Warning",
+    "Errors":  0,
+    "Warnings":  1,
+    "Messages":  [
+                     {
+                         "Depth":  0,
+                         "State":  "Warning",
+                         "Path":  "PLC_1",
+                         "Description":  ""
+                     },
+                     {
+                         "Depth":  1,
+                         "State":  "Information",
+                         "Path":  "Program blocks",
+                         "Description":  ""
+                     },
+                     {
+                         "Depth":  2,
+                         "State":  "Success",
+                         "Path":  "MotorSequenceGRAPH (FB2)",
+                         "Description":  "Block was successfully compiled."
+                     },
+                     {
+                         "Depth":  2,
+                         "State":  "Information",
+                         "Path":  "Main (OB1)",
+                         "Description":  ""
+                     },
+                     {
+                         "Depth":  3,
+                         "State":  "Information",
+                         "Path":  "Network 1",
+                         "Description":  "Number of updated calls in network : 1."
+                     },
+                     {
+                         "Depth":  3,
+                         "State":  "Success",
+                         "Path":  "",
+                         "Description":  "Block was successfully compiled."
+                     },
+                     {
+                         "Depth":  2,
+                         "State":  "Success",
+                         "Path":  "MotorSequence_GRAPH_DB (DB3)",
+                         "Description":  "Block was successfully compiled."
+                     },
+                     {
+                         "Depth":  1,
+                         "State":  "Warning",
+                         "Path":  "General warnings",
+                         "Description":  ""
+                     },
+                     {
+                         "Depth":  2,
+                         "State":  "Warning",
+                         "Path":  "",
+                         "Description":  "Inputs or outputs are used that do not exist in the configured hardware."
+                     },
+                     {
+                         "Depth":  0,
+                         "State":  "Warning",
+                         "Path":  "",
+                         "Description":  "Compiling finished (errors: 0; warnings: 1)"
+                     }
+                 ]
+}

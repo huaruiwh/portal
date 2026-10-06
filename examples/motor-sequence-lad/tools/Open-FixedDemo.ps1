@@ -1,6 +1,9 @@
-﻿param([string]$InstanceName='MotorSeqApi_20261006')
+﻿param([string]$InstanceName='MotorSeqApi_20261006',[switch]$Graph)
 $ErrorActionPreference='Stop'
 $root=Split-Path $PSScriptRoot -Parent
+if($Graph -and -not $PSBoundParameters.ContainsKey('InstanceName')){$InstanceName='MotorSeqGraph_20261006'}
+$logRoot=if($Graph){"$root\graph\logs"}else{"$root\logs"}
+$verifyRoot=if($Graph){"$root\graph\verify"}else{"$root\verify"}
 . "$PSScriptRoot\Openness.Common.ps1"
 Import-OpennessAssembly -PortalVersion '20.0' | Out-Null
 [Reflection.Assembly]::LoadFrom('D:\Program Files\Siemens\Automation\PLCSIM_V20\resources\bin\wwwroot\assets\lib\runtime\Siemens.Simatic.Simulation.Runtime.Api.x64.dll') | Out-Null
@@ -15,10 +18,11 @@ $instance.WriteBool('Stop_Command',$false)
 $tia=Connect-TiaPortal -WithUserInterface
 $project=Open-TiaProject -TiaPortal $tia -ProjectPath "$root\project\MotorSequence_Fixed\MotorSequence_Fixed.ap20"
 $plc=Get-PlcSoftware -Project $project
-$plc.BlockGroup.Blocks.Find('MotorSequenceLAD').ShowInEditor()
+$blockName=if($Graph){'MotorSequenceGRAPH'}else{'MotorSequenceLAD'}
 $plc.BlockGroup.Blocks.Find('MotorSequence_Settings').ShowInEditor()
-[ordered]@{Date=(Get-Date -Format o);Project=$project.Path.FullName;Instance=$InstanceName;State=[string]$instance.OperatingState;TIAProcessId=$tia.GetCurrentProcess().Id;SettingsBlockNumber=$plc.BlockGroup.Blocks.Find('MotorSequence_Settings').Number;StartIntervalMilliseconds=$instance.ReadInt32('MotorSequence_Settings.StartInterval');StopIntervalMilliseconds=$instance.ReadInt32('MotorSequence_Settings.StopInterval');Outputs=(@('Motor_1','Motor_2','Motor_3') | ForEach-Object {$instance.ReadBool($_)})} | ConvertTo-Json | Tee-Object -FilePath "$root\logs\visible-demo.json"
-Write-Output 'TIA LAD editor open; independent simulation running. Keep this terminal alive to retain the API instance. Enter quit to close.'
+$plc.BlockGroup.Blocks.Find($blockName).ShowInEditor()
+[ordered]@{Date=(Get-Date -Format o);Project=$project.Path.FullName;Implementation=$blockName;Instance=$InstanceName;State=[string]$instance.OperatingState;TIAProcessId=$tia.GetCurrentProcess().Id;SettingsBlockNumber=$plc.BlockGroup.Blocks.Find('MotorSequence_Settings').Number;StartIntervalMilliseconds=$instance.ReadInt32('MotorSequence_Settings.StartInterval');StopIntervalMilliseconds=$instance.ReadInt32('MotorSequence_Settings.StopInterval');Outputs=(@('Motor_1','Motor_2','Motor_3') | ForEach-Object {$instance.ReadBool($_)})} | ConvertTo-Json | Tee-Object -FilePath "$logRoot\visible-demo.json"
+Write-Output "TIA $blockName editor open; independent simulation running. Keep this terminal alive to retain the API instance. Enter quit to close."
 do {$reply=Read-Host 'Demo'}until($reply -eq 'quit')
 $instance.PowerOff(30000)
 $project.Close()

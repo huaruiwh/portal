@@ -4,7 +4,9 @@
 
 已从本机找回聊天“用博图 Openness 生成梯形图示例”及相关工程、脚本、日志和反导出 XML。恢复范围与证据见 [历史恢复实现记录](docs/历史对话恢复-实现记录.md)。历史恢复阶段只核对文件和日志；后续三电机修正已重新执行真实 TIA 编译、下载和 PLCSIM Advanced 仿真，结果如下。
 
-### 三电机 LAD 修正与无界面仿真（2026-10-06）
+### 三电机 LAD / GRAPH 与无界面仿真（2026-10-06）
+
+GRAPH 更新：同一工程新增 FB2 `MotorSequenceGRAPH` / DB3，复用参数 DB2。6 步、8 转换、2 分支节点、18 连接，4 个原生 D 延时动作读取启动/停止时间。真实编译 0 错误/1 个既有 I/O 警告，下载 0 错误/0 警告；9 项启停、11 次活动步检查、2 组不同参数与断电保持全部通过。当前 OB1 选择 GRAPH，原 LAD 保留。参考 [CodeGeneratorOpenness](https://github.com/mking2203/CodeGeneratorOpenness) 的旧版模板生成思路并适配本机 V20。[GRAPH 源与证据](examples/motor-sequence-lad/graph/)；完整操作仍在下方复现入口。
 
 后续参数更新：同一工程新增 DB2 `MotorSequence_Settings`，`StartInterval` / `StopInterval` 为保持型 TIME，默认 T#2s；四个 TON 的 PT 改为读取对应参数。800/1400 ms、1500/500 ms 两组启停间隔真实测试通过；模拟断电后 1200/900 ms 参数保持通过，原有 9 场景回归通过。测试后恢复默认 2 秒。操作及最新证据见下方复现入口。
 

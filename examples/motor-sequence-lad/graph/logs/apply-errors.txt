@@ -1,0 +1,66 @@
+System.Management.Automation.MethodInvocationException: Exception calling "Import" with "2" argument(s): "Error when calling method 'Import' of type 'Siemens.Engineering.SW.Blocks.PlcBlockComposition'.
+
+Cannot create the 'SW.Blocks.CompileUnit' object with Simatic ML ID '1' at line number 1 at line position 16681.
+
+Error when calling method 'Create' of type 'Siemens.Engineering.SW.Blocks.CompileUnitComposition'.
+
+The name of the "Stop1" element is not unique." ---> Siemens.Engineering.EngineeringTargetInvocationException: Error when calling method 'Import' of type 'Siemens.Engineering.SW.Blocks.PlcBlockComposition'.
+
+Cannot create the 'SW.Blocks.CompileUnit' object with Simatic ML ID '1' at line number 1 at line position 16681.
+
+Error when calling method 'Create' of type 'Siemens.Engineering.SW.Blocks.CompileUnitComposition'.
+
+The name of the "Stop1" element is not unique.
+   at Siemens.Engineering.Private.Session.Siemens.Engineering.Private.IInstanceSession.InvokeFunc[T,TC](LifetimeContractHandle`1 lifetimeContractHandle, String name, IEnumerable`1 parameters, String fullName)
+   at Siemens.Engineering.Private.InternalInstanceAccess`2.InvokeFunc[T](String name, IEnumerable`1 parameters)
+   at Siemens.Engineering.SW.Blocks.PlcBlockComposition.Import(FileInfo path, ImportOptions importOptions)
+   at CallSite.Target(Closure , CallSite , Object , Object , Object )
+   --- End of inner exception stack trace ---
+   at System.Management.Automation.ExceptionHandlingOps.CheckActionPreference(FunctionContext funcContext, Exception exception)
+   at System.Management.Automation.Interpreter.ActionCallInstruction`2.Run(InterpretedFrame frame)
+   at System.Management.Automation.Interpreter.EnterTryCatchFinallyInstruction.Run(InterpretedFrame frame)
+   at System.Management.Automation.Interpreter.EnterTryCatchFinallyInstruction.Run(InterpretedFrame frame)
+System.Management.Automation.MethodInvocationException: Exception calling "Import" with "2" argument(s): "Error when calling method 'Import' of type 'Siemens.Engineering.SW.Blocks.PlcBlockComposition'.
+
+Cannot create the 'SW.Blocks.CompileUnit' object with Simatic ML ID '1' at line number 1 at line position 467.
+
+Error when calling method 'Create' of type 'Siemens.Engineering.SW.Blocks.CompileUnitComposition'.
+
+There is no connection with the name 'SW_AUTO' at the part that is defined by UId '21'." ---> Siemens.Engineering.EngineeringTargetInvocationException: Error when calling method 'Import' of type 'Siemens.Engineering.SW.Blocks.PlcBlockComposition'.
+
+Cannot create the 'SW.Blocks.CompileUnit' object with Simatic ML ID '1' at line number 1 at line position 467.
+
+Error when calling method 'Create' of type 'Siemens.Engineering.SW.Blocks.CompileUnitComposition'.
+
+There is no connection with the name 'SW_AUTO' at the part that is defined by UId '21'.
+   at Siemens.Engineering.Private.Session.Siemens.Engineering.Private.IInstanceSession.InvokeFunc[T,TC](LifetimeContractHandle`1 lifetimeContractHandle, String name, IEnumerable`1 parameters, String fullName)
+   at Siemens.Engineering.Private.InternalInstanceAccess`2.InvokeFunc[T](String name, IEnumerable`1 parameters)
+   at Siemens.Engineering.SW.Blocks.PlcBlockComposition.Import(FileInfo path, ImportOptions importOptions)
+   at CallSite.Target(Closure , CallSite , Object , Object , Object )
+   --- End of inner exception stack trace ---
+   at System.Management.Automation.ExceptionHandlingOps.CheckActionPreference(FunctionContext funcContext, Exception exception)
+   at System.Management.Automation.Interpreter.ActionCallInstruction`2.Run(InterpretedFrame frame)
+   at System.Management.Automation.Interpreter.EnterTryCatchFinallyInstruction.Run(InterpretedFrame frame)
+   at System.Management.Automation.Interpreter.EnterTryCatchFinallyInstruction.Run(InterpretedFrame frame)
+System.Management.Automation.MethodInvocationException: Exception calling "Import" with "2" argument(s): "Error when calling method 'Import' of type 'Siemens.Engineering.SW.Blocks.PlcBlockComposition'.
+
+Cannot create the 'SW.Blocks.CompileUnit' object with Simatic ML ID '1' at line number 1 at line position 467.
+
+Error when calling method 'Create' of type 'Siemens.Engineering.SW.Blocks.CompileUnitComposition'.
+
+There is no connection with the name 'SW_AUTO' at the part that is defined by UId '21'." ---> Siemens.Engineering.EngineeringTargetInvocationException: Error when calling method 'Import' of type 'Siemens.Engineering.SW.Blocks.PlcBlockComposition'.
+
+Cannot create the 'SW.Blocks.CompileUnit' object with Simatic ML ID '1' at line number 1 at line position 467.
+
+Error when calling method 'Create' of type 'Siemens.Engineering.SW.Blocks.CompileUnitComposition'.
+
+There is no connection with the name 'SW_AUTO' at the part that is defined by UId '21'.
+   at Siemens.Engineering.Private.Session.Siemens.Engineering.Private.IInstanceSession.InvokeFunc[T,TC](LifetimeContractHandle`1 lifetimeContractHandle, String name, IEnumerable`1 parameters, String fullName)
+   at Siemens.Engineering.Private.InternalInstanceAccess`2.InvokeFunc[T](String name, IEnumerable`1 parameters)
+   at Siemens.Engineering.SW.Blocks.PlcBlockComposition.Import(FileInfo path, ImportOptions importOptions)
+   at CallSite.Target(Closure , CallSite , Object , Object , Object )
+   --- End of inner exception stack trace ---
+   at System.Management.Automation.ExceptionHandlingOps.CheckActionPreference(FunctionContext funcContext, Exception exception)
+   at System.Management.Automation.Interpreter.ActionCallInstruction`2.Run(InterpretedFrame frame)
+   at System.Management.Automation.Interpreter.EnterTryCatchFinallyInstruction.Run(InterpretedFrame frame)
+   at System.Management.Automation.Interpreter.EnterTryCatchFinallyInstruction.Run(InterpretedFrame frame)

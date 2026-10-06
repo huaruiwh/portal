@@ -1,6 +1,9 @@
-﻿param([string]$InstanceName='MotorSeqApi_20261006')
+﻿param([string]$InstanceName='MotorSeqApi_20261006',[switch]$Graph)
 $ErrorActionPreference='Stop'
 $root=Split-Path $PSScriptRoot -Parent
+if($Graph -and -not $PSBoundParameters.ContainsKey('InstanceName')){$InstanceName='MotorSeqGraph_20261006'}
+$logRoot=if($Graph){"$root\graph\logs"}else{"$root\logs"}
+$verifyRoot=if($Graph){"$root\graph\verify"}else{"$root\verify"}
 [Reflection.Assembly]::LoadFrom('D:\Program Files\Siemens\Automation\PLCSIM_V20\resources\bin\wwwroot\assets\lib\runtime\Siemens.Simatic.Simulation.Runtime.Api.x64.dll') | Out-Null
 $registered=[Siemens.Simatic.Simulation.Runtime.SimulationRuntimeManager]::RegisteredInstanceInfo | Where-Object {$_.Name -eq $InstanceName}
 if($registered){$instance=[Siemens.Simatic.Simulation.Runtime.SimulationRuntimeManager]::CreateInterface($InstanceName)}
@@ -20,6 +23,6 @@ try {
 }catch{$failure=$_.Exception.ToString();Write-Output $failure}
 finally {
  $instance.WriteInt32($startTag,2000);$instance.WriteInt32($stopTag,2000)
- [ordered]@{Date=(Get-Date -Format o);Passed=(-not $failure);Instance=$InstanceName;BeforeMilliseconds=$before;AfterPowerCycleMilliseconds=$after;RestoredMilliseconds=@($instance.ReadInt32($startTag),$instance.ReadInt32($stopTag));Error=$failure} | ConvertTo-Json | Tee-Object -FilePath "$root\logs\settings-retention-test.json"
+ [ordered]@{Date=(Get-Date -Format o);Passed=(-not $failure);Instance=$InstanceName;BeforeMilliseconds=$before;AfterPowerCycleMilliseconds=$after;RestoredMilliseconds=@($instance.ReadInt32($startTag),$instance.ReadInt32($stopTag));Error=$failure} | ConvertTo-Json | Tee-Object -FilePath "$logRoot\settings-retention-test.json"
 }
 if($failure){exit 1}
