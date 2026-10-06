@@ -1,0 +1,39 @@
+{
+    "Date":  "2026-10-06T21:48:16.8781402+08:00",
+    "Source":  "runtime-test.json",
+    "Passed":  true,
+    "Checks":  [
+                   {
+                       "Scenario":  "完整顺序启动",
+                       "Step":  2,
+                       "ActualMilliseconds":  2000,
+                       "ExpectedMilliseconds":  2000,
+                       "ToleranceMilliseconds":  300,
+                       "Passed":  true
+                   },
+                   {
+                       "Scenario":  "完整顺序启动",
+                       "Step":  3,
+                       "ActualMilliseconds":  2009,
+                       "ExpectedMilliseconds":  2000,
+                       "ToleranceMilliseconds":  300,
+                       "Passed":  true
+                   },
+                   {
+                       "Scenario":  "停止脉冲锁存及逆序延时",
+                       "Step":  2,
+                       "ActualMilliseconds":  2015,
+                       "ExpectedMilliseconds":  2000,
+                       "ToleranceMilliseconds":  300,
+                       "Passed":  true
+                   },
+                   {
+                       "Scenario":  "停止脉冲锁存及逆序延时",
+                       "Step":  3,
+                       "ActualMilliseconds":  2010,
+                       "ExpectedMilliseconds":  2000,
+                       "ToleranceMilliseconds":  300,
+                       "Passed":  true
+                   }
+               ]
+}

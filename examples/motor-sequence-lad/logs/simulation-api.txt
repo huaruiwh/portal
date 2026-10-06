@@ -1,0 +1,287 @@
+Loaded: Siemens.Simatic.Simulation.Runtime.Api.x64, Version=7.0.0.0, Culture=neutral, PublicKeyToken=null
+TYPE Siemens.Simatic.Simulation.Runtime.SDataValue
+PROPERTY Siemens.Simatic.Simulation.Runtime.EPrimitiveDataType Type
+PROPERTY Char WChar
+PROPERTY SByte Char
+PROPERTY Double Double
+PROPERTY Single Float
+PROPERTY UInt64 UInt64
+PROPERTY UInt32 UInt32
+PROPERTY UInt16 UInt16
+PROPERTY Byte UInt8
+PROPERTY Int64 Int64
+PROPERTY Int32 Int32
+PROPERTY Int16 Int16
+PROPERTY SByte Int8
+PROPERTY Boolean Bool
+TYPE Siemens.Simatic.Simulation.Runtime.ISimulationRuntimeManager
+PROPERTY Siemens.Simatic.Simulation.Runtime.SConnectionInfo[] RemoteConnectionInfo
+PROPERTY Boolean IsRuntimeManagerAvailable
+PROPERTY Boolean IsInitialized
+METHOD Void SetNetInterfaceBindings()
+METHOD Void OpenPort(UInt16)
+METHOD Void ClosePort()
+METHOD Siemens.Simatic.Simulation.Runtime.IRemoteRuntimeManager RemoteConnect(Byte, Byte, Byte, Byte, UInt16)
+METHOD Siemens.Simatic.Simulation.Runtime.IRemoteRuntimeManager RemoteConnect(Siemens.Simatic.Simulation.Runtime.SIP, UInt16)
+METHOD Siemens.Simatic.Simulation.Runtime.IRemoteRuntimeManager RemoteConnect(System.String)
+METHOD Void RunAutodiscover(UInt32)
+METHOD Void RegisterOnRunTimeManagerLostEvent()
+METHOD Void RegisterOnConfigurationChangedEvent()
+METHOD Void UnregisterOnRunTimeManagerLostEvent()
+METHOD Void UnregisterOnConfigurationChangedEvent()
+METHOD Boolean WaitForOnRunTimeManagerLostEvent(UInt32)
+METHOD Boolean WaitForOnRunTimeManagerLostEvent()
+METHOD Boolean WaitForOnConfigurationChangedEvent(UInt32)
+METHOD Boolean WaitForOnConfigurationChangedEvent()
+TYPE Siemens.Simatic.Simulation.Runtime.IInstance
+PROPERTY Boolean StrictMotionTiming
+PROPERTY Siemens.Simatic.Simulation.Runtime.EOperatingMode OperatingMode
+PROPERTY System.DateTime SystemTime
+PROPERTY Int64 OverwrittenMinimalCycleTime_ns
+PROPERTY Double ScaleFactor
+PROPERTY Siemens.Simatic.Simulation.Runtime.STagInfo[] TagInfos
+PROPERTY Siemens.Simatic.Simulation.Runtime.IIOArea OutputArea
+PROPERTY Siemens.Simatic.Simulation.Runtime.IIOArea MarkerArea
+PROPERTY Siemens.Simatic.Simulation.Runtime.IIOArea InputArea
+PROPERTY Siemens.Simatic.Simulation.Runtime.EOperatingState OperatingState
+PROPERTY Siemens.Simatic.Simulation.Runtime.ECommunicationInterface CommunicationInterface
+PROPERTY Boolean IsSendSyncEventInDefaultModeEnabled
+PROPERTY System.String StoragePath
+PROPERTY Siemens.Simatic.Simulation.Runtime.SIPSuite4[] ControllerIPSuite4
+PROPERTY System.String[] ControllerIP
+PROPERTY System.String ControllerShortDesignation
+PROPERTY System.String ControllerName
+PROPERTY Siemens.Simatic.Simulation.Runtime.ERuntimeErrorCode LicenseStatus
+PROPERTY Siemens.Simatic.Simulation.Runtime.SInstanceInfo Info
+PROPERTY System.String ArticleNumber
+PROPERTY Siemens.Simatic.Simulation.Runtime.ECPUType CPUType
+PROPERTY System.String Name
+PROPERTY Int32 ID
+METHOD Boolean WaitForOnHardwareConfigChangedEvent(UInt32)
+METHOD Boolean WaitForOnHardwareConfigChangedEvent()
+METHOD Boolean WaitForOnOperatingStateChangedEvent(UInt32)
+METHOD Boolean WaitForOnOperatingStateChangedEvent()
+METHOD Boolean WaitForOnLedChangedEvent(UInt32)
+METHOD Boolean WaitForOnLedChangedEvent()
+METHOD Siemens.Simatic.Simulation.Runtime.SOnSyncPointReachedResult WaitForOnSyncPointReachedEvent(UInt32)
+METHOD Siemens.Simatic.Simulation.Runtime.SOnSyncPointReachedResult WaitForOnSyncPointReachedEvent()
+METHOD Boolean WaitForOnIPAddressChangedEvent(UInt32)
+METHOD Boolean WaitForOnIPAddressChangedEvent()
+METHOD Void RegisterOnHardwareConfigChangedEvent()
+METHOD Void RegisterOnLedChangedEvent()
+METHOD Void RegisterOnOperatingStateChangedEvent()
+METHOD Void RegisterOnSyncPointReachedEvent()
+METHOD Void RegisterOnIPAddressChangedEvent()
+METHOD Void UnregisterOnHardwareConfigChangedEvent()
+METHOD Void UnregisterOnLedChangedEvent()
+METHOD Void UnregisterOnOperatingStateChangedEvent()
+METHOD Void UnregisterOnSyncPointReachedEvent()
+METHOD Void UnregisterOnIPAddressChangedEvent()
+METHOD Void UnregisterInstance()
+METHOD Void ArchiveStorage(System.String)
+METHOD Void RetrieveStorage(System.String)
+METHOD Void SetIPSuite(UInt32, Siemens.Simatic.Simulation.Runtime.SIPSuite4, Boolean)
+METHOD Siemens.Simatic.Simulation.Runtime.ERuntimeErrorCode PowerOn(UInt32)
+METHOD Siemens.Simatic.Simulation.Runtime.ERuntimeErrorCode PowerOn()
+METHOD Void PowerOff(UInt32)
+METHOD Void PowerOff()
+METHOD Void MemoryReset(UInt32)
+METHOD Void MemoryReset()
+METHOD Void Run(UInt32)
+METHOD Void Run()
+METHOD Void Stop(UInt32)
+METHOD Void Stop()
+METHOD Void CreateConfigurationFile(System.String)
+METHOD Void CleanupStoragePath()
+METHOD Int32 GetNetInterfaceMapping(Siemens.Simatic.Simulation.Runtime.EPLCInterface)
+METHOD Void SetNetInterfaceMapping(Siemens.Simatic.Simulation.Runtime.EPLCInterface, Siemens.Simatic.Simulation.Runtime.SMACAddress)
+METHOD Void SetNetInterfaceMapping(Siemens.Simatic.Simulation.Runtime.EPLCInterface, System.String)
+METHOD Void SetNetInterfaceMapping(Siemens.Simatic.Simulation.Runtime.EPLCInterface, UInt32)
+METHOD Siemens.Simatic.Simulation.Runtime.ERuntimeErrorCode CheckNetInterfaceMapping()
+METHOD Void UpdateTagList(Siemens.Simatic.Simulation.Runtime.ETagListDetails, Boolean, System.String)
+METHOD Void UpdateTagList(Siemens.Simatic.Simulation.Runtime.ETagListDetails, Boolean)
+METHOD Void UpdateTagList(Siemens.Simatic.Simulation.Runtime.ETagListDetails)
+METHOD Void UpdateTagList()
+METHOD Void GetTagListStatus(Siemens.Simatic.Simulation.Runtime.ETagListDetails ByRef, Boolean ByRef)
+METHOD Void ReadSignals(Siemens.Simatic.Simulation.Runtime.SDataValueByNameWithCheck[] ByRef, Boolean ByRef)
+METHOD Void ReadSignals(Siemens.Simatic.Simulation.Runtime.SDataValueByName[] ByRef)
+METHOD Siemens.Simatic.Simulation.Runtime.SDataValue Read(System.String)
+METHOD Boolean ReadBool(System.String)
+METHOD SByte ReadInt8(System.String)
+METHOD Int16 ReadInt16(System.String)
+METHOD Int32 ReadInt32(System.String)
+METHOD Int64 ReadInt64(System.String)
+METHOD Byte ReadUInt8(System.String)
+METHOD UInt16 ReadUInt16(System.String)
+METHOD UInt32 ReadUInt32(System.String)
+METHOD UInt64 ReadUInt64(System.String)
+METHOD Single ReadFloat(System.String)
+METHOD Double ReadDouble(System.String)
+METHOD SByte ReadChar(System.String)
+METHOD Char ReadWChar(System.String)
+METHOD System.String ReadString(System.String)
+METHOD System.String ReadWString(System.String)
+METHOD Void WriteSignals(Siemens.Simatic.Simulation.Runtime.SDataValueByName[] ByRef)
+METHOD Void Write(System.String, Siemens.Simatic.Simulation.Runtime.SDataValue)
+METHOD Void WriteBool(System.String, Boolean)
+METHOD Void WriteInt8(System.String, SByte)
+METHOD Void WriteInt16(System.String, Int16)
+METHOD Void WriteInt32(System.String, Int32)
+METHOD Void WriteInt64(System.String, Int64)
+METHOD Void WriteUInt8(System.String, Byte)
+METHOD Void WriteUInt16(System.String, UInt16)
+METHOD Void WriteUInt32(System.String, UInt32)
+METHOD Void WriteUInt64(System.String, UInt64)
+METHOD Void WriteFloat(System.String, Single)
+METHOD Void WriteDouble(System.String, Double)
+METHOD Void WriteChar(System.String, SByte)
+METHOD Void WriteWChar(System.String, Char)
+METHOD Void WriteString(System.String, System.String)
+METHOD Void WriteWString(System.String, System.String)
+METHOD Void RunToNextSyncPoint(UInt32, UInt64)
+METHOD Void RunToNextSyncPoint()
+METHOD Void StartProcessing(Int64)
+METHOD Void SetCycleTimeMonitoringMode(Siemens.Simatic.Simulation.Runtime.ECycleTimeMonitoringMode, Int64)
+METHOD Void SetCycleTimeMonitoringMode(Siemens.Simatic.Simulation.Runtime.ECycleTimeMonitoringMode)
+METHOD Void GetCycleTimeMonitoringMode(Siemens.Simatic.Simulation.Runtime.ECycleTimeMonitoringMode ByRef, Int64 ByRef)
+METHOD Void ReadRecordDone(Siemens.Simatic.Simulation.Runtime.SDataRecordInfo, Byte[], UInt32)
+METHOD Void WriteRecordDone(Siemens.Simatic.Simulation.Runtime.SDataRecordInfo, UInt32)
+METHOD Void ProcessEvent(UInt16, UInt16, Siemens.Simatic.Simulation.Runtime.EProcessEventType, UInt16 ByRef)
+METHOD Void PullOrPlugEvent(UInt16, Siemens.Simatic.Simulation.Runtime.EPullOrPlugEventType, UInt16 ByRef)
+METHOD Void AlarmNotification(UInt16, UInt16, UInt16, Siemens.Simatic.Simulation.Runtime.SDiagExtChannelDescription[], UInt16 ByRef)
+METHOD Void ProfileEvent(UInt16, UInt16)
+METHOD Void StatusEvent(UInt16, UInt16)
+METHOD Void UpdateEvent(UInt16, UInt16)
+METHOD Siemens.Simatic.Simulation.Runtime.SConfiguredProcessEvents[] GetConfiguredProcessEvents()
+METHOD Void RackOrStationFaultEvent(UInt16, Siemens.Simatic.Simulation.Runtime.ERackOrStationFaultType)
+METHOD Void RegisterOnSoftwareConfigurationChangedEvent()
+METHOD Void UnregisterOnSoftwareConfigurationChangedEvent()
+METHOD Boolean WaitForOnSoftwareConfigurationChangedEvent(UInt32)
+METHOD Boolean WaitForOnSoftwareConfigurationChangedEvent()
+TYPE Siemens.Simatic.Simulation.Runtime.EOperatingState
+InvalidOperatingState
+Off
+Booting
+Stop
+Startup
+Run
+Freeze
+ShuttingDown
+Hold
+TYPE Siemens.Simatic.Simulation.Runtime.ECPUType
+CPU1500_Unspecified
+CPU1511
+CPU1513
+CPU1515
+CPU1516
+CPU1517
+CPU1518
+CPU1511F
+CPU1513F
+CPU1515F
+CPU1516F
+CPU1517F
+CPU1518F
+ET200SP_Unspecified
+CPU1510SP
+CPU1514SP
+CPU1512SP
+CPU1514SPT
+CPU1510SPF
+CPU1514SPF
+CPU1512SPF
+CPU1514SPTF
+CPU1514PA
+CPU1511C
+CPU1512C
+CPU1511T
+CPU1515T
+CPU1516T
+CPU1517T
+CPU1518T
+CPU1504DTF
+CPU1507DTF
+CPU1511TF
+CPU1515TF
+CPU1516TF
+CPU1517TF
+CPU1518TF
+CPU1518ODK
+CPU1518FODK
+ET200PRO_Unspecified
+CPU1513PRO
+CPU1516PRO
+CPU1513PROF
+CPU1516PROF
+CPU1518MFP
+CPU1518FMFP
+CPU1500_RH_Unspecified
+CPU1513R
+CPU1515R
+CPU1517H
+CPU1518HF
+CPU1500_SW_OC_Unspecified
+CPU1505SP
+CPU1507S
+CPU1508S
+CPU1505SPF
+CPU1507SF
+CPU1508SF
+CPU1505SPT
+CPU1508ST
+CPU1505SPTF
+CPU1508STF
+TYPE Siemens.Simatic.Simulation.Runtime.SimulationRuntimeManager
+PROPERTY Siemens.Simatic.Simulation.Runtime.SConnectionInfo[] RemoteConnectionInfo
+PROPERTY UInt16 Port
+PROPERTY Siemens.Simatic.Simulation.Runtime.SInstanceInfo[] RegisteredInstanceInfo
+PROPERTY Siemens.Simatic.Simulation.Runtime.ENetworkMode NetworkMode
+PROPERTY Siemens.Simatic.Simulation.Runtime.SNetInterfaceInfo[] NetInterfaces
+PROPERTY Siemens.Simatic.Simulation.Runtime.ISimulationRuntimeManager LocalRuntimeManagerInstance
+PROPERTY System.String DefaultStoragePath
+PROPERTY Boolean StrictMotionTiming
+PROPERTY Boolean IsRuntimeManagerAvailable
+PROPERTY Boolean IsInitialized
+PROPERTY UInt32 Version
+METHOD Void Shutdown()
+METHOD Void SetNetInterfaceBindings(UInt32)
+METHOD Void SetNetInterfaceBindings()
+METHOD Void ResetNetInterfaceBindings()
+METHOD Siemens.Simatic.Simulation.Runtime.IInstance RegisterInstance(System.String, System.String)
+METHOD Siemens.Simatic.Simulation.Runtime.IInstance RegisterInstance(Siemens.Simatic.Simulation.Runtime.ECPUType, System.String)
+METHOD Siemens.Simatic.Simulation.Runtime.IInstance RegisterInstance(Siemens.Simatic.Simulation.Runtime.ECPUType)
+METHOD Siemens.Simatic.Simulation.Runtime.IInstance RegisterInstance(System.String)
+METHOD Siemens.Simatic.Simulation.Runtime.IInstance RegisterInstance()
+METHOD Siemens.Simatic.Simulation.Runtime.IInstance CreateInterface(System.String)
+METHOD Siemens.Simatic.Simulation.Runtime.IInstance CreateInterface(Int32)
+METHOD Siemens.Simatic.Simulation.Runtime.IInstance RegisterCustomInstance(System.String, System.String)
+METHOD Siemens.Simatic.Simulation.Runtime.IInstance RegisterCustomInstance(System.String)
+METHOD Void OpenPort(UInt16)
+METHOD Void ClosePort()
+METHOD Siemens.Simatic.Simulation.Runtime.IRemoteRuntimeManager RemoteConnect(Byte, Byte, Byte, Byte, UInt16)
+METHOD Siemens.Simatic.Simulation.Runtime.IRemoteRuntimeManager RemoteConnect(Siemens.Simatic.Simulation.Runtime.SIP, UInt16)
+METHOD Siemens.Simatic.Simulation.Runtime.IRemoteRuntimeManager RemoteConnect(System.String)
+METHOD Void RunAutodiscover(UInt32)
+METHOD Void RunAutodiscover()
+METHOD Void RegisterOnRunTimeManagerLostEvent()
+METHOD Void RegisterOnConfigurationChangedEvent()
+METHOD Void UnregisterOnRunTimeManagerLostEvent()
+METHOD Void UnregisterOnConfigurationChangedEvent()
+METHOD Boolean WaitForOnRunTimeManagerLostEvent(UInt32)
+METHOD Boolean WaitForOnRunTimeManagerLostEvent()
+METHOD Boolean WaitForOnConfigurationChangedEvent(UInt32)
+METHOD Boolean WaitForOnConfigurationChangedEvent()
+VALUE RemoteConnectionInfo =
+VALUE Port = 0
+VALUE RegisteredInstanceInfo =
+VALUE NetworkMode = Softbus
+VALUE NetInterfaces = 2	02-1b-1b-f2-ac-00	True	True	以太网, Siemens PLCSIM Virtual Ethernet Adapter 19	00-ff-de-a7-90-03	False	True	以太网 2, TAP-Windows Adapter V9 9	ac-45-ef-9a-e2-d2	False	True	WLAN, Intel(R) Wi-Fi 6 AX201 160MHz
+VALUE LocalRuntimeManagerInstance = Siemens.Simatic.Simulation.Runtime.SimulationRuntimeManagerSingleton
+VALUE DefaultStoragePath = C:\Users\wei'ke\Documents\Siemens\Simatic\Simulation\Runtime\Persistence\
+VALUE StrictMotionTiming = True
+VALUE IsRuntimeManagerAvailable = True
+VALUE IsInitialized = True
+VALUE Version = 524288
+DOWNLOAD Siemens.Engineering.Download.DownloadResult Download(System.IO.DirectoryInfo, Siemens.Engineering.Download.DownloadConfigurationDelegate)
+DOWNLOAD Siemens.Engineering.Download.DownloadResult Download(Siemens.Engineering.Connection.IConfiguration, Siemens.Engineering.Download.DownloadConfigurationDelegate, Siemens.Engineering.Download.DownloadConfigurationDelegate, Siemens.Engineering.Download.DownloadOptions)
+DOWNLOAD Siemens.Engineering.Download.DownloadResult Download(Siemens.Engineering.Connection.IConfiguration, Siemens.Engineering.Connection.ConfigurationAddress, Siemens.Engineering.Download.DownloadConfigurationDelegate, Siemens.Engineering.Download.DownloadConfigurationDelegate, Siemens.Engineering.Download.DownloadOptions)

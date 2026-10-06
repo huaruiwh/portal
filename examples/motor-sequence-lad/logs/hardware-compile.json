@@ -1,0 +1,91 @@
+{
+    "State":  "Warning",
+    "Errors":  0,
+    "Warnings":  3,
+    "Messages":  [
+                     {
+                         "Depth":  0,
+                         "State":  "Warning",
+                         "Path":  "PLC_1",
+                         "Description":  ""
+                     },
+                     {
+                         "Depth":  1,
+                         "State":  "Warning",
+                         "Path":  "Hardware configuration",
+                         "Description":  ""
+                     },
+                     {
+                         "Depth":  2,
+                         "State":  "Warning",
+                         "Path":  "PLC_1",
+                         "Description":  " "
+                     },
+                     {
+                         "Depth":  3,
+                         "State":  "Warning",
+                         "Path":  "导轨_0",
+                         "Description":  " "
+                     },
+                     {
+                         "Depth":  4,
+                         "State":  "Warning",
+                         "Path":  "PLC_1",
+                         "Description":  " "
+                     },
+                     {
+                         "Depth":  5,
+                         "State":  "Warning",
+                         "Path":  "PLC_1",
+                         "Description":  " "
+                     },
+                     {
+                         "Depth":  6,
+                         "State":  "Warning",
+                         "Path":  "",
+                         "Description":  "PLC_1 does not contain a configured protection level"
+                     },
+                     {
+                         "Depth":  5,
+                         "State":  "Warning",
+                         "Path":  "CPU 显示_1",
+                         "Description":  " "
+                     },
+                     {
+                         "Depth":  6,
+                         "State":  "Warning",
+                         "Path":  "",
+                         "Description":  "The S7-1500 CPU display does not contain any password protection."
+                     },
+                     {
+                         "Depth":  1,
+                         "State":  "Warning",
+                         "Path":  "General warnings",
+                         "Description":  ""
+                     },
+                     {
+                         "Depth":  2,
+                         "State":  "Warning",
+                         "Path":  "",
+                         "Description":  "Inputs or outputs are used that do not exist in the configured hardware."
+                     },
+                     {
+                         "Depth":  1,
+                         "State":  "Information",
+                         "Path":  "Program blocks",
+                         "Description":  ""
+                     },
+                     {
+                         "Depth":  2,
+                         "State":  "Information",
+                         "Path":  "",
+                         "Description":  "No block was compiled. All blocks are up-to-date."
+                     },
+                     {
+                         "Depth":  0,
+                         "State":  "Warning",
+                         "Path":  "",
+                         "Description":  "Compiling finished (errors: 0; warnings: 3)"
+                     }
+                 ]
+}

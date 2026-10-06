@@ -1,0 +1,17 @@
+{
+    "State":  "Success",
+    "Errors":  0,
+    "Warnings":  0,
+    "Messages":  [
+                     {
+                         "State":  "Information",
+                         "Path":  "PLC_1",
+                         "Description":  ""
+                     },
+                     {
+                         "State":  "Success",
+                         "Path":  "",
+                         "Description":  "Compiling finished (errors: 0; warnings: 0)"
+                     }
+                 ]
+}

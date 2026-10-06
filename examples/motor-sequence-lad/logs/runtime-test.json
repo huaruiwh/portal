@@ -1,0 +1,244 @@
+{
+    "Date":  "2026-10-06T21:46:25.5453056+08:00",
+    "Instance":  "MotorSeqApi_20261006",
+    "OperatingState":  "Run",
+    "LicenseStatus":  "OK",
+    "Passed":  true,
+    "ScenarioCount":  9,
+    "Results":  [
+                    {
+                        "Scenario":  "完整顺序启动",
+                        "Passed":  true,
+                        "Trace":  [
+                                      {
+                                          "Milliseconds":  1,
+                                          "Outputs":  "000"
+                                      },
+                                      {
+                                          "Milliseconds":  134,
+                                          "Outputs":  "100"
+                                      },
+                                      {
+                                          "Milliseconds":  2134,
+                                          "Outputs":  "110"
+                                      },
+                                      {
+                                          "Milliseconds":  4143,
+                                          "Outputs":  "111"
+                                      }
+                                  ],
+                        "Expected":  [
+                                         "000",
+                                         "100",
+                                         "110",
+                                         "111"
+                                     ]
+                    },
+                    {
+                        "Scenario":  "停止脉冲锁存及逆序延时",
+                        "Passed":  true,
+                        "Trace":  [
+                                      {
+                                          "Milliseconds":  0,
+                                          "Outputs":  "111"
+                                      },
+                                      {
+                                          "Milliseconds":  156,
+                                          "Outputs":  "110"
+                                      },
+                                      {
+                                          "Milliseconds":  2171,
+                                          "Outputs":  "100"
+                                      },
+                                      {
+                                          "Milliseconds":  4181,
+                                          "Outputs":  "000"
+                                      }
+                                  ],
+                        "Expected":  [
+                                         "111",
+                                         "110",
+                                         "100",
+                                         "000"
+                                     ]
+                    },
+                    {
+                        "Scenario":  "第二台运行时中途停机-前段",
+                        "Passed":  true,
+                        "Trace":  [
+                                      {
+                                          "Milliseconds":  0,
+                                          "Outputs":  "000"
+                                      },
+                                      {
+                                          "Milliseconds":  137,
+                                          "Outputs":  "100"
+                                      },
+                                      {
+                                          "Milliseconds":  2131,
+                                          "Outputs":  "110"
+                                      },
+                                      {
+                                          "Milliseconds":  2639,
+                                          "Outputs":  "100"
+                                      }
+                                  ],
+                        "Expected":  [
+                                         "000",
+                                         "100",
+                                         "110",
+                                         "100"
+                                     ]
+                    },
+                    {
+                        "Scenario":  "第一台运行时立即停机",
+                        "Passed":  true,
+                        "Trace":  [
+                                      {
+                                          "Milliseconds":  0,
+                                          "Outputs":  "000"
+                                      },
+                                      {
+                                          "Milliseconds":  152,
+                                          "Outputs":  "100"
+                                      },
+                                      {
+                                          "Milliseconds":  551,
+                                          "Outputs":  "000"
+                                      }
+                                  ],
+                        "Expected":  [
+                                         "000",
+                                         "100",
+                                         "000"
+                                     ]
+                    },
+                    {
+                        "Scenario":  "长按启动-启动阶段",
+                        "Passed":  true,
+                        "Trace":  [
+                                      {
+                                          "Milliseconds":  0,
+                                          "Outputs":  "000"
+                                      },
+                                      {
+                                          "Milliseconds":  151,
+                                          "Outputs":  "100"
+                                      },
+                                      {
+                                          "Milliseconds":  2140,
+                                          "Outputs":  "110"
+                                      },
+                                      {
+                                          "Milliseconds":  4160,
+                                          "Outputs":  "111"
+                                      }
+                                  ],
+                        "Expected":  [
+                                         "000",
+                                         "100",
+                                         "110",
+                                         "111"
+                                     ]
+                    },
+                    {
+                        "Scenario":  "长按启动不自动重启",
+                        "Passed":  true,
+                        "Trace":  [
+                                      {
+                                          "Milliseconds":  0,
+                                          "Outputs":  "111"
+                                      },
+                                      {
+                                          "Milliseconds":  152,
+                                          "Outputs":  "110"
+                                      },
+                                      {
+                                          "Milliseconds":  2144,
+                                          "Outputs":  "100"
+                                      },
+                                      {
+                                          "Milliseconds":  4155,
+                                          "Outputs":  "000"
+                                      }
+                                  ],
+                        "Expected":  [
+                                         "111",
+                                         "110",
+                                         "100",
+                                         "000"
+                                     ]
+                    },
+                    {
+                        "Scenario":  "释放后重新启动",
+                        "Passed":  true,
+                        "Trace":  [
+                                      {
+                                          "Milliseconds":  0,
+                                          "Outputs":  "000"
+                                      },
+                                      {
+                                          "Milliseconds":  152,
+                                          "Outputs":  "100"
+                                      },
+                                      {
+                                          "Milliseconds":  2168,
+                                          "Outputs":  "110"
+                                      },
+                                      {
+                                          "Milliseconds":  4173,
+                                          "Outputs":  "111"
+                                      }
+                                  ],
+                        "Expected":  [
+                                         "000",
+                                         "100",
+                                         "110",
+                                         "111"
+                                     ]
+                    },
+                    {
+                        "Scenario":  "停机期间启动被拒绝",
+                        "Passed":  true,
+                        "Trace":  [
+                                      {
+                                          "Milliseconds":  0,
+                                          "Outputs":  "111"
+                                      },
+                                      {
+                                          "Milliseconds":  152,
+                                          "Outputs":  "110"
+                                      },
+                                      {
+                                          "Milliseconds":  2184,
+                                          "Outputs":  "100"
+                                      },
+                                      {
+                                          "Milliseconds":  4239,
+                                          "Outputs":  "000"
+                                      }
+                                  ],
+                        "Expected":  [
+                                         "111",
+                                         "110",
+                                         "100",
+                                         "000"
+                                     ]
+                    },
+                    {
+                        "Scenario":  "同时启动停止-停止优先",
+                        "Passed":  true,
+                        "Trace":  [
+                                      {
+                                          "Milliseconds":  0,
+                                          "Outputs":  "000"
+                                      }
+                                  ],
+                        "Expected":  [
+                                         "000"
+                                     ]
+                    }
+                ],
+    "Error":  null,
+    "FinalOutputs":  "000"
+}

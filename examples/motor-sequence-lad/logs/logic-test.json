@@ -1,0 +1,211 @@
+{
+  "date": "2026-10-06",
+  "method": "LAD network IR scan simulation, 10 ms step; not PLCSIM",
+  "scenarios": [
+    {
+      "name": "full_start_pulse_stop_pulse",
+      "passed": true,
+      "events": [
+        {
+          "t": 0,
+          "out": "100"
+        },
+        {
+          "t": 2000,
+          "out": "110"
+        },
+        {
+          "t": 4000,
+          "out": "111"
+        },
+        {
+          "t": 5000,
+          "out": "110"
+        },
+        {
+          "t": 7000,
+          "out": "100"
+        },
+        {
+          "t": 9000,
+          "out": "000"
+        }
+      ]
+    },
+    {
+      "name": "stop_during_first_motor",
+      "passed": true,
+      "events": [
+        {
+          "t": 0,
+          "out": "100"
+        },
+        {
+          "t": 1000,
+          "out": "000"
+        }
+      ]
+    },
+    {
+      "name": "stop_during_second_motor",
+      "passed": true,
+      "events": [
+        {
+          "t": 0,
+          "out": "100"
+        },
+        {
+          "t": 2000,
+          "out": "110"
+        },
+        {
+          "t": 3000,
+          "out": "100"
+        },
+        {
+          "t": 5000,
+          "out": "000"
+        }
+      ]
+    },
+    {
+      "name": "held_start_no_auto_restart",
+      "passed": true,
+      "events": [
+        {
+          "t": 0,
+          "out": "100"
+        },
+        {
+          "t": 2000,
+          "out": "110"
+        },
+        {
+          "t": 4000,
+          "out": "111"
+        },
+        {
+          "t": 5000,
+          "out": "110"
+        },
+        {
+          "t": 7000,
+          "out": "100"
+        },
+        {
+          "t": 9000,
+          "out": "000"
+        }
+      ]
+    },
+    {
+      "name": "simultaneous_start_stop",
+      "passed": true,
+      "events": []
+    },
+    {
+      "name": "restart_after_stop",
+      "passed": true,
+      "events": [
+        {
+          "t": 0,
+          "out": "100"
+        },
+        {
+          "t": 2000,
+          "out": "110"
+        },
+        {
+          "t": 4000,
+          "out": "111"
+        },
+        {
+          "t": 5000,
+          "out": "110"
+        },
+        {
+          "t": 7000,
+          "out": "100"
+        },
+        {
+          "t": 9000,
+          "out": "000"
+        },
+        {
+          "t": 10000,
+          "out": "100"
+        },
+        {
+          "t": 12000,
+          "out": "110"
+        },
+        {
+          "t": 14000,
+          "out": "111"
+        }
+      ]
+    },
+    {
+      "name": "ignore_start_during_stop",
+      "passed": true,
+      "events": [
+        {
+          "t": 0,
+          "out": "100"
+        },
+        {
+          "t": 2000,
+          "out": "110"
+        },
+        {
+          "t": 4000,
+          "out": "111"
+        },
+        {
+          "t": 5000,
+          "out": "110"
+        },
+        {
+          "t": 7000,
+          "out": "100"
+        },
+        {
+          "t": 9000,
+          "out": "000"
+        }
+      ]
+    },
+    {
+      "name": "held_stop_blocks_restart",
+      "passed": true,
+      "events": [
+        {
+          "t": 0,
+          "out": "100"
+        },
+        {
+          "t": 2000,
+          "out": "110"
+        },
+        {
+          "t": 4000,
+          "out": "111"
+        },
+        {
+          "t": 5000,
+          "out": "110"
+        },
+        {
+          "t": 7000,
+          "out": "100"
+        },
+        {
+          "t": 9000,
+          "out": "000"
+        }
+      ]
+    }
+  ],
+  "stopOffsets": 501,
+  "passed": true
+}

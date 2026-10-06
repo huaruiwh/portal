@@ -1,0 +1,15 @@
+FUNCTION_BLOCK "MotorSequenceLAD"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.0
+VAR
+    Start2 : TON_TIME;
+    Start3 : TON_TIME;
+    Stop2 : TON_TIME;
+    Stop1 : TON_TIME;
+END_VAR
+BEGIN
+    #Start2(IN := FALSE, PT := T#2s);
+    #Start3(IN := FALSE, PT := T#2s);
+    #Stop2(IN := FALSE, PT := T#2s);
+    #Stop1(IN := FALSE, PT := T#2s);
+END_FUNCTION_BLOCK

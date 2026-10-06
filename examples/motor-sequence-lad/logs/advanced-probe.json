@@ -1,0 +1,13 @@
+{
+    "Name":  "MotorSeqApi_20261006",
+    "ManagerAvailable":  true,
+    "ManagerVersion":  524288,
+    "DefaultStoragePath":  "C:\\Users\\wei\u0027ke\\Documents\\Siemens\\Simatic\\Simulation\\Runtime\\Persistence\\",
+    "Registered":  true,
+    "PoweredOn":  true,
+    "ID":  0,
+    "StoragePath":  "C:\\Users\\wei\u0027ke\\Documents\\Siemens\\Simatic\\Simulation\\Runtime\\Persistence\\MotorSeqApi_20261006",
+    "PowerResult":  "OK",
+    "State":  "Stop",
+    "LicenseStatus":  "OK"
+}
