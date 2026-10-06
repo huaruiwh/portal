@@ -1,4 +1,4 @@
-﻿[22:21:53] [INFO] Openness assembly: D:\Program Files\Siemens\Automation\Portal V20\PublicAPI\V20\Siemens.Engineering.dll
+[22:21:53] [INFO] Openness assembly: D:\Program Files\Siemens\Automation\Portal V20\PublicAPI\V20\Siemens.Engineering.dll
 [22:21:53] [INFO] Starting TIA Portal V20 (WithoutUserInterface) - cold start may take 1-3 minutes ...
 [22:21:58] [INFO] TIA Portal session established.
 [22:21:58] [INFO] Resuming existing project file: C:\Users\wei'ke\Documents\Siemens\TiaLadDemo_20260914_221658\project\TiaLadDemo_20260914_221658\TiaLadDemo_20260914_221658.ap20
@@ -10,6 +10,6 @@
 [22:22:26] [INFO] Block: Main [OB] #1 LAD
 [22:22:26] [INFO] Compiling PLC software ...
 [22:22:32] [INFO] Compile state: Success (errors: 0, warnings: 0)
-[22:22:32] [INFO]   Success: 
+[22:22:32] [INFO]   Success:
 [22:22:32] [INFO]   Success: Compiling finished (errors: 0; warnings: 0)
 [22:22:32] [INFO] Project saved.
