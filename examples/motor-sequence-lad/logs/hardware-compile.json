@@ -1,7 +1,7 @@
 {
     "State":  "Warning",
     "Errors":  0,
-    "Warnings":  3,
+    "Warnings":  1,
     "Messages":  [
                      {
                          "Depth":  0,
@@ -11,51 +11,15 @@
                      },
                      {
                          "Depth":  1,
-                         "State":  "Warning",
+                         "State":  "Information",
                          "Path":  "Hardware configuration",
                          "Description":  ""
                      },
                      {
                          "Depth":  2,
-                         "State":  "Warning",
-                         "Path":  "PLC_1",
-                         "Description":  " "
-                     },
-                     {
-                         "Depth":  3,
-                         "State":  "Warning",
-                         "Path":  "导轨_0",
-                         "Description":  " "
-                     },
-                     {
-                         "Depth":  4,
-                         "State":  "Warning",
-                         "Path":  "PLC_1",
-                         "Description":  " "
-                     },
-                     {
-                         "Depth":  5,
-                         "State":  "Warning",
-                         "Path":  "PLC_1",
-                         "Description":  " "
-                     },
-                     {
-                         "Depth":  6,
-                         "State":  "Warning",
+                         "State":  "Information",
                          "Path":  "",
-                         "Description":  "PLC_1 does not contain a configured protection level"
-                     },
-                     {
-                         "Depth":  5,
-                         "State":  "Warning",
-                         "Path":  "CPU 显示_1",
-                         "Description":  " "
-                     },
-                     {
-                         "Depth":  6,
-                         "State":  "Warning",
-                         "Path":  "",
-                         "Description":  "The S7-1500 CPU display does not contain any password protection."
+                         "Description":  "Hardware was not compiled. The configuration is up-to-date."
                      },
                      {
                          "Depth":  1,
@@ -85,7 +49,7 @@
                          "Depth":  0,
                          "State":  "Warning",
                          "Path":  "",
-                         "Description":  "Compiling finished (errors: 0; warnings: 3)"
+                         "Description":  "Compiling finished (errors: 0; warnings: 1)"
                      }
                  ]
 }

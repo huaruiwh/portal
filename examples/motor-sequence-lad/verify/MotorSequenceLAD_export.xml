@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V20" />
   <DocumentInfo>
-    <Created>2026-10-06T13:37:02.4725529Z</Created>
+    <Created>2026-10-06T13:57:56.0225611Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -985,10 +985,11 @@
         <Component Name="Stop_Command" />
       </Symbol>
     </Access>
-    <Access Scope="TypedConstant" UId="24">
-      <Constant>
-        <ConstantValue>T#2s</ConstantValue>
-      </Constant>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="MotorSequence_Settings" />
+        <Component Name="StartInterval" />
+      </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="25">
       <Symbol>
@@ -1075,7 +1076,7 @@
               <MultilingualTextItem ID="34" CompositionName="Items">
                 <AttributeList>
                   <Culture>zh-CN</Culture>
-                  <Text>1号启动后计时2秒</Text>
+                  <Text>1号启动后按启动间隔计时</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1152,7 +1153,7 @@
               <MultilingualTextItem ID="39" CompositionName="Items">
                 <AttributeList>
                   <Culture>zh-CN</Culture>
-                  <Text>2秒到，锁存2号运行状态</Text>
+                  <Text>启动间隔到，锁存2号运行状态</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1178,10 +1179,11 @@
         <Component Name="Stop_Command" />
       </Symbol>
     </Access>
-    <Access Scope="TypedConstant" UId="24">
-      <Constant>
-        <ConstantValue>T#2s</ConstantValue>
-      </Constant>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="MotorSequence_Settings" />
+        <Component Name="StartInterval" />
+      </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="25">
       <Symbol>
@@ -1268,7 +1270,7 @@
               <MultilingualTextItem ID="3E" CompositionName="Items">
                 <AttributeList>
                   <Culture>zh-CN</Culture>
-                  <Text>2号启动后再计时2秒</Text>
+                  <Text>2号启动后再按启动间隔计时</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1345,7 +1347,7 @@
               <MultilingualTextItem ID="43" CompositionName="Items">
                 <AttributeList>
                   <Culture>zh-CN</Culture>
-                  <Text>再过2秒，锁存3号运行状态</Text>
+                  <Text>启动间隔到，锁存3号运行状态</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1366,10 +1368,11 @@
         <Component Name="Motor2_Active" />
       </Symbol>
     </Access>
-    <Access Scope="TypedConstant" UId="23">
-      <Constant>
-        <ConstantValue>T#2s</ConstantValue>
-      </Constant>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="MotorSequence_Settings" />
+        <Component Name="StopInterval" />
+      </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="24">
       <Symbol>
@@ -1443,7 +1446,7 @@
               <MultilingualTextItem ID="48" CompositionName="Items">
                 <AttributeList>
                   <Culture>zh-CN</Culture>
-                  <Text>3号停止后计时2秒，保持2号运行</Text>
+                  <Text>3号停止后按停止间隔计时，保持2号运行</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1504,7 +1507,7 @@
               <MultilingualTextItem ID="4D" CompositionName="Items">
                 <AttributeList>
                   <Culture>zh-CN</Culture>
-                  <Text>停机间隔2秒到，停止2号</Text>
+                  <Text>停止间隔到，停止2号</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1530,10 +1533,11 @@
         <Component Name="Motor2_Active" />
       </Symbol>
     </Access>
-    <Access Scope="TypedConstant" UId="24">
-      <Constant>
-        <ConstantValue>T#2s</ConstantValue>
-      </Constant>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="MotorSequence_Settings" />
+        <Component Name="StopInterval" />
+      </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="25">
       <Symbol>
@@ -1618,7 +1622,7 @@
               <MultilingualTextItem ID="52" CompositionName="Items">
                 <AttributeList>
                   <Culture>zh-CN</Culture>
-                  <Text>2号停止后再计时2秒，保持1号运行</Text>
+                  <Text>2号停止后按停止间隔计时，保持1号运行</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1679,7 +1683,7 @@
               <MultilingualTextItem ID="57" CompositionName="Items">
                 <AttributeList>
                   <Culture>zh-CN</Culture>
-                  <Text>停机间隔2秒到，停止1号</Text>
+                  <Text>停止间隔到，停止1号</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>

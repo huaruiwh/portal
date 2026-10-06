@@ -4,7 +4,7 @@ import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const c=(addr,nc=false)=>({kind:'contact',addr,nc});
 const coil=(addr,mode='Coil')=>({kind:'coil',addr,mode});
-const timer=(name)=>({kind:'timer',name});
+const timer=(name)=>({kind:'timer',name,parameter:name.startsWith('Start')?'StartInterval':'StopInterval'});
 const any={kind:'or',branches:[[c('M2.0')],[c('M2.1')],[c('M2.2')]]};
 export const networks=[
  ['启动上升沿，仅接受新的按钮动作',[c('M0.0'),c('M4.0',true),coil('M4.1')]],
@@ -16,14 +16,14 @@ export const networks=[
  ['若3号未启动，立即停2号电机',[c('M4.2'),c('M4.3',true),c('M4.4'),coil('M2.1','RCoil')]],
  ['若仅1号运行，立即停1号电机',[c('M4.2'),c('M4.3',true),c('M4.4',true),coil('M2.0','RCoil')]],
  ['空闲时启动1号；停止优先，停止期间禁止重启',[c('M4.1'),c('M0.1',true),c('M3.0',true),c('M2.0',true),c('M2.1',true),c('M2.2',true),coil('M2.0','SCoil')]],
- ['1号启动后计时2秒',[c('M2.0'),c('M3.0',true),c('M0.1',true),timer('Start2'),coil('M5.0')]],
- ['2秒到，锁存2号运行状态',[c('M5.0'),c('M3.0',true),coil('M2.1','SCoil')]],
- ['2号启动后再计时2秒',[c('M2.1'),c('M3.0',true),c('M0.1',true),timer('Start3'),coil('M5.1')]],
- ['再过2秒，锁存3号运行状态',[c('M5.1'),c('M3.0',true),coil('M2.2','SCoil')]],
- ['3号停止后计时2秒，保持2号运行',[c('M3.0'),c('M2.1'),timer('Stop2'),coil('M5.2')]],
- ['停机间隔2秒到，停止2号',[c('M5.2'),coil('M2.1','RCoil')]],
- ['2号停止后再计时2秒，保持1号运行',[c('M3.0'),c('M2.0'),c('M2.1',true),timer('Stop1'),coil('M5.3')]],
- ['停机间隔2秒到，停止1号',[c('M5.3'),coil('M2.0','RCoil')]],
+ ['1号启动后按启动间隔计时',[c('M2.0'),c('M3.0',true),c('M0.1',true),timer('Start2'),coil('M5.0')]],
+ ['启动间隔到，锁存2号运行状态',[c('M5.0'),c('M3.0',true),coil('M2.1','SCoil')]],
+ ['2号启动后再按启动间隔计时',[c('M2.1'),c('M3.0',true),c('M0.1',true),timer('Start3'),coil('M5.1')]],
+ ['启动间隔到，锁存3号运行状态',[c('M5.1'),c('M3.0',true),coil('M2.2','SCoil')]],
+ ['3号停止后按停止间隔计时，保持2号运行',[c('M3.0'),c('M2.1'),timer('Stop2'),coil('M5.2')]],
+ ['停止间隔到，停止2号',[c('M5.2'),coil('M2.1','RCoil')]],
+ ['2号停止后按停止间隔计时，保持1号运行',[c('M3.0'),c('M2.0'),c('M2.1',true),timer('Stop1'),coil('M5.3')]],
+ ['停止间隔到，停止1号',[c('M5.3'),coil('M2.0','RCoil')]],
  ['全部停止后释放停止请求',[c('M2.0',true),c('M2.1',true),c('M2.2',true),coil('M3.0','RCoil')]],
  ['1号物理输出',[c('M2.0'),coil('Q0.0')]],
  ['2号物理输出',[c('M2.1'),coil('Q0.1')]],
@@ -41,7 +41,7 @@ function unit(title,flow){
   for(const el of items){
    if(el.kind==='or'){const o=next();parts.push(`<Part Name="O" UId="${o}"><TemplateValue Name="Card" Type="Cardinality">${el.branches.length}</TemplateValue></Part>`);let b=1;for(const branch of el.branches){const end=emit(branch,prev,pin);conn(end.uid,end.pin,o,'in'+b++);}prev=o;pin='out';}
    else if(el.kind==='contact'||el.kind==='coil'){const a=address(el.addr),p=next();parts.push(`<Part Name="${el.kind==='contact'?'Contact':el.mode}" UId="${p}">${el.nc?'<Negated Name="operand"/>':''}</Part>`);conn(prev,pin,p,'in');operand(a,p);prev=p;pin='out';}
-   else {const p=next(),instance=next(),pt=next(),open=next();parts.push(`<Part Name="TON" Version="1.0" UId="${p}"><Instance Scope="LocalVariable" UId="${instance}"><Component Name="${el.name}"/></Instance><TemplateValue Name="time_type" Type="Type">Time</TemplateValue></Part>`);parts.push(`<Access Scope="TypedConstant" UId="${pt}"><Constant><ConstantValue>T#2s</ConstantValue></Constant></Access>`);conn(prev,pin,p,'IN');wires.push(`<Wire UId="${next()}"><IdentCon UId="${pt}"/><NameCon UId="${p}" Name="PT"/></Wire>`);wires.push(`<Wire UId="${next()}"><NameCon UId="${p}" Name="ET"/><OpenCon UId="${open}"/></Wire>`);prev=p;pin='Q';}
+   else {const p=next(),instance=next(),pt=next(),open=next();parts.push(`<Part Name="TON" Version="1.0" UId="${p}"><Instance Scope="LocalVariable" UId="${instance}"><Component Name="${el.name}"/></Instance><TemplateValue Name="time_type" Type="Type">Time</TemplateValue></Part>`);parts.push(`<Access Scope="GlobalVariable" UId="${pt}"><Symbol><Component Name="MotorSequence_Settings"/><Component Name="${el.parameter}"/></Symbol></Access>`);conn(prev,pin,p,'IN');wires.push(`<Wire UId="${next()}"><IdentCon UId="${pt}"/><NameCon UId="${p}" Name="PT"/></Wire>`);wires.push(`<Wire UId="${next()}"><NameCon UId="${p}" Name="ET"/><OpenCon UId="${open}"/></Wire>`);prev=p;pin='Q';}
   }return {uid:prev,pin};
  }
  emit(flow);

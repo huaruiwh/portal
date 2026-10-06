@@ -22,13 +22,20 @@ try {
         $initialReport=Invoke-PlcCompile -PlcSoftware $plc
         $initialReport | ConvertTo-Json -Depth 12 | Write-Output
         if($initialReport.Errors -gt 0){throw "Timer scaffold compile failed: $($initialReport.Errors)"}
-        $plc.BlockGroup.Blocks.Find('MotorSequenceLAD').Export([System.IO.FileInfo]::new("$root\verify\TimerScaffold_export.xml"),[Siemens.Engineering.ExportOptions]::WithDefaults)
+        $scaffoldExport="$root\verify\TimerScaffold_export.xml"
+        if(Test-Path -LiteralPath $scaffoldExport){Remove-Item -LiteralPath $scaffoldExport -Force}
+        $plc.BlockGroup.Blocks.Find('MotorSequenceLAD').Export([System.IO.FileInfo]::new($scaffoldExport),[Siemens.Engineering.ExportOptions]::WithDefaults)
         $table=Get-DefaultTagTable -PlcSoftware $plc
         $defs=@('Start_Command|%M0.0','Stop_Command|%M0.1','Motor1_Active|%M2.0','Motor2_Active|%M2.1','Motor3_Active|%M2.2','Stop_Latched|%M3.0','Start_Previous|%M4.0','Start_Pulse|%M4.1','Stop_Event|%M4.2','Stop_Had3|%M4.3','Stop_Had2|%M4.4','Start2_Done|%M5.0','Start3_Done|%M5.1','Stop2_Done|%M5.2','Stop1_Done|%M5.3','Motor_1|%Q0.0','Motor_2|%Q0.1','Motor_3|%Q0.2')
         foreach($d in $defs){$pair=$d.Split('|');if(-not $table.Tags.Find($pair[0])){$table.Tags.Create($pair[0],'Bool',$pair[1]) | Out-Null}}
     } else {
         $project=Open-TiaProject -TiaPortal $tia -ProjectPath $projectFile
         $plc=Get-PlcSoftware -Project $project
+        if(-not $plc.BlockGroup.Blocks.Find('MotorSequence_Settings')){
+            $settingsSource=$plc.ExternalSourceGroup.ExternalSources.Find('MotorSequenceSettings')
+            if(-not $settingsSource){$settingsSource=$plc.ExternalSourceGroup.ExternalSources.CreateFromFile('MotorSequenceSettings',"$root\src\MotorSequenceSettings.scl")}
+            $settingsSource.GenerateBlocksFromSource() | Out-Null
+        }
         do {
         $applied=$false
         try {
@@ -53,7 +60,7 @@ try {
     if($report.Errors -gt 0){throw "Compile failed: $($report.Errors) errors"}
     $project.Save()
     if($Phase -eq 'Apply') {
-        foreach($block in $plc.BlockGroup.Blocks){$block.Export([System.IO.FileInfo]::new("$root\verify\$($block.Name)_export.xml"),[Siemens.Engineering.ExportOptions]::WithDefaults)}
+        foreach($block in $plc.BlockGroup.Blocks){$exportPath="$root\verify\$($block.Name)_export.xml";if(Test-Path -LiteralPath $exportPath){Remove-Item -LiteralPath $exportPath -Force};$block.Export([System.IO.FileInfo]::new($exportPath),[Siemens.Engineering.ExportOptions]::WithDefaults)}
     }
     Write-Output "Saved: $projectFile"
 } finally {if($project){$project.Close()};if($tia){$tia.Dispose()}}

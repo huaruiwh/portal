@@ -1,5 +1,5 @@
 {
-    "Date":  "2026-10-06T21:46:25.5453056+08:00",
+    "Date":  "2026-10-06T21:59:38.8699651+08:00",
     "Instance":  "MotorSeqApi_20261006",
     "OperatingState":  "Run",
     "LicenseStatus":  "OK",
@@ -15,15 +15,15 @@
                                           "Outputs":  "000"
                                       },
                                       {
-                                          "Milliseconds":  134,
+                                          "Milliseconds":  100,
                                           "Outputs":  "100"
                                       },
                                       {
-                                          "Milliseconds":  2134,
+                                          "Milliseconds":  2120,
                                           "Outputs":  "110"
                                       },
                                       {
-                                          "Milliseconds":  4143,
+                                          "Milliseconds":  4155,
                                           "Outputs":  "111"
                                       }
                                   ],
@@ -43,15 +43,15 @@
                                           "Outputs":  "111"
                                       },
                                       {
-                                          "Milliseconds":  156,
+                                          "Milliseconds":  131,
                                           "Outputs":  "110"
                                       },
                                       {
-                                          "Milliseconds":  2171,
+                                          "Milliseconds":  2137,
                                           "Outputs":  "100"
                                       },
                                       {
-                                          "Milliseconds":  4181,
+                                          "Milliseconds":  4151,
                                           "Outputs":  "000"
                                       }
                                   ],
@@ -71,15 +71,15 @@
                                           "Outputs":  "000"
                                       },
                                       {
-                                          "Milliseconds":  137,
+                                          "Milliseconds":  152,
                                           "Outputs":  "100"
                                       },
                                       {
-                                          "Milliseconds":  2131,
+                                          "Milliseconds":  2154,
                                           "Outputs":  "110"
                                       },
                                       {
-                                          "Milliseconds":  2639,
+                                          "Milliseconds":  2646,
                                           "Outputs":  "100"
                                       }
                                   ],
@@ -99,11 +99,11 @@
                                           "Outputs":  "000"
                                       },
                                       {
-                                          "Milliseconds":  152,
+                                          "Milliseconds":  136,
                                           "Outputs":  "100"
                                       },
                                       {
-                                          "Milliseconds":  551,
+                                          "Milliseconds":  537,
                                           "Outputs":  "000"
                                       }
                                   ],
@@ -126,11 +126,11 @@
                                           "Outputs":  "100"
                                       },
                                       {
-                                          "Milliseconds":  2140,
+                                          "Milliseconds":  2149,
                                           "Outputs":  "110"
                                       },
                                       {
-                                          "Milliseconds":  4160,
+                                          "Milliseconds":  4167,
                                           "Outputs":  "111"
                                       }
                                   ],
@@ -150,15 +150,15 @@
                                           "Outputs":  "111"
                                       },
                                       {
-                                          "Milliseconds":  152,
+                                          "Milliseconds":  154,
                                           "Outputs":  "110"
                                       },
                                       {
-                                          "Milliseconds":  2144,
+                                          "Milliseconds":  2141,
                                           "Outputs":  "100"
                                       },
                                       {
-                                          "Milliseconds":  4155,
+                                          "Milliseconds":  4174,
                                           "Outputs":  "000"
                                       }
                                   ],
@@ -178,15 +178,15 @@
                                           "Outputs":  "000"
                                       },
                                       {
-                                          "Milliseconds":  152,
+                                          "Milliseconds":  153,
                                           "Outputs":  "100"
                                       },
                                       {
-                                          "Milliseconds":  2168,
+                                          "Milliseconds":  2171,
                                           "Outputs":  "110"
                                       },
                                       {
-                                          "Milliseconds":  4173,
+                                          "Milliseconds":  4176,
                                           "Outputs":  "111"
                                       }
                                   ],
@@ -206,15 +206,15 @@
                                           "Outputs":  "111"
                                       },
                                       {
-                                          "Milliseconds":  152,
+                                          "Milliseconds":  157,
                                           "Outputs":  "110"
                                       },
                                       {
-                                          "Milliseconds":  2184,
+                                          "Milliseconds":  2152,
                                           "Outputs":  "100"
                                       },
                                       {
-                                          "Milliseconds":  4239,
+                                          "Milliseconds":  4168,
                                           "Outputs":  "000"
                                       }
                                   ],

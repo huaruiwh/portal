@@ -16,9 +16,10 @@ $tia=Connect-TiaPortal -WithUserInterface
 $project=Open-TiaProject -TiaPortal $tia -ProjectPath "$root\project\MotorSequence_Fixed\MotorSequence_Fixed.ap20"
 $plc=Get-PlcSoftware -Project $project
 $plc.BlockGroup.Blocks.Find('MotorSequenceLAD').ShowInEditor()
-[ordered]@{Date=(Get-Date -Format o);Project=$project.Path.FullName;Instance=$InstanceName;State=[string]$instance.OperatingState;TIAProcessId=$tia.GetCurrentProcess().Id;Outputs=(@('Motor_1','Motor_2','Motor_3') | ForEach-Object {$instance.ReadBool($_)})} | ConvertTo-Json | Tee-Object -FilePath "$root\logs\visible-demo.json"
+$plc.BlockGroup.Blocks.Find('MotorSequence_Settings').ShowInEditor()
+[ordered]@{Date=(Get-Date -Format o);Project=$project.Path.FullName;Instance=$InstanceName;State=[string]$instance.OperatingState;TIAProcessId=$tia.GetCurrentProcess().Id;SettingsBlockNumber=$plc.BlockGroup.Blocks.Find('MotorSequence_Settings').Number;StartIntervalMilliseconds=$instance.ReadInt32('MotorSequence_Settings.StartInterval');StopIntervalMilliseconds=$instance.ReadInt32('MotorSequence_Settings.StopInterval');Outputs=(@('Motor_1','Motor_2','Motor_3') | ForEach-Object {$instance.ReadBool($_)})} | ConvertTo-Json | Tee-Object -FilePath "$root\logs\visible-demo.json"
 Write-Output 'TIA LAD editor open; independent simulation running. Keep this terminal alive to retain the API instance. Enter quit to close.'
 do {$reply=Read-Host 'Demo'}until($reply -eq 'quit')
-$instance.Stop(30000)
+$instance.PowerOff(30000)
 $project.Close()
 $tia.Dispose()

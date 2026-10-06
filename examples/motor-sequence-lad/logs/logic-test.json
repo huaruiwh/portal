@@ -206,6 +206,85 @@
       ]
     }
   ],
+  "parameterCases": [
+    {
+      "startInterval": 800,
+      "stopInterval": 1400,
+      "passed": true,
+      "events": [
+        {
+          "t": 0,
+          "out": "100"
+        },
+        {
+          "t": 800,
+          "out": "110"
+        },
+        {
+          "t": 1600,
+          "out": "111"
+        },
+        {
+          "t": 2600,
+          "out": "110"
+        },
+        {
+          "t": 4000,
+          "out": "100"
+        },
+        {
+          "t": 5400,
+          "out": "000"
+        }
+      ]
+    },
+    {
+      "startInterval": 1500,
+      "stopInterval": 500,
+      "passed": true,
+      "events": [
+        {
+          "t": 0,
+          "out": "100"
+        },
+        {
+          "t": 1500,
+          "out": "110"
+        },
+        {
+          "t": 3000,
+          "out": "111"
+        },
+        {
+          "t": 4000,
+          "out": "110"
+        },
+        {
+          "t": 4500,
+          "out": "100"
+        },
+        {
+          "t": 5000,
+          "out": "000"
+        }
+      ]
+    },
+    {
+      "startInterval": 0,
+      "stopInterval": 0,
+      "passed": true,
+      "events": [
+        {
+          "t": 0,
+          "out": "111"
+        },
+        {
+          "t": 1000,
+          "out": "000"
+        }
+      ]
+    }
+  ],
   "stopOffsets": 501,
   "passed": true
 }

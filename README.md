@@ -6,6 +6,8 @@
 
 ### 三电机 LAD 修正与无界面仿真（2026-10-06）
 
+后续参数更新：同一工程新增 DB2 `MotorSequence_Settings`，`StartInterval` / `StopInterval` 为保持型 TIME，默认 T#2s；四个 TON 的 PT 改为读取对应参数。800/1400 ms、1500/500 ms 两组启停间隔真实测试通过；模拟断电后 1200/900 ms 参数保持通过，原有 9 场景回归通过。测试后恢复默认 2 秒。操作及最新证据见下方复现入口。
+
 [复现入口](examples/motor-sequence-lad/README.md) · [实现记录、报错、开源方案比较](examples/motor-sequence-lad/docs/三电机修正-实现记录.md) · [实际 Runtime 测试日志](examples/motor-sequence-lad/logs/runtime-test.json)
 
 修正版为 22 网络 LAD、4 个 TON；启动 1→2→3、每级 2 秒，停止立即停当前最后启动的电机，再每级 2 秒逆序停止。修复停止短脉冲失效、同时停机及长按启动自动重启问题。

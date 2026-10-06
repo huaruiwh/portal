@@ -2,9 +2,9 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {networks} from './build-fixed-lad.mjs';
 class Scan {
- constructor(){this.bits={};this.timers={};this.events=[];this.previous='000';}
+ constructor(startInterval=2000,stopInterval=2000){this.bits={};this.timers={};this.events=[];this.previous='000';this.settings={StartInterval:startInterval,StopInterval:stopInterval};}
  scan(t,start,stop){this.bits['M0.0']=start;this.bits['M0.1']=stop;
- const flow=(els,power=true)=>{for(const e of els){if(e.kind==='contact')power=power&&(e.nc?!this.bits[e.addr]:!!this.bits[e.addr]);else if(e.kind==='or')power=e.branches.some(b=>flow(b,power));else if(e.kind==='timer'){const tm=this.timers[e.name]??={begin:null,q:false};if(!power){tm.begin=null;tm.q=false;}else{tm.begin??=t;tm.q=t-tm.begin>=2000;}power=tm.q;}else if(e.mode==='Coil')this.bits[e.addr]=power;else if(power)this.bits[e.addr]=e.mode==='SCoil';}return power;};
+ const flow=(els,power=true)=>{for(const e of els){if(e.kind==='contact')power=power&&(e.nc?!this.bits[e.addr]:!!this.bits[e.addr]);else if(e.kind==='or')power=e.branches.some(b=>flow(b,power));else if(e.kind==='timer'){const tm=this.timers[e.name]??={begin:null,q:false};if(!power){tm.begin=null;tm.q=false;}else{tm.begin??=t;tm.q=t-tm.begin>=this.settings[e.parameter];}power=tm.q;}else if(e.mode==='Coil')this.bits[e.addr]=power;else if(power)this.bits[e.addr]=e.mode==='SCoil';}return power;};
  for(const [,els] of networks)flow(els);
  const out=['Q0.0','Q0.1','Q0.2'].map(a=>this.bits[a]?'1':'0').join('');if(out!==this.previous){this.events.push({t,out});this.previous=out;}return out;
  }
@@ -23,5 +23,7 @@ const results=[];
 for(const tc of cases){const s=new Scan;for(let t=0;t<=tc.end;t+=10)s.scan(t,tc.start(t),tc.stop(t));assert.deepEqual(s.events,tc.expect.map(([t,out])=>({t,out})),tc.name);results.push({name:tc.name,passed:true,events:s.events});}
 // Every stop offset across startup, including timer boundary scans.
 for(let stopAt=0;stopAt<=5000;stopAt+=10){const s=new Scan;for(let t=0;t<=stopAt+5000;t+=10){const before=s.previous;s.scan(t,t===0,t===stopAt);if(t>=stopAt)assert.ok(parseInt(s.previous,2)<=parseInt(before,2),'No motor may turn on during stopping');}assert.equal(s.previous,'000');}
-const report={date:'2026-10-06',method:'LAD network IR scan simulation, 10 ms step; not PLCSIM',scenarios:results,stopOffsets:501,passed:true};
+const parameterCases=[];
+for(const [startInterval,stopInterval] of [[800,1400],[1500,500],[0,0]]){const s=new Scan(startInterval,stopInterval);const stopAt=startInterval*2+1000;for(let t=0;t<=stopAt+stopInterval*2+100;t+=10)s.scan(t,t===0,t===stopAt);const expected=startInterval===0?[[0,'111'],[stopAt,'000']]:[[0,'100'],[startInterval,'110'],[2*startInterval,'111'],[stopAt,'110'],[stopAt+stopInterval,'100'],[stopAt+2*stopInterval,'000']];assert.deepEqual(s.events,expected.map(([t,out])=>({t,out})));parameterCases.push({startInterval,stopInterval,passed:true,events:s.events});}
+const report={date:'2026-10-06',method:'LAD network IR scan simulation, 10 ms step; not PLCSIM',scenarios:results,parameterCases,stopOffsets:501,passed:true};
 fs.writeFileSync(new URL('../logs/logic-test.json',import.meta.url),JSON.stringify(report,null,2));console.log(JSON.stringify({passed:true,scenarios:results.length,stopOffsets:501}));

@@ -32,6 +32,7 @@ try{
  $compile=Invoke-PlcCompile -PlcSoftware $plc
  $compile | ConvertTo-Json -Depth 15 | Set-Content "$root\logs\simulation-software-compile.json" -Encoding UTF8
  if($compile.Errors -gt 0){throw 'Refusing to export uncompiled PLC.'}
+ foreach($block in $plc.BlockGroup.Blocks){$exportPath="$root\verify\$($block.Name)_export.xml";if(Test-Path -LiteralPath $exportPath){Remove-Item -LiteralPath $exportPath -Force};$block.Export([System.IO.FileInfo]::new($exportPath),[Siemens.Engineering.ExportOptions]::WithDefaults)}
  $provider=Find-Download $project.Devices[0].DeviceItems
  if(-not $provider){throw 'DownloadProvider unavailable'}
  do {
