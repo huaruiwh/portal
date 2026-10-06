@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V20" />
+  <SW.Blocks.OB ID="0">
+    <AttributeList>
+      <AutoNumber>false</AutoNumber>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <IsIECCheckEnabled>false</IsIECCheckEnabled>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <Interface>
+        <Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+          
+          
+          
+          
+          <Section Name="Temp"/>
+          <Section Name="Constant"/>
+        </Sections>
+      </Interface>
+      <Name>Main</Name>
+      <Namespace />
+      <Number>1</Number>
+      <SecondaryType>ProgramCycle</SecondaryType>
+      <ProgrammingLanguage>LAD</ProgrammingLanguage>
+      <SetENOAutomatically>false</SetENOAutomatically>
+    </AttributeList>
+    <ObjectList>
+      <SW.Blocks.CompileUnit ID="200" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
+              <Parts>
+                <Access Scope="Address" UId="100"><Address Area="Input" Type="Bool" BitOffset="2"/></Access>
+                <Part Name="Contact" UId="101"><Negated Name="operand"/></Part>
+                <Access Scope="Address" UId="104"><Address Area="Input" Type="Bool" BitOffset="1"/></Access>
+                <Part Name="Contact" UId="105"></Part>
+                <Part Name="O" UId="108"><TemplateValue Name="Card" Type="Cardinality">2</TemplateValue></Part>
+                <Access Scope="Address" UId="109"><Address Area="Input" Type="Bool" BitOffset="0"/></Access>
+                <Part Name="Contact" UId="110"></Part>
+                <Access Scope="Address" UId="114"><Address Area="Memory" Type="Bool" BitOffset="0"/></Access>
+                <Part Name="Contact" UId="115"></Part>
+                <Access Scope="Address" UId="120"><Address Area="Memory" Type="Bool" BitOffset="0"/></Access>
+                <Part Name="Coil" UId="121"/>
+              </Parts>
+              <Wires>
+                <Wire UId="102"><Powerrail/><NameCon UId="101" Name="in"/></Wire>
+                <Wire UId="103"><IdentCon UId="100"/><NameCon UId="101" Name="operand"/></Wire>
+                <Wire UId="106"><NameCon UId="101" Name="out"/><NameCon UId="105" Name="in"/></Wire>
+                <Wire UId="107"><IdentCon UId="104"/><NameCon UId="105" Name="operand"/></Wire>
+                <Wire UId="119"><NameCon UId="105" Name="out"/><NameCon UId="110" Name="in"/><NameCon UId="115" Name="in"/></Wire>
+                <Wire UId="112"><IdentCon UId="109"/><NameCon UId="110" Name="operand"/></Wire>
+                <Wire UId="113"><NameCon UId="110" Name="out"/><NameCon UId="108" Name="in1"/></Wire>
+                <Wire UId="117"><IdentCon UId="114"/><NameCon UId="115" Name="operand"/></Wire>
+                <Wire UId="118"><NameCon UId="115" Name="out"/><NameCon UId="108" Name="in2"/></Wire>
+                <Wire UId="122"><NameCon UId="108" Name="out"/><NameCon UId="121" Name="in"/></Wire>
+                <Wire UId="123"><IdentCon UId="120"/><NameCon UId="121" Name="operand"/></Wire>
+              </Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="124" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="125" CompositionName="Items">
+                <AttributeList><Culture>zh-CN</Culture><Text>急停 %I0.2(常闭) 与 停止按钮 %I0.1 串联；启动 %I0.0 与自保持触点 %M0.0 并联后驱动运行标志</Text></AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="126" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="127" CompositionName="Items">
+                <AttributeList><Culture>zh-CN</Culture><Text>起保停自锁</Text></AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="300" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
+              <Parts>
+                <Access Scope="Address" UId="128"><Address Area="Memory" Type="Bool" BitOffset="0"/></Access>
+                <Part Name="Contact" UId="129"></Part>
+                <Access Scope="Address" UId="132"><Address Area="Output" Type="Bool" BitOffset="0"/></Access>
+                <Part Name="Coil" UId="133"/>
+              </Parts>
+              <Wires>
+                <Wire UId="130"><Powerrail/><NameCon UId="129" Name="in"/></Wire>
+                <Wire UId="131"><IdentCon UId="128"/><NameCon UId="129" Name="operand"/></Wire>
+                <Wire UId="134"><NameCon UId="129" Name="out"/><NameCon UId="133" Name="in"/></Wire>
+                <Wire UId="135"><IdentCon UId="132"/><NameCon UId="133" Name="operand"/></Wire>
+              </Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="136" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="137" CompositionName="Items">
+                <AttributeList><Culture>zh-CN</Culture><Text>运行标志 %M0.0 驱动电机输出 %Q0.0</Text></AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="138" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="139" CompositionName="Items">
+                <AttributeList><Culture>zh-CN</Culture><Text>电机运行输出</Text></AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="400" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
+              <Parts>
+                <Access Scope="Address" UId="140"><Address Area="Memory" Type="Bool" BitOffset="0"/></Access>
+                <Part Name="Contact" UId="141"></Part>
+                <Access Scope="Address" UId="144"><Address Area="Output" Type="Bool" BitOffset="1"/></Access>
+                <Part Name="Coil" UId="145"/>
+              </Parts>
+              <Wires>
+                <Wire UId="142"><Powerrail/><NameCon UId="141" Name="in"/></Wire>
+                <Wire UId="143"><IdentCon UId="140"/><NameCon UId="141" Name="operand"/></Wire>
+                <Wire UId="146"><NameCon UId="141" Name="out"/><NameCon UId="145" Name="in"/></Wire>
+                <Wire UId="147"><IdentCon UId="144"/><NameCon UId="145" Name="operand"/></Wire>
+              </Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="148" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="149" CompositionName="Items">
+                <AttributeList><Culture>zh-CN</Culture><Text>运行指示灯 %Q0.1 与电机输出同步</Text></AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="150" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="151" CompositionName="Items">
+                <AttributeList><Culture>zh-CN</Culture><Text>运行指示灯</Text></AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="500" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
+              <Parts>
+                <Access Scope="Address" UId="152"><Address Area="Memory" Type="Bool" BitOffset="0"/></Access>
+                <Part Name="Contact" UId="153"><Negated Name="operand"/></Part>
+                <Access Scope="Address" UId="156"><Address Area="Output" Type="Bool" BitOffset="2"/></Access>
+                <Part Name="Coil" UId="157"/>
+              </Parts>
+              <Wires>
+                <Wire UId="154"><Powerrail/><NameCon UId="153" Name="in"/></Wire>
+                <Wire UId="155"><IdentCon UId="152"/><NameCon UId="153" Name="operand"/></Wire>
+                <Wire UId="158"><NameCon UId="153" Name="out"/><NameCon UId="157" Name="in"/></Wire>
+                <Wire UId="159"><IdentCon UId="156"/><NameCon UId="157" Name="operand"/></Wire>
+              </Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="160" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="161" CompositionName="Items">
+                <AttributeList><Culture>zh-CN</Culture><Text>反相触点示例：运行标志为 0 时点亮停止指示灯 %Q0.2</Text></AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="162" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="163" CompositionName="Items">
+                <AttributeList><Culture>zh-CN</Culture><Text>停止指示灯</Text></AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="600" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
+              <Parts>
+                <Access Scope="Address" UId="164"><Address Area="Input" Type="Bool" BitOffset="3"/></Access>
+                <Part Name="Contact" UId="165"></Part>
+                <Access Scope="Address" UId="168"><Address Area="Output" Type="Bool" BitOffset="3"/></Access>
+                <Part Name="SCoil" UId="169"/>
+              </Parts>
+              <Wires>
+                <Wire UId="166"><Powerrail/><NameCon UId="165" Name="in"/></Wire>
+                <Wire UId="167"><IdentCon UId="164"/><NameCon UId="165" Name="operand"/></Wire>
+                <Wire UId="170"><NameCon UId="165" Name="out"/><NameCon UId="169" Name="in"/></Wire>
+                <Wire UId="171"><IdentCon UId="168"/><NameCon UId="169" Name="operand"/></Wire>
+              </Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="172" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="173" CompositionName="Items">
+                <AttributeList><Culture>zh-CN</Culture><Text>点动按钮 %I0.3 置位输出 %Q0.3（SCoil 示例）</Text></AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="174" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="175" CompositionName="Items">
+                <AttributeList><Culture>zh-CN</Culture><Text>置位输出</Text></AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="700" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
+              <Parts>
+                <Access Scope="Address" UId="176"><Address Area="Input" Type="Bool" BitOffset="4"/></Access>
+                <Part Name="Contact" UId="177"></Part>
+                <Access Scope="Address" UId="180"><Address Area="Output" Type="Bool" BitOffset="3"/></Access>
+                <Part Name="RCoil" UId="181"/>
+              </Parts>
+              <Wires>
+                <Wire UId="178"><Powerrail/><NameCon UId="177" Name="in"/></Wire>
+                <Wire UId="179"><IdentCon UId="176"/><NameCon UId="177" Name="operand"/></Wire>
+                <Wire UId="182"><NameCon UId="177" Name="out"/><NameCon UId="181" Name="in"/></Wire>
+                <Wire UId="183"><IdentCon UId="180"/><NameCon UId="181" Name="operand"/></Wire>
+              </Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="184" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="185" CompositionName="Items">
+                <AttributeList><Culture>zh-CN</Culture><Text>复位按钮 %I0.4 复位输出 %Q0.3（RCoil 示例）</Text></AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="186" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="187" CompositionName="Items">
+                <AttributeList><Culture>zh-CN</Culture><Text>复位输出</Text></AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="800" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
+              <Parts>
+                <Access Scope="Address" UId="188"><Address Area="Input" Type="Bool" BitOffset="2"/></Access>
+                <Part Name="Contact" UId="189"><Negated Name="operand"/></Part>
+                <Part Name="O" UId="192"><TemplateValue Name="Card" Type="Cardinality">3</TemplateValue></Part>
+                <Access Scope="Address" UId="193"><Address Area="Input" Type="Bool" BitOffset="0"/></Access>
+                <Part Name="Contact" UId="194"></Part>
+                <Access Scope="Address" UId="198"><Address Area="Input" Type="Bool" BitOffset="5"/></Access>
+                <Part Name="Contact" UId="199"></Part>
+                <Access Scope="Address" UId="203"><Address Area="Memory" Type="Bool" BitOffset="1"/></Access>
+                <Part Name="Contact" UId="204"></Part>
+                <Access Scope="Address" UId="209"><Address Area="Memory" Type="Bool" BitOffset="1"/></Access>
+                <Part Name="Coil" UId="210"/>
+              </Parts>
+              <Wires>
+                <Wire UId="190"><Powerrail/><NameCon UId="189" Name="in"/></Wire>
+                <Wire UId="191"><IdentCon UId="188"/><NameCon UId="189" Name="operand"/></Wire>
+                <Wire UId="208"><NameCon UId="189" Name="out"/><NameCon UId="194" Name="in"/><NameCon UId="199" Name="in"/><NameCon UId="204" Name="in"/></Wire>
+                <Wire UId="196"><IdentCon UId="193"/><NameCon UId="194" Name="operand"/></Wire>
+                <Wire UId="197"><NameCon UId="194" Name="out"/><NameCon UId="192" Name="in1"/></Wire>
+                <Wire UId="201"><IdentCon UId="198"/><NameCon UId="199" Name="operand"/></Wire>
+                <Wire UId="202"><NameCon UId="199" Name="out"/><NameCon UId="192" Name="in2"/></Wire>
+                <Wire UId="206"><IdentCon UId="203"/><NameCon UId="204" Name="operand"/></Wire>
+                <Wire UId="207"><NameCon UId="204" Name="out"/><NameCon UId="192" Name="in3"/></Wire>
+                <Wire UId="211"><NameCon UId="192" Name="out"/><NameCon UId="210" Name="in"/></Wire>
+                <Wire UId="212"><IdentCon UId="209"/><NameCon UId="210" Name="operand"/></Wire>
+              </Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="213" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="214" CompositionName="Items">
+                <AttributeList><Culture>zh-CN</Culture><Text>OR 门卡数示例：三个并联支路（%I0.0 / %I0.5 / %M0.1）经常闭急停 %I0.2 汇总</Text></AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="215" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="216" CompositionName="Items">
+                <AttributeList><Culture>zh-CN</Culture><Text>三路并联启动条件</Text></AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+    </ObjectList>
+  </SW.Blocks.OB>
+</Document>

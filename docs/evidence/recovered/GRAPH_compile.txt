@@ -1,0 +1,13 @@
+﻿[08:49:14] [INFO] Starting TIA Portal V20 (WithoutUserInterface) ...
+[08:49:25] [INFO] Project opened: C:\Users\wei'ke\Documents\Siemens\TiaGraphDemo_20260914_223534\project\TiaGraphDemo_20260914_223534\TiaGraphDemo_20260914_223534.ap20
+[08:49:26] [INFO] Importing GRAPH XML: C:\Users\wei'ke\Documents\Siemens\TiaGraphDemo_20260914_223534\xml\Graph_Sequencer.xml
+[08:49:36] [INFO] Import returned without error.
+[08:49:36] [INFO] Block: Graph_Sequencer_DB [InstanceDB] #1 DB
+[08:49:36] [INFO] Block: Main [OB] #1 LAD
+[08:49:36] [INFO] Block: Graph_Sequencer [FB] #1 GRAPH
+[08:49:36] [INFO] Compiling ...
+[08:49:41] [INFO]   Warning: 
+[08:49:41] [INFO]   Warning: Compiling finished (errors: 0; warnings: 1)
+[08:49:41] [INFO] Compile state: Warning (errors: 0, warnings: 2)
+[08:49:41] [INFO] Exported: C:\Users\wei'ke\Documents\Siemens\TiaGraphDemo_20260914_223534\verify\Graph_Sequencer_export.xml (102179 bytes)
+[08:49:42] [INFO] Project saved.
