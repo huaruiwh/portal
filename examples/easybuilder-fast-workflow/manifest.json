@@ -32,6 +32,11 @@
       "sha256": "d6d81dc1ae3ce5e8d59b7cd1d2b4293590c627f0edda5a9452a465f23da42a01"
     },
     {
+      "path": "tools/archive_fast_workflow.py",
+      "bytes": 1789,
+      "sha256": "a81d719b22b227fd19523b980ea11f6a7141d50c39e8b1ebee3cf8aa0586ee6b"
+    },
+    {
       "path": "tools/archive_field_speed_research.py",
       "bytes": 4705,
       "sha256": "a0381344a28823c74a0a9b519fb83883b189c77eb7c08f5723a04005cc2c670c"
@@ -470,6 +475,11 @@
       "path": "tools/continue_page313.py",
       "bytes": 7490,
       "sha256": "f757e0fca07309c0a377f50e85c818f6d2b613ce43decf757bf651dbbe856c1a"
+    },
+    {
+      "path": "tools/continue_plc_controls.py",
+      "bytes": 1941,
+      "sha256": "4c8e58dc27a624b639701381a4a9eaa2b270f54fb6abef20e16682da8806019b"
     },
     {
       "path": "tools/continue_scale_page210.py",
@@ -1053,8 +1063,8 @@
     },
     {
       "path": "tools/eb_macro_picker.py",
-      "bytes": 2019,
-      "sha256": "eeeab8ec3e5bd24c6956fd191d61c20ff9529b06121697db98dbdb77c2c5c6f8"
+      "bytes": 2875,
+      "sha256": "7e649951f5488e5ee492d010c7fa37a6633267568bd1df6ed511f0f8c856a443"
     },
     {
       "path": "tools/eb_move_objects.py",
@@ -1328,8 +1338,8 @@
     },
     {
       "path": "tools/eb_plc_control_config.py",
-      "bytes": 8251,
-      "sha256": "45c8ebd397c71574abc1854f84c1a9fbe46ef0b4ffe357b76d07ed01b5abbeb0"
+      "bytes": 19616,
+      "sha256": "90cd8036173add02e97c3ceb0235d11b80ad9f31ee585ea409d0601b21448e40"
     },
     {
       "path": "tools/eb_popup_local_ocr.py",
@@ -2013,6 +2023,7 @@
     }
   ],
   "project_files_included": false,
-  "zip_bytes": 787265,
-  "zip_sha256": "ae849b8ca5aba47705ceb69d270a210f59a0b195fe02e4d5e6fe34826c51c06b"
+  "site_configuration_included": false,
+  "zip_bytes": 791817,
+  "zip_sha256": "4cdb698bd9bcfd622125121ef1f4462e6c0ebe7533b43911c28e0604bd6f0fe7"
 }

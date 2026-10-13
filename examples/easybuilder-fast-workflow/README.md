@@ -46,4 +46,16 @@ python tools/start_page313.py
 
 313已处理29控件和代表重开，最后目录审计报 Target object audit incomplete，尚未完成新编译；237及236缺类型断点保留，219暂停。全工程外观及运行验收仍待。
 
-用户新要求迁移元件菜单的 PLC 控制：原件70定义已只读读取，普通 Ctrl+C 未改变剪贴板，不能使用旧 EBClipboardObject。目标列表为空，正在分类型重建；此归档不表示70定义已迁移验收。
+用户新要求迁移元件菜单的 PLC 控制：原件70定义已只读读取。按用户指示排除声音，69条逐个新增完成（68宏触发、1换页），保存后完整列表与每类代表重开通过，新编译0错误1已接受GP_0警告。工程10,824,966字节，exob3,554,777字节；本地工程与现场定义不上传，未做运行验收。
+
+## PLC控制逐条新增的最终规律（2026-10-13）
+
+Ctrl+C未改变剪贴板，禁止拿旧EBClipboardObject粘贴。先跑通一条，后续每个请求只新增一条：控制类型→设备和限制条件→触发模式→宏ID/名称精确搜索→地址类型→地址→同会话读回→确认→实际列表核对。已确认前缀跳过，无已知结果的新弹窗先观察，不重复新增。macro惰性选择器仅显示当前项，使用设置窗口搜索；选择后等待实际读回，不能把列表1项当宏缺失。Qt地址类型按真实地址Edit对齐的Qt子窗口精确Down查找，失败回退全窗UIA。
+
+设置只读取一次，确认前复用已实际读回字段；不重复一般属性。窗口关闭须重新观测管理器句柄。代表重开时清除多选，设置选中行及caret，并检查selected_indices后打开。源只读、配置编辑不执行宏。完整新增60秒，普通UIA55秒。
+
+恢复：`python tools/continue_plc_controls.py`；源码归档复现：`python tools/archive_fast_workflow.py`。只有存在匹配工程、完整源缓存、当前worker和真实管理器时才操作，先检查锁，不并发GUI。
+
+本次连续首尝试宏样本统计：{"first_attempt_macro_samples": 47, "median_seconds": 14.016, "min_seconds": 13.0, "max_seconds": 16.047, "window_switch_seconds": 6.969, "scope": "new definition single-session settings, confirmation and list readback; excludes final save/compile"}。这些时间不含最后保存编译，不能当全工程吞吐速度。
+
+归档快照：404件Python脚本，ZIP791,817字节，SHA256 4cdb698bd9bcfd622125121ef1f4462e6c0ebe7533b43911c28e0604bd6f0fe7；凭据literal扫描及ZIP CRC检验通过。源码依赖本地缓存，现场配置与工程不在包内。
