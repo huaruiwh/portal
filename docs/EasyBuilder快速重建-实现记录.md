@@ -59,3 +59,18 @@ Ctrl+C未改变剪贴板，禁止拿旧EBClipboardObject粘贴。先跑通一条
 本次连续首尝试宏样本统计：{"first_attempt_macro_samples": 47, "median_seconds": 14.016, "min_seconds": 13.0, "max_seconds": 16.047, "window_switch_seconds": 6.969, "scope": "new definition single-session settings, confirmation and list readback; excludes final save/compile"}。这些时间不含最后保存编译，不能当全工程吞吐速度。
 
 归档快照：404件Python脚本，ZIP791,817字节，SHA256 4cdb698bd9bcfd622125121ef1f4462e6c0ebe7533b43911c28e0604bd6f0fe7；凭据literal扫描及ZIP CRC检验通过。源码依赖本地缓存，现场配置与工程不在包内。
+
+
+## 2026-10-14 26～47页高度391适配完成
+
+实际完成21个已定义页面、422控件；46为未定义空页，真实目录不能定位定义窗口，已记录且未新增。各页800×500→800×391，比例0.782等比缩放整体位置和宽高，水平居中，保留图形比例；91个原宽高相等的控件新宽高仍相等，圆形不单轴拉伸。字体微软正黑体Light，641个启用字体状态，实际字号集合[6, 8, 9, 10, 11, 12, 13]；先字号再轮廓，必要时只取消图片原尺寸自动尺寸，不替换图库或颜色。
+
+每件同会话读回，每3件保存；21页高度保存重开、各类代表共105件重开、目录与边界通过。saved_reopened_verified仅标实际代表重开的件，不冒称全422逐件重开。21页最终目录与原件相符；其中27～45及47共20页还与本任务不可变目标目录基准一致。26为第一试跑，目录字面基准未保留，不能补造；其原几何基准完整、最终目录与原件相符。
+
+工程output/组装机_MT8106iP.emtp保存10829238字节，新exob 3518775字节。真实新编译0错误1警告，output_updated=true；唯一原有警告：1. [窗口 16] GP_0 : 选择 "设为原尺寸" 以加快画面显示速度.。最终停26供查看。未执行任何PLC/HMI宏、未下载、未做运行验收，其他旧页待办保留。
+
+编译入口曾报ValueError: Target only，实际窗口标题/进程正确；保存期间消息式window_text读取暂时失败。改为GetWindowTextW读真实标题并保留严格目标文件名校验，仅重试新编译成功，未重做缩放。末尾归档曾报KeyError: objects_before，定位仅第一试跑26缺目录基准；改为明确区分20页原目标比较与21页原件比较，未伪造丢失证据。MS初始化、目录激活、缩进修复、同进程缓存及批次保存详见前文。
+
+证据evidence/scale-pages26-47-height391/final-report.json、final-compile.json、workflow.json和逐件原/后数据；备份见workflow.backup。脚本tools/eb_scale_pages26_47.py、tools/continue_scale_pages26_47.py、tools/finalize_scale_pages26_47.py；恢复python tools/continue_scale_pages26_47.py，先核锁和实际worker。完成页/件跳过，不二次缩放；文件归档复核python tools/finalize_scale_pages26_47.py；方法快照python tools/archive_fast_workflow.py 2026-10-14。
+
+2026-10-14 最终方法快照：407件Python脚本，ZIP 801809字节，SHA256 500574554ce0efb0eb5533cc21af96cb58a61fc4ce818d9bd80214b78e115099，日期独立快照archive/easybuilder-scripts-20261014.zip。历史20261013包保留；当前manifest为20261014，不上传现场工程、控件JSON和图片。

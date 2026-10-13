@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-13",
+  "date": "2026-10-14",
   "scripts": [
     {
       "path": "tools/adjust_all_fonts.py",
@@ -33,8 +33,8 @@
     },
     {
       "path": "tools/archive_fast_workflow.py",
-      "bytes": 1789,
-      "sha256": "a81d719b22b227fd19523b980ea11f6a7141d50c39e8b1ebee3cf8aa0586ee6b"
+      "bytes": 2017,
+      "sha256": "accde8f5732009d4bb6c57b75d0645045949a9cec079f419a5505eabe595731e"
     },
     {
       "path": "tools/archive_field_speed_research.py",
@@ -487,6 +487,11 @@
       "sha256": "577491aad8390f40f9865f1d932ff075535e1abebb40f9465e1d544696cf1196"
     },
     {
+      "path": "tools/continue_scale_pages26_47.py",
+      "bytes": 5461,
+      "sha256": "8fdbd3bf33b12da4b2ed09b865b36ec59fa9266c41b63d5b6cb720aff23cc4b9"
+    },
+    {
       "path": "tools/continue_scale_post200.py",
       "bytes": 7190,
       "sha256": "ff4a2bd70d279ee5b35eca52626d35f64515f3b80bd1fd9c2f644bbc146b62a1"
@@ -753,8 +758,8 @@
     },
     {
       "path": "tools/eb_compile_ocr.py",
-      "bytes": 1240,
-      "sha256": "9890946981599beb615cb38643a32610c3b03e82fcf32fa130fe5b06c4fc83fa"
+      "bytes": 1359,
+      "sha256": "e653fd975460170893d270c4e269527810541c1bc8377f6e48fd64de2dc659d1"
     },
     {
       "path": "tools/eb_compile_target.py",
@@ -1103,8 +1108,8 @@
     },
     {
       "path": "tools/eb_object_ui.py",
-      "bytes": 9379,
-      "sha256": "0779492a393398d58fd6ec8c86b59b01120c9064cef28127fa11edf0f4959323"
+      "bytes": 9931,
+      "sha256": "cd2982fa7eba6e3adf687c790d5710080f75d48ba0f79c8a26c0fe1c91e98d99"
     },
     {
       "path": "tools/eb_open_page.py",
@@ -1532,6 +1537,11 @@
       "sha256": "6e56220119852adbbc0544d3222a6aa0bcf7d2aa1f4ae4675bf18f12911c0f9c"
     },
     {
+      "path": "tools/eb_scale_pages26_47.py",
+      "bytes": 8998,
+      "sha256": "f25c2ae6d7330c9734f3845c5cf5df60b31b37a9bc9292b2893376531b7b7e0b"
+    },
+    {
       "path": "tools/eb_scale_post200.py",
       "bytes": 25497,
       "sha256": "b81c4e34c34fe8122de8e31699f3339a007c931be280f5f7e06b20e3d03bd28c"
@@ -1643,8 +1653,8 @@
     },
     {
       "path": "tools/eb_uia.py",
-      "bytes": 45131,
-      "sha256": "d454d8592bb4be2cdc92e305202c83a728a85dd2f3cfe415eca5b35da955abb7"
+      "bytes": 45258,
+      "sha256": "d4116ad34f5c779553160ca7f94775a3acae55e1fb98e016fd9c89c4091bbe3a"
     },
     {
       "path": "tools/eb_uia_inventory.py",
@@ -1740,6 +1750,11 @@
       "path": "tools/extend_appearance_queue.py",
       "bytes": 1734,
       "sha256": "f617977621ca34d5e5f2cea8047c7ff15afbdd0d7b8cab5a57162b636572ddf1"
+    },
+    {
+      "path": "tools/finalize_scale_pages26_47.py",
+      "bytes": 7190,
+      "sha256": "1bd3ea1dd4bb80961ea126fbdaad28cbdea6ec51ec7f23d1bdbb07b876a789b9"
     },
     {
       "path": "tools/finalize_scale_post200.py",
@@ -2024,6 +2039,7 @@
   ],
   "project_files_included": false,
   "site_configuration_included": false,
-  "zip_bytes": 791817,
-  "zip_sha256": "4cdb698bd9bcfd622125121ef1f4462e6c0ebe7533b43911c28e0604bd6f0fe7"
+  "zip_path": "archive/easybuilder-scripts-20261014.zip",
+  "zip_bytes": 801809,
+  "zip_sha256": "500574554ce0efb0eb5533cc21af96cb58a61fc4ce818d9bd80214b78e115099"
 }
