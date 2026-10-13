@@ -168,3 +168,8 @@ $S    = '.\examples\scripts'
 TIA Portal、SIMATIC、S7-1200/1500、GRAPH 等是 Siemens 的商标。
 在接触任何**生产工程**之前请先备份；本仓库脚本默认带 `-Backup` 开关，
 但不对数据丢失承担责任。
+
+
+## 威纶通快速重建归档（2026-10-13）
+
+方法、实测耗时和脚本快照见 [EasyBuilder快速方法](examples/easybuilder-fast-workflow/README.md)。现场工程未上传；运行验收仍待。
